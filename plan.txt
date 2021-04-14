@@ -1,0 +1,56 @@
+Plan
+
+merging/stucture/correcteur orthographique (Sophie)
+
+I - Intro (Wiam)
+motivation :
+espèce -> arbre philo (image) -> branches suivent une loi
+-> déterminer la densité
+
+problématique : 
+comment estimer la loi de densité de la création d'une nouvelle espèce
+avec une méthode d'estimation non-paramétrique ?
+
+choix : méthode à noyau pour répondre à la pb.
+
+
+II - Méthodes non-paramétriques
+
+i) définitions
+
+ - intro aux méthodes non-param (Wiam)
+ - histogrammes, (ondelettes)
+
+ii) estimateur par projection  (Wiam a vu)	rest
+
+
+=> avantages des méthodes à noyau (explication du choix)
+
+III - l'estimateur de densité à noyau	
+
+déf noyau (merge)
+
+i) trucs théoriques pour voir que tout va bien
+
+définitions : risque , disctance etc. 	(merge)
+biais, variance du risque
+convergence  			(Stéphane)
+
+ii) méthodes adaptatives
+
+ i-choix du noyau	(Sophie)
+
+	methode de
+
+ ii-choix de la fenêtre:  intro avec petits graphs
+
+	validation croisée (Stéphane)/(stat_ non p20_annotation)
+	méthode de lepski  (Wiam)
+
+- Branchement	(à qui prend)
+
+IV- Application/code
+
+i) création des fonctions théorie (Sophie)
+
+ii) application aux données du vivant (sophie) avec density de R
