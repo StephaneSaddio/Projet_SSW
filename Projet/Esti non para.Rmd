@@ -1,0 +1,114 @@
+---
+title: Pour commencer 
+author: "Sophie Manuel        Stéphane Sadio       Wiam CHAOUI   "
+output:
+  pdf_document: 
+    toc: yes
+  html_document: default
+---
+
+\newpage 
+
+# Motivation :
+On a une arbre phylogénétique, qu'un branchement évolutif (i.e. la création d'une espèce) apparaît après une durée aléatoire d'une loi fixé $\mu$ indépendamment du passé et du futur évolutifs des espèces. On cherche cette loi $\mu$ ? sa variance ? sa moyenne ?\newline
+(*mots clés*: Arbre phylogénétique , branchement évolutif,loi fixé)
+
+# Remarques/Questions :
+C'est quoi le but/la question pricipale du projet ?\newline
+Pourquoi l'estimation non-paramétrique ?(le lien avec la création d'une espèce et les arbres phylogénétique)\newline
+Pourquoi l'estimation de densité à noyau ?\newline
+En pratique toute fonction mesurable$\hat{f}$ des data est un estimateur de $f$,comment donc peut on juger(évaluer) les performances de ces estimateurs afin de choisir un ?(indication : Risque quadratique ($R(\hat{f},f)$))
+
+# Statistique non-paramétrique . Pourquoi ? :
+Dans notre cas on a des données observées quantitatives présenter par les successions de branchements qui composent un arbre phylogénétique .\newline
+Soit un arbre phylogénétique on cherche a éstimer la fonction $f$ qui donne la durée qui faut pour qu'un branchement évolutif apparaisse.(qui a générer l'echantillon aléatoire)\newline
+*Discréption formelle : * $\chi$={$X_1,...,X_n$} un échantillon de variables obsérvés qui ont pour fonction de densité f $\in F$ où $F$ est un espace fonctionnel et a partie des obsérvations (data)$X_1,...X_n$ on veut éstimer cette fonction densité f sur la quelle on fait le moins d'hypothéses possibles .On a alors le modéle suivant {$P={P_f,f\in F}$}.(Ce qui revient a une estimation non-paramétrque)
+
+# Estimateur de densité à noyau , Pourquoi ? Pourquoi pas d'autres méthodes ?.
+
+Un noyau est une fonction intégrable qu'on note K : $R\rightarrow  R$ et qui vérifie $\int_{ R } K(u)du=1$.\newline
+Pourquoi l'estimation a noyau est plus intéressante ? \newline
+Soient h>0 et $K_h$ : u$\in  R$ $\frac{K(\frac{u}{h})}{h}$ alors pour la famille $(K_h)_{h\ge0}$ on a le résultat de convolution suivant  : \newline
+$K_h * f$ : x $\rightarrow$ $\int_{ R} K_h(x-x{'})f(x{'})dx{'}$ tend vers f quand h tend vers 0 .\newline
+
+La densite f peut alors etre éstimer par le produit de convolution $K_h *f$(qui satisfait$K_h*f=E_f[K_h(x-X_1)]$? )\newline
+Donc l'estimateur a noyau de f pour un h > 0 fixé est : \newline
+$\hat{f}_h(x) = \frac{1}{n}\sum^n_{i=1}K_h(x-X_i)$ $x \in R$
+
+# Evaluer un estimateur :
+
+Pour cela il faut définir le rique associé d'une éstimation$\hat{f}$ pour l'estimation de f .\newline 
+La fonction de risque est : \newline
+$R(\hat{f},f)=E_f[||\hat{f}-f||^2 ]$(afin de comparer les deux fonctions) \newline
+Faut se poser la question sur le choix de la distance (la norme)?\newline 
+On prend souvent les distance $L^p$ pour p =1,2 ou$\infty$   \newline
+On veux que le risque soit minimal , tend vers 0 pour un nombre d'observations assez grand \newline
+Dans le cas d'un estimateur a noyau : \newline 
+$R(\hat{f},f)=E_f[||\hat{f}-f||^2 ] = ||f-K_h*f ||^2 + E_f[||\hat{f}-K_h*f ||^2]$ (pourquoi on a l'égalité ? reponse en P.S a la fin )\newline
+(P.10 et 11 de AN INTRODUCTION TO NONPARAMETRIC
+ADAPTIVE ESTIMATION) \newline
+
+On retrouve $R(\hat{f},f )\le ||f-K_h*f||^2+||K^||^2\frac{1}{nh}$ \newline
+Pour minimiser cette derniere expression le choix de h est trés influent.(Le choix de h  est plus crucial pour la qualité de l'estimateur que celui de K) \newline
+Un paramétre trop faible provoque l'apparition de détails artificiels sur le graph de l'estimateur(La variance devient trop grande) ,par contre une valeur de h trop grande on aura la majorité des caractéristiques  éffacée. \newline
+
+# Méthodes adabtives :
+
+D'apres ce qui précede on a introduit la notion de l'estimation de densité a noyau qui dépend d'un paramétre de lissage h .C'est a dire qu'on a bien définit une famille $(\hat{f_h})_{h\in \beta_{n}}$ des estimateurs de la vrai fonction densité f. \newline
+Comment peut on alors construire un estimateur a risque optimal a partir de cette famille $(\hat{f_h})_{h\in \beta_{n}}$ en prenant en cosideration les obsérvations ?(On veut un estimateur adabtive qui donne le meuilleur equilibre biais-variance ) \newline
+
+## Methode de Goldenshluger-Lepski :
+
+
+
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancyhead[L]{Démocraties et dictatures}
+  - \fancyhead[R]{\emph{M1 - Biostatistique}}
+  - \usepackage{dsfont}
+  - \usepackage{subfig}
+  - \usepackage{amsmath}
+  - \usepackage{amssymb}
+  - \usepackage{amsthm}
+  - \usepackage{amsmath}
+output:
+  pdf_document: 
+    toc_depth: 5
+    number_sections: yes
+    keep_tex: yes
+    extra_dependencies: dsfont
+---
+\newtheorem{definition}{Définition}
+\newtheorem{exemple}{Exemple}
+\newtheorem{corollary}{Corollaire}
+\newtheorem*{proposition}{Proposition}
+\newtheorem{lemma}{Lemme}
+\newtheorem*{demonstration}{Démonstration}
+\newtheorem{remark}{Remarque}
+\newtheorem{propetie}{Propriété}
+\newpage
+\tableofcontents
+\newpage
+
+
+
+
+
+# P.S:
+*L'esimation non-paramétrique ne fait aucune hypothése sur la nature/forme/type de la distribution des variables aléatoire/sur l'appartenance de la fonction densité * \newline
+*Plus que le risque on peux juger un estimateur selon son efficacité* \newline
+
+On que :\newline 
+
+
+$E_f||\hat{f}-f ||^2 = E_f[||\hat{f}+E_f(\hat{f} )-(E_f(\hat{f} )-f)|| ]^2$ \newline
+
+$E_f||\hat{f}-f ||]^2 = E_f||\hat{f}+E_f(\hat{f} )||^2 +E_f||E_f(\hat{f} )-f|| ^2 - 2 E_f(<\hat{f}-E_f(\hat{f});E_f(\hat{f})-f>)$ \newline
+Comme $\hat{f} est$ déterministe : \newline 
+$2E_f(<\hat{f}-E_f(\hat{f});E_f(\hat{f})-f>)=2<0,E_f(\hat{f})-f>=0$
+Ainsi $||E_f(\hat{f} )-f||$ est déterministe : \newline
+On obtient :\newline
+$R(\hat{f},f)=E_f[||\hat{f}-f||^2 ] = ||f-K_h*f ||^2 + E_f[||\hat{f}-K_h*f||^2]$
+
+
