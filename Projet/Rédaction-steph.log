@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.9)  21 APR 2021 13:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.9)  21 APR 2021 18:10
 entering extended mode
 **./Rédaction-steph.tex
 (Rédaction-steph.tex
@@ -367,8 +367,7 @@ tex.def
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count282
 \l__pdf_internal_box=\box49
-)
-No file Rédaction-steph.aux.
+) (Rédaction-steph.aux)
 \openout1 = `Rédaction-steph.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 71.
@@ -517,6 +516,13 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 73.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (C:\Users\SADIO\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+) (Rédaction-steph.toc
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 1.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 1.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 1.
 )
 \tf@toc=\write3
 \openout3 = `Rédaction-steph.toc'.
@@ -526,66 +532,74 @@ Underfull \hbox (badness 10000) in paragraph at lines 81--81
 
  []
 
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 93.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 93.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 93.
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--98
+Underfull \hbox (badness 10000) in paragraph at lines 106--111
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--107
+Underfull \hbox (badness 10000) in paragraph at lines 112--115
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 108--111
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 118--120
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
 [1
 
 {C:/Users/SADIO/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
 
  []
 
 
-Overfull \hbox (482.19264pt too wide) detected at line 145
+Overfull \hbox (479.97043pt too wide) detected at line 155
 \U/msb/m/n/10 V\OT1/lmr/m/n/10 ([](\OML/lmm/m/it/10 x[]\OT1/lmr/m/n/10 )) = \U/
 msb/m/n/10 V\OT1/lmr/m/n/10 ([] [] \OML/lmm/m/it/10 K\OT1/lmr/m/n/10 ([]))[]  =
-  [] \U/msb/m/n/10 V\OT1/lmr/m/n/10 ([]\OML/lmm/m/it/10 K\OT1/lmr/m/n/10 ([]))[
-]  = [] \U/msb/m/n/10 V\OT1/lmr/m/n/10 ([]\OML/lmm/m/it/10 K\OT1/lmr/m/n/10 ([]
-))[]  = [] []\U/msb/m/n/10 V\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 K\OT1/lmr/m/n/10 
-([]))[]  = []\U/msb/m/n/10 V\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 K\OT1/lmr/m/n/10 
-([])[]  \U/msa/m/n/10 6 []\U/msb/m/n/10 E\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 K[]\
-OT1/lmr/m/n/10 ([]))[]  = [] [] \OML/lmm/m/it/10 K[]\OT1/lmr/m/n/10 ([]\OML/lmm
-/m/it/10 f\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 u\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 
-du[]  \OT1/lmr/m/n/10 = [] [] \OML/lmm/m/it/10 K[]\OT1/lmr/m/n/10 (\OML/lmm/m/i
-t/10 v\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 f\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[] 
-\OT1/lmr/m/n/10 + \OML/lmm/m/it/10 vh\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 dv
+ [] \U/msb/m/n/10 V\OT1/lmr/m/n/10 ([]\OML/lmm/m/it/10 K\OT1/lmr/m/n/10 ([]))[]
+  = [] \U/msb/m/n/10 V\OT1/lmr/m/n/10 ([]\OML/lmm/m/it/10 K\OT1/lmr/m/n/10 ([])
+)[]  = [] []\U/msb/m/n/10 V\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 K\OT1/lmr/m/n/10 (
+[]))[]  = []\U/msb/m/n/10 V\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 K\OT1/lmr/m/n/10 (
+[])[]  \U/msa/m/n/10 6 []\U/msb/m/n/10 E\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 K[]\O
+T1/lmr/m/n/10 ([]))[]  = [] [] \OML/lmm/m/it/10 K[]\OT1/lmr/m/n/10 ([]\OML/lmm/
+m/it/10 f\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 u\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 d
+u[]  \OT1/lmr/m/n/10 = [] [] \OML/lmm/m/it/10 K[]\OT1/lmr/m/n/10 (\OML/lmm/m/it
+/10 v\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 f\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[] \
+OT1/lmr/m/n/10 + \OML/lmm/m/it/10 vh\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 dv
  []
 
 [2]
 
-LaTeX Warning: Command \' invalid in math mode on input line 223.
+LaTeX Warning: Command \' invalid in math mode on input line 231.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 243--256
+Underfull \hbox (badness 10000) in paragraph at lines 245--248
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--262
 
  []
 
 [3]
-Overfull \hbox (209.09146pt too wide) detected at line 325
+Overfull \hbox (55.33986pt too wide) detected at line 315
+\U/msb/m/n/10 E\OT1/lmr/m/n/10 [[] [](\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 )\OML/l
+mm/m/it/10 f\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 )\OML/lmm/m/it/1
+0 dx\OT1/lmr/m/n/10 ] = \U/msb/m/n/10 E\OT1/lmr/m/n/10 [[] [] [] \OML/lmm/m/it/
+10 K\OT1/lmr/m/n/10 ([])\OML/lmm/m/it/10 f\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\O
+T1/lmr/m/n/10 )\OML/lmm/m/it/10 dx\OT1/lmr/m/n/10 ][]  = []\U/msb/m/n/10 E\OT1/
+lmr/m/n/10 [[] \OML/lmm/m/it/10 K\OT1/lmr/m/n/10 ([])\OML/lmm/m/it/10 f\OT1/lmr
+/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 dx\OT1/lmr/m/n/10 
+][]  = [] [] \OML/lmm/m/it/10 f\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/
+10 ) [] \OML/lmm/m/it/10 K\OT1/lmr/m/n/10 ([])\OML/lmm/m/it/10 f\OT1/lmr/m/n/10
+ (\OML/lmm/m/it/10 x[]\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 dx[]dx
+ []
+
+
+Overfull \hbox (209.09146pt too wide) detected at line 324
 \U/msb/m/n/10 E\OT1/lmr/m/n/10 [[]] = \U/msb/m/n/10 E\OT1/lmr/m/n/10 [[] [] [](
 \OML/lmm/m/it/10 X[]\OT1/lmr/m/n/10 )][]  = \U/msb/m/n/10 E\OT1/lmr/m/n/10 [[](
 \OML/lmm/m/it/10 X[]\OT1/lmr/m/n/10 )][]  = \U/msb/m/n/10 E\OT1/lmr/m/n/10 [[] 
@@ -598,22 +612,41 @@ r/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) [] \OML/lmm/m/it/10 K\OT1/lmr/m/n
 /lmm/m/it/10 x\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 dx\OT1/lmr/m/n/10 ]
  []
 
-
-! Package amsmath Error: \hat allowed only in math mode.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.329 \$ R(\hat{f}
-                  \_\{n,h\}, f)- 
+[4] (Rédaction-steph.aux) ) 
 Here is how much of TeX's memory you used:
- 12436 strings out of 479321
- 187105 string characters out of 2856584
- 530343 words of memory out of 3000000
- 29583 multiletter control sequences out of 15000+600000
- 463214 words of font info for 117 fonts, out of 8000000 for 9000
+ 12447 strings out of 479321
+ 187375 string characters out of 2856584
+ 531752 words of memory out of 3000000
+ 29586 multiletter control sequences out of 15000+600000
+ 463286 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,9n,88p,523b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 85i,9n,88p,1103b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
+{C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts
+/enc/dvips/lm/lm-mathsy.enc}{C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts
+/enc/dvips/lm/lm-rm.enc}{C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/enc
+/dvips/lm/lm-mathit.enc}{C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/enc
+/dvips/lm/lm-mathex.enc}{C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/enc
+/dvips/lm/lm-ec.enc}<C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/lm/lmbx10.pfb><C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/lm/lmbx12.pfb><C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/lm/lmex10.pfb><C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/lm/lmmi10.pfb><C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/lm/lmmi5.pfb><C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/lm/lmmi7.pfb><C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/lm/lmr10.pfb><C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/lm/lmr12.pfb><C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/lm/lmr17.pfb><C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/lm/lmr5.pfb><C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type1/public/l
+m/lmr7.pfb><C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/
+lmri10.pfb><C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/
+lmsy10.pfb><C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/
+lmsy5.pfb><C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/l
+msy7.pfb><C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/symbols/msam10.pfb><C:/Users/SADIO/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Rédaction-steph.pdf (4 pages, 266810 bytes).
+PDF statistics:
+ 115 PDF objects out of 1000 (max. 8388607)
+ 10 named destinations out of 1000 (max. 500000)
+ 32785 words of extra memory for PDF output out of 35830 (max. 10000000)
 
-!  ==> Fatal error occurred, no output PDF file produced!
