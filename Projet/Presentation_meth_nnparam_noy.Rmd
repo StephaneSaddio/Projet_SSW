@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = F)
 \newpage
 ## Estimation de densité par les estimateurs à noyau
 
-  Notre but est d'estimer une densité $f$. Pour cela, on s’appuiera sur un échantillon iid $X= (X_1,...,X_n)$ où chacune des variables $X_i$ admet la densité $f$ (par rapport à la mesure de Lebesgue).
+  Notre but est d'estimer la densité $f$. Pour cela, on s’appuiera sur un échantillon iid $X= (X_1,...,X_n)$ où chacune des variables $X_i$ admet la densité $f$ (par rapport à la mesure de Lebesgue).
 
   Pour estimer une densité on peut utiliser une méthode à noyau.
   Les méthodes à noyau sont des méthodes non-paramétriques qui permettent de proposer une estimation de la densité plus lisse que celle obtenue par un histogramme.
@@ -77,7 +77,7 @@ Les propriétés du noyau (continuité, différentiabilité...) se transmettent 
 
 ### Comment choisir les paramètres de la méthode ?
 
-  Dans les méthodes à noyau le choix du noyau n'est pas le plus important, le vrai enjeu de cette méthode est le choix de la fenêtre $h$ (*bandwidth*).
+  Dans la méthode d'estimation à noyau le choix du noyau n'est pas le plus important, le vrai enjeu de cette méthode est le choix de la fenêtre $h$ (*bandwidth*).
   En effet, la fenêtre détermine l'influence des données dans l'estimation. Si $h$ est petit, l'effet local est important donc on aura beaucoup de bruit. Si $h$ est grand on aura une estimation plus douce, plus lisse.
   
   Nous pouvons constater l'influence du paramètre $h$ sur l'exemple suivant :
@@ -110,7 +110,7 @@ title("Fenêtre trop petite,\n h = 2")
 ```
 La fenêtre $h$ du second graphique est calculé automatiquement par la fonction `density`de R. 
   
-### Comment choisir la fenêtre ?
+### Comment choisir la fenêtre optimale ?
 
   Afin d'expliquer comment choisir une fenêtre, nous devons définir quelques objets.
   - Notons $d$ la distance, nous préciserons laquelle si besoin.
