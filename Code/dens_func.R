@@ -6,11 +6,8 @@ rand <-rchisq(100,6)
 hist(rand, breaks = 60, freq = F, xlim=c(0, max(rand)+3))
 
 dens <- function(X, bandwith , kernel){
-  #dens.default <-
-   # function(X, bandwith , kernel = c("gaussian", "epanechnikov", "rectangular","triangular", "biweight"), ...)
-    #{
-     # chkDots(...)
-      #X = c(1,2,3,4)
+
+  
       n <- length(X)
       x <- seq.int(min(X), max(X), length.out = n)
       if (missing(kernel)) {kernel = "gaussian"}
@@ -23,40 +20,42 @@ dens <- function(X, bandwith , kernel){
                   epanechnikov = function(u){
                    return(ifelse(abs(u) < 1, 3/4*(1 - u^2), 0)) },
                   biweight = function(u){ 
-                    return(ifelse(abs(u) < 1, 15/16*(1 - u^2)^2, 0)) })
+                    return(ifelse(abs(u) < 1, 15/16*(1 - u^2)^2, 0)) }) #noyau caractère en fonction
       
-      hat_f <- function(x, X, bandwith) { 
-        hatf <- NULL
-        hatf$vect <- NULL
+      hat_f <- function(x, X, bandwith) { # X est l'échantillon, x de \hat f(x)
         for (i in 1:length(x)){
-          hatf$vect[i] <- sum(kern((X-x[i])/bandwith)) / (bandwith*length(X))
+          hatf$vect[i] <- sum(kern((X-x[i])/bandwith)) / (bandwith*length(X)) #formule noyau
         }
-        hatf$norm22 <- sum(hatf$vect^2)
-        hatf$hatf <- sum(hatf$vect)
+        
         return(hatf)
       }
       
-      if (missing(bandwith)){
+    if (missing(bandwith)){
+        
       bandwith <- seq(0,5,0.1)
+      
       s <- 0
       for (i in 1:n){ 
-      s<- s + sum(kern( (X[i]-X[-i])/bandwith))
-        }
-      #n2hat_f <- norm(hat_f,2)^2 # doit être un vecteur
+      s<- s + sum(kern( (X[i]-X[-i])/bandwith)) 
+      }
+      
+      #n2hat_f <- norm(hat_f,2)^2  # ne fonctionne pas, doit être un vecteur
       #n2hat_f <- hat_f(x, X, bandwith)$norm22
+      n2hat_f <- integrate(hat_f^2)
+      
       R <- n2hat_f - 2/(n(n-1))* s /bandwith
       #gradient ?
       bandwith <- optim(bandwith, R)
       #bandwith <- bandwith[which.max(R)]
       }
-      hat_f(x,X,bandwith) #x doit être un scalaire
       
-    #}
+      hat_f(x, X, bandwith) 
+      
   
 }
 
 
 
-
 test = dens(rand, bandwith = 1, "gaussian")
 lines(test)
+ 
