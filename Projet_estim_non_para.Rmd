@@ -374,14 +374,19 @@ On doit chercher le meilleur compromis biais-variance pour avoir un risque minim
 Un paramètre trop faible provoque l'apparition de détails artificiels sur le graph de l'estimateur (La variance devient trop grande), par contre si on prend une valeur de h très grande on aura la majorité des caractéristiques effacées.\newline
 
 
- \hspace*{4cm} [![(Images/Bias-variance-trade-off.jpg){width="310"}]](http://chimix.com/an16/pol16/image/aspts35.jpg)
+\hspace*{4cm} ![Bias-variance-trade-off](Images/Bias_variance_trade_off.png){width="310"}
+ 
+
+```{r, echo=F}
+# "(http://chimix.com/an16/pol16/image/aspts35.jpg)"
+```
 
 
 \subsection{Méthodes adaptatives :}
 
  \hspace*{0.5cm} On a introduit précédemment la notion de l'estimation de la densité qui dépend d'un paramètre de lissage h. Soit  $(\hat{f_h})_{h\in \mathcal H}$ une famille des estimateurs de la vrai fonction densité $f$ .\newline
  La question qui se pose   est donc la suivante : comment peut on construire un estimateur à risque optimal à partir de cette famille (en prenant en considération les observations) ? \newline
-  \hspace*{0.5cm}  Dans cette partie et afin de repondre a la question qu'on a poser on va discuter au premier temps du choix du noyau. Ensuite, on va introduir deux méthodes pour le choix du paramètre de lissage h .
+  \hspace*{0.5cm}  Dans cette partie et afin de repondre a la question qu'on a poser on va discuter au premier temps du choix du noyau. Ensuite, on va introduire deux méthodes pour le choix du paramètre de lissage h .
  
 \subsubsection{Choix du noyau}
 
@@ -498,4 +503,26 @@ Le terme de pénalisation choisi est proportionnel à la variance de l'estimateu
   
   Dans ce cas, la valeur de $\hat h$ est d'ordre $\frac{1}{n}$,
   
-  Le choix optimal de la fenétre h suivant cette méthode dans ce cas est $n^{-\frac{1}{2 \alpha +1}}$
+  Le choix optimal de la fenêtre $h$ suivant cette méthode dans ce cas est $n^{-\frac{1}{2 \alpha +1}}$
+  
+  
+  
+\section{Application}
+
+  Rappelons que nous cherchons à estimer la fonction de densité $f$ de la durée avant la création d'une nouvelle espèce. Dans ce cadre nous allons faire nos estimations à noyau de la densité sur R en applicant la théorie que nous avons vue jusque là.
+
+\subsection{Fonction dens}
+
+Dans cette partie nous présenterons la fonction `dens` que nous avons créée en voulant reproduire ce que fait la fonction `density` de R.
+Voici son code : 
+
+Insérer le script de fonc_dens.R
+
+\subsection{Applications aux données du vivant}
+
+Maintenant que nous avons notre fonction `dens` nous allons pouvoir la comparer à la fonction `density` de R. Pour les comparer nous allons en profiter pour en même temps les appliquer aux données qu'on veux étudier.
+
+Insérer test noyau.R
+
+
+Estimer loi espérance variance.
