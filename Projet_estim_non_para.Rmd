@@ -1,5 +1,12 @@
 ---
-author: "Wiam Chaoui        Stéphane Sadio      Sophie Manuel   "
+title: "Rapport du projet de M1"
+subtitle: "Combien de temps pour faire une espèce ?"
+subtitle: "ou estimation non-paramétrique et noyau de densité"
+author: 
+ - "Wiam Chaoui"
+ - "Sophie Manuel"
+ - "Stéphane Sadio"
+date: "2021"
 header-includes:
   - \usepackage{fancyhdr}
   - \pagestyle{fancy}
@@ -13,17 +20,23 @@ header-includes:
   - \usepackage{amsmath}
 output:
   pdf_document: 
-    toc_depth: 6
+    toc_depth: 3
     number_sections: yes
+    keep_tex: yes
     extra_dependencies: 
     - dsfont
 editor_options: 
   markdown: 
     wrap: 72
 ---
+<style>
 
+body {
+
+text-align: justify}
+
+</style>
 ```{=tex}
-
 \newtheorem{definition}{Définition}
 \newtheorem{exemple}{Exemple}
 \newtheorem{corollary}{Corollaire}
@@ -38,50 +51,50 @@ editor_options:
 \newpage
 ```
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T, warning = F, message = F, include = T)
+```
+
 
 \section{Introduction générale}
 
-\fancyhead[R]{Introduction}
-
-\paragraph{Motivation}
+\subsection{Motivation}  
 
  \hspace*{0.5cm}
-On a *un arbre phylogénétique* présentant les relations de parenté
-entre *espèces* et on s'intéresse au *branchement évolutif*.
-On suppose qu'un branchement évolutif apparaît après une durée aléatoire d'une loi fixée $\mu$ indépendamment du passé et du futur évolutif des espèces.
-\newline Quelle est cette loi $\mu$? Sa variance ? Sa moyenne ?.\newline
+La classification du vivant est depuis longtemps un vrai casse-tête pour les biologistes, surtout en ce qui concerne la notion d'*espèce*. De fait, il existe plusieurs définitions du mot espèce, ce qui rend encore plus compliqué un concensus. C'est pour cela que dans la suite nous ne nous étendrons pas sur cette notion et on se concentrera que sur des espèces prédéfinies. 
+
+Les *arbres phylogénétiques* sont des outils permettant de représenter graphiquement certaines données de classification. En effet, ils présentent les relations de parenté entre *espèces*. On retrouve dessous différentes espèces actuelles, mais aussi leurs ancêtres communs (les *branchements évolutifs* qui correspondent à l'apparition d'une nouvelle homologie), ou encore la durée avant l'apparition d'une nouvelle espèce qui est donnée par la longeur des branches.
 
 ![Arbre phylogénétique](Images\arbre_intro.jpg)
+Dans la suite, on s'intéresse aux *branchements évolutifs*.
+On suppose qu'un branchement évolutif apparaît après une durée aléatoire d'une loi fixée $\mu$ indépendamment du passé et du futur évolutif des espèces.  
+Quelle est cette loi $\mu$? Sa variance ? Sa moyenne ? \newline
 
 \hspace*{0.5cm} On observe des branchements successifs qui composent l'arbre
 phylogénétique et à partir de ces données quantitatives observées, on
 veut estimer la fonction de densité $f$ qui donne la probabilité
 qu'un nouveau branchement évolutif apparaisse après un certain temps.  
 
-Formellement, on a un échantillon $X$={$X_1,\dots,X_n$} de variables observées qui ont pour
+Formellement, on a un échantillon $X$={$X_1,\dots,X_n$} de longueurs de branche observées qui ont pour
 une fonction de densité $f \in \mathcal F$ où $\mathcal F$ est un espace
-fonctionnel. On cherche à estimer cette fontion densité $f$ sur la
-quelle on fait le moins d'hypothèses possible. On fera seulement les hypothèses d'existance, de continuité et de positivité de la fonction $f$. 
+fonctionnel. On cherche à estimer cette fonction densité $f$ sur laquelle on fait le moins d'hypothèses possibles. On fera seulement les hypothèses d'existence, de continuité et de positivité de la fonction $f$. 
 
 D'où le choix du modèle suivant $\{P=P_f,~f\in \mathcal F\}$ qui revient à faire une estimation
 non-paramétrique de la densité. Ce qui nous mène à la problématique de notre sujet. 
 
-\paragraph{Problématique}
+\subsection{Problématique}  
   Comment estimer la loi de densité de la création d'une nouvelle espèce
 avec une méthode d'estimation non-paramétrique ?  
 
-
-Pour répondre à la problématque on cherchera
-à comprendre et finalement implémenter un estimateur à noyau adaptatif,
-de type Goldenshluger-Lepski sur des données d'arbres phylogénétiques.  
+Pour commencer, nous introduirons les méthodes d'estimations non-paramétriques, en donnant quelques définitions et en présentant quelques types d'estimateurs.
+Ensuite, nous allons approfondir sur les estimateurs de densité à noyau en parlant de leur évaluation et des méthodes adaptatives.
+Enfin, pour répondre à la problématique, on cherchera à implémenter un estimateur à noyau adaptatif, de type Goldenshluger-Lepski puis l'utiliser sur des données d'arbres phylogénétiques.  
 
 \newpage
 
 \section{Méthodes non-paramétriques}
 
-\fancyhead[R]{Méthodes non-paramétriques}
-
-  \hspace*{0.5cm} En statistique, on parle d'estimation quand on cherche à trouver certains paramètres inconus caractérisant une distribution à partir d'un échantillon de données observées en se basant sur différentes méthodes.
+  \hspace*{0.5cm} En statistique, on parle d'estimation quand on cherche à trouver certains paramètres inconnus caractérisant une distribution à partir d'un échantillon de données observées en se basant sur différentes méthodes.
 On se tourne vers l'estimation non-paramétrique lorsqu'on traite des paramètres à dimension infini. Ce qui est bien notre cas, comme on cherche à estimer une fonction densité qui appartient à un espace fonctionnel.  
  \hspace*{0.5cm} On présente dans la suite une courte introduction
 à l'estimation non paramétrique. On introduira ensuite les deux classes
@@ -93,7 +106,7 @@ deux classes et expliquer pourquoi on fait le choix de l'estimation à noyau.
 \subsection{Définitions}
 
 \begin{definition}
-    **Estimation non-paramétrique :**\newline
+    Estimation non-paramétrique :\newline
  L'estimation non-paramétrique vise à résoudre des problèmes d'estmation dans le cadre statistique où le modèle auquel on s'intéresse n'est pas décrit par un nombre fini de paramètres et dont chacun de ces paramètres ne permet pas de décrire la structure générale de la distribution des variables aléatoires.\newline Cela signifie qu'on utilise des modèles statistiques à dimension infini.
 \end{definition}
 
@@ -122,7 +135,7 @@ tel que $\mathbb P_f$ est la mesure probabilté de la densité $f$.
   L'histogramme fait partie de la famille des estimations à noyau qu'on détaillera plus tard.  
   
 
-Il existe deux grandes familles de méthodes pour estimer une fonction densité:\newline
+Nous traiterons deux grandes familles de méthodes pour estimer une fonction densité : \newline
    \hspace*{0.5cm}  - L'estimation par projection et 
    \hspace*{0.5cm}  - L'estimation par noyau.
 
@@ -130,7 +143,7 @@ Il existe deux grandes familles de méthodes pour estimer une fonction densité:
 
 
 \begin{definition}
-**Estimation par projection :** \newline
+Estimation par projection : \newline
 Supposant que la fonction $f$ à estimer est dans l'espace de Hilbert
 $\mathcal F = (L^2 , \parallel\,.\parallel, <\,.,~.>_)$ avec $(\Phi_j)_{j>0}$ une base orthonormée de $L^2$, $\mathbb E _N$  un sous-espace fini de $\mathcal F$ et $1 \leq |N| < \infty$.\newline
 De plus $a_{\lambda} = <f,\Phi_{\lambda}> = \int_{\mathbb R}f(x)\Phi_{\lambda}(x) dx$.\newline
@@ -154,9 +167,6 @@ $$
  (Argument pour le choix de la méthode à voir)
 
 \section{Estimateur de densité à noyau :}
-
-
-\fancyhead[R]{Estimateur de densité à noyau :}
 
 
 
@@ -184,7 +194,7 @@ A Faire
 $K_h * f : x \rightarrow \int_{\mathbb R} K_h(y-x) f(x) dx$ tend vers la fonction f quand h tend vers 0.(pour la distance $L^2$)
 \end{corollary}
 
-Pour évaluer un estimateur on définit le risque associé d'un estimateur $\hat f$ pour l'estimateur f.\newline **Pas comppris**
+Pour évaluer un estimateur on définit le risque associé d'un estimateur $\hat f$ pour l'estimateur f.\newline **Pas compris**
 
 \begin{definition} 
 La fonction de risque : 
@@ -210,7 +220,7 @@ $$
 R(\hat {f}_n, f) = \mathbb{E}[|\hat {f}_n(x_0) - f(x_0)|^2]
 $$
 
- Rappelons la décomposition "biais au carré + variance" du risque quadratique:
+ Rappelons la décomposition "biais au carré-variance" du risque quadratique:
   
 $$
   \mathbb{E}[|\hat {f}_n(x_0) - f(x_0)|^2] = (\mathbb{E}[\hat {f}_n(x_0)] - f(x_0))^2 + \mathbb{V}(\hat {f}_n(x_0))
@@ -221,8 +231,8 @@ $$
   
 \paragraph{Majoration du biais et de la variance}
 
-  Dans cette section, nous allons nous intérresser au compromis biais-variance afin de minimiser le risque quadatique.
-Les duex propositions suivantes montrent que sous certaines hypothèses, on peut majorer le biais ainsi que la variance.\newline
+  Dans cette section, nous allons nous intéresser au compromis biais-variance afin de minimiser le risque quadratique.
+Les deux propositions suivantes montrent que sous certaines hypothèses, on peut majorer le biais ainsi que la variance.\newline
 
 \begin{definition} : Soit $l \in \mathbb{N^*}$. On dit que le noyau $K$ est d'ordre $l$ si $u^jK(u)$ est intégrable et $\int u^jK(u)du = 0$, $j = {1,...,l}$.\newline
 \end{definition}
@@ -378,7 +388,7 @@ Un paramètre trop faible provoque l'apparition de détails artificiels sur le g
  
 
 ```{r, echo=F}
-# "(http://chimix.com/an16/pol16/image/aspts35.jpg)"
+# "(http://chimix.com/an16/pol16/image/aspts35.jpg)" je sais pas ce que c'est
 ```
 
 
@@ -471,9 +481,9 @@ Si ce minimum est atteint. On cherche une fenêtre parmi une grille finie de val
 L'estimateur $\hat{f}_{n,\hat{h}}$ a de bonnes propriétés pratiques et de consistence.
 La validation croisée est une méthode très générale mais nous l'utilisons ici pour le choix la fenêtre $h$ optimale.
 
-\paragraph{Méthode de  Goldenshluger-Lepski} 
+\paragraph{Méthode de Goldenshluger-Lepski} 
 
-  La méthode de Lepski donne principalement des critères pour le choix entre estimateurs à noyau $(\hat{f_h})_{h\in \mathcal H}$ avec différentes fenêtres qu'on fixe en prennant n considération l'échantillon des observations.\newline
+  La méthode de Goldenshluger-Lepski donne principalement des critères pour le choix entre estimateurs à noyau $(\hat{f_h})_{h\in \mathcal H}$ avec différentes fenêtres qu'on fixe en prennant n considération l'échantillon des observations.\newline
   Cette méthode propose de choisir le $\hat h$ qui minimise l'expression suivante:
 $$
 B(h)+V(h)
