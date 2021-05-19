@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Estimateur de densité à noyau : | Rapport du projet de M1</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Estimateur de densité à noyau : | Rapport du projet de M1" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Estimateur de densité à noyau : | Rapport du projet de M1" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Wiam Chaoui" />
+<meta name="author" content="Sophie Manuel" />
+<meta name="author" content="Stéphane Sadio" />
+
+
+<meta name="date" content="2021-01-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="méthodes-non-paramétriques.html"/>
+<link rel="next" href="méthodes-adaptatives.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#problématique"><i class="fa fa-check"></i><b>1.2</b> Problématique</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html"><i class="fa fa-check"></i><b>2</b> Méthodes non-paramétriques</a><ul>
+<li class="chapter" data-level="2.1" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#définitions"><i class="fa fa-check"></i><b>2.1</b> Définitions</a></li>
+<li class="chapter" data-level="2.2" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#estimateurs-par-projection"><i class="fa fa-check"></i><b>2.2</b> Estimateurs par projection :</a></li>
+<li class="chapter" data-level="2.3" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#estimateurs-à-noyau-de-densité"><i class="fa fa-check"></i><b>2.3</b> Estimateurs à noyau de densité</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#comment-construit-on-un-estimateur-à-noyau"><i class="fa fa-check"></i><b>2.3.1</b> Comment construit-on un estimateur à noyau ?</a></li>
+<li class="chapter" data-level="2.3.2" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#explication-ce-quest-un-noyau"><i class="fa fa-check"></i><b>2.3.2</b> Explication ce qu’est un noyau ?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html"><i class="fa fa-check"></i><b>3</b> Estimateur de densité à noyau :</a><ul>
+<li class="chapter" data-level="3.1" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#evaluer-un-estimateur"><i class="fa fa-check"></i><b>3.1</b> Evaluer un estimateur</a></li>
+<li class="chapter" data-level="3.2" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#risque-quadratique-ponctuel-des-estimateurs-à-noyau-sur-les-classe-des-espaces-de-hölder"><i class="fa fa-check"></i><b>3.2</b> Risque quadratique ponctuel des estimateurs à noyau sur les classe des espaces de Hölder</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#majoration-du-biais-et-de-la-variance"><i class="fa fa-check"></i><b>3.2.1</b> Majoration du biais et de la variance</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="méthodes-adaptatives.html"><a href="méthodes-adaptatives.html"><i class="fa fa-check"></i><b>4</b> Méthodes adaptatives :</a><ul>
+<li class="chapter" data-level="4.1" data-path="méthodes-adaptatives.html"><a href="méthodes-adaptatives.html#choix-du-noyau"><i class="fa fa-check"></i><b>4.1</b> Choix du noyau</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="méthodes-adaptatives.html"><a href="méthodes-adaptatives.html#comment-choisir-les-paramètres-de-la-méthode"><i class="fa fa-check"></i><b>4.1.1</b> Comment choisir les paramètres de la méthode ?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="méthodes-adaptatives.html"><a href="méthodes-adaptatives.html#choix-de-la-fenêtre"><i class="fa fa-check"></i><b>4.2</b> Choix de la fenêtre</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="méthodes-adaptatives.html"><a href="méthodes-adaptatives.html#choix-de-la-fenêtre-h-par-validation-croisée"><i class="fa fa-check"></i><b>4.2.1</b> Choix de la fenêtre <span class="math inline">\(h\)</span> par validation croisée</a></li>
+<li class="chapter" data-level="4.2.2" data-path="méthodes-adaptatives.html"><a href="méthodes-adaptatives.html#méthode-de-goldenshluger-lepski"><i class="fa fa-check"></i><b>4.2.2</b> Méthode de Goldenshluger-Lepski</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#fonction-dens"><i class="fa fa-check"></i><b>5.1</b> Fonction dens</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#applications-aux-données-du-vivant"><i class="fa fa-check"></i><b>5.2</b> Applications aux données du vivant</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Rapport du projet de M1</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="estimateur-de-densité-à-noyau" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Estimateur de densité à noyau :</h1>
+<div id="evaluer-un-estimateur" class="section level2">
+<h2><span class="header-section-number">3.1</span> Evaluer un estimateur</h2>
+<p>Avant de commencer cette partie on va d’abord introduire quelques notions et définitions</p>
+
+
+
+
+<p>Pour évaluer un estimateur on définit le risque associé d’un estimateur <span class="math inline">\(\hat f\)</span> pour l’estimateur f.*Pas compris**</p>
+
+
+
+</div>
+<div id="risque-quadratique-ponctuel-des-estimateurs-à-noyau-sur-les-classe-des-espaces-de-hölder" class="section level2">
+<h2><span class="header-section-number">3.2</span> Risque quadratique ponctuel des estimateurs à noyau sur les classe des espaces de Hölder</h2>
+<p>Nous nous intéressons au risque quadratique ponctuel de <span class="math inline">\(\hat{f}_n\)</span>, i.e étant donné
+<span class="math inline">\(x_0 \in \mathbb{R}\)</span></p>
+<p><span class="math display">\[
+R(\hat {f}_n, f) = \mathbb{E}[|\hat {f}_n(x_0) - f(x_0)|^2]
+\]</span></p>
+<p>Rappelons la décomposition “biais au carré-variance” du risque quadratique:</p>
+<p><span class="math display">\[
+  \mathbb{E}[|\hat {f}_n(x_0) - f(x_0)|^2] = (\mathbb{E}[\hat {f}_n(x_0)] - f(x_0))^2 + \mathbb{V}(\hat {f}_n(x_0))
+\]</span></p>
+<div id="majoration-du-biais-et-de-la-variance" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Majoration du biais et de la variance</h3>
+<p>Dans cette section, nous allons nous intéresser au compromis biais-variance afin de minimiser le risque quadratique.
+Les deux propositions suivantes montrent que sous certaines hypothèses, on peut majorer le biais ainsi que la variance.</p>
+
+
+
+<p>Pour que la variance tende vers zéro, il faut que <span class="math inline">\(nh\)</span> tende vers l’infini. En particulier, à <span class="math inline">\(n\)</span> fixé, la variance est une fonction décroissante de <span class="math inline">\(h\)</span>. Il y a donc une valeur optimale de <span class="math inline">\(h\)</span> qui doit réaliser l’équilibre entre le biais au carrré et la variance. On peut à présent donner un contrôle du risque quadratique par le théorême suivant.</p>
+
+<p>\begin{demo}:
+On a :
+<span class="math display">\[
+ R(\hat {f}_n(x_0),f(x_0))= \text{Biais + Variance}
+\]</span></p>
+<p>Si nous nous référons aux deux propositions précédentes, nous pouvons écrire :</p>
+<p><span class="math display">\[
+ R(\hat {f}_n(x_0),f(x_0))\leqslant(\frac{h^{\beta}L}{l!}\int |u|^{\beta}|K(u)|du)^2 + \frac{M(\beta,L)\begin{Vmatrix}K\end{Vmatrix}_2^2}{nh}
+\]</span></p>
+<p>On cherche ensuite la fenêtre <span class="math inline">\(h\)</span> qui minimise cette quantité. Comme on ne se soucie pas vraiment des constantes exactes quand on cherche la vitesse de convergence d’un estimateur, on utilisera la notation <span class="math inline">\(c_1=(\frac{L}{l!}\int |u|^{\beta}|K(u)|du)^2\)</span> et <span class="math inline">\(c_2=\frac{M(\beta,L)\begin{Vmatrix}K\end{Vmatrix}_2^2}{nh}\)</span>. On doit alors minimiser en <span class="math inline">\(h\)</span> la quantité :</p>
+<p><span class="math display">\[
+  c_1h^{2\beta}+\frac{c_2}{nh}
+\]</span></p>
+<p>On a une quantité croissante et une quantité décroissante en <span class="math inline">\(h\)</span>. Encore une fois, comme on ne se soucie pas pas des constantes, donc on cherche la fenêtre <span class="math inline">\(h\)</span> qui nous donne l’ordre minimal du risque. Quand <span class="math inline">\(h\)</span> est trop grand, le biais est trop grand, et quand <span class="math inline">\(h\)</span> est trop petit, c’est la variance qui est trop grande. On cherche donc la fenêtre <span class="math inline">\(h\)</span> qui réalise un équilibre entre le biais au carré et la variance:</p>
+<p><span class="math display">\[ 
+  h^{2\beta}\approx\frac{1}{nh}
+\]</span>
+où le signe <span class="math inline">\(\approx\)</span> signifie ici “de l’ordre de”. Cela donne :</p>
+<p><span class="math display">\[
+  h\approx n^{-\frac{1}{2\beta +1}}
+\]</span></p>
+<p>Autrement dit, pour une fenêtre <span class="math inline">\(h\)</span> de l’odre de <span class="math inline">\(n^{-\frac{1}{2\beta+1}}\)</span>, le biais au carré et la variance sont de même ordre.Plus exactement, on choisit la fenêtre <span class="math inline">\(h_*=cn^{-\frac{1}{2\beta+1}}\)</span>, avec <span class="math inline">\(c\)</span> une constante positive, on a :</p>
+<p><span class="math display">\[
+  Biais\ au\ carré \approx h_{*}^{2\beta}\approx Variance\approx \frac{1}{nh_{*}}
+\]</span></p>
+<p>De plus, on a alors :
+<span class="math display">\[
+  h_* \approx n^{-\frac{2\beta}{2\beta + 1}}
+\]</span></p>
+<p>Autrement dit, il existe une certaine constante <span class="math inline">\(C\)</span> telle que, pour cette fenêtre <span class="math inline">\(h_*\)</span>, on a :</p>
+<p><span class="math display">\[
+  R(\hat {f}_n(x_0),\sum_d(\beta,L))\leqslant Cn^{\frac{-2\beta}{2\beta + 1}}
+\]</span></p>
+Cette fenêtre est donc optimale à une constante près (si on change <span class="math inline">\(c\)</span>, on change <span class="math inline">\(C\)</span> ça ne change pas le taux qui est <span class="math inline">\(n^{\frac{-2\beta}{2\beta+1}}\)</span>).
+\end{demonstration}
+
+
+
+<p>On a bien trouvé que :
+<span class="math display">\[R(\hat{f},f)=biais^2+\mathbb Var\]</span></p>
+
+<p>Donc, afin de minimiser l’expression du risque le choix de h est très influent et même plus crucial pour la qualité de l’estimateur que celui de la noyau <span class="math inline">\(K\)</span>.
+On doit chercher le meilleur compromis biais-variance pour avoir un risque minimal.
+Un paramètre trop faible provoque l’apparition de détails artificiels sur le graph de l’estimateur (La variance devient trop grande), par contre si on prend une valeur de h très grande on aura la majorité des caractéristiques effacées.</p>
+
+<div class="figure">
+<img src="Images/Bias_variance_trade_off.png" width="310" alt="" />
+<p class="caption">Bias-variance-trade-off</p>
+</div>
+<p>(<a href="http://chimix.com/an16/pol16/image/aspts35.jpg" class="uri">http://chimix.com/an16/pol16/image/aspts35.jpg</a>)</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="méthodes-non-paramétriques.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="méthodes-adaptatives.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Book especes.pdf", "Book especes.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

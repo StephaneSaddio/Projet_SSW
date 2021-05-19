@@ -1,0 +1,49 @@
+## Estimateurs à noyau de densité
+
+  Notre but est d'estimer la densité $f$. Pour cela, on s’appuiera sur un échantillon iid $X= (X_1,...,X_n)$ où chacune des variables $X_i$ admet la densité $f$ (par rapport à la mesure de Lebesgue).
+
+  Pour estimer une densité on peut utiliser une méthode à noyau.
+  Les méthodes à noyau sont des méthodes non-paramétriques qui permettent de proposer une estimation de la densité plus lisse que celle obtenue par un histogramme.
+  
+### Comment construit-on un estimateur à noyau ?
+
+L'idée pour la construction de cet estimateur est d'utiliser l'approximation suivante , valable lorsque h est petit :  
+$$
+f(x) = F'(x)\approx \frac{F(x+h)-F(x-h)}{2h}
+$$
+Pour estimer la densité $f$ on peut passer par un estimateur $\hat F_n$ de la fonction de répartion $F$. $\hat F_n$ est la fonction de répartition empirique ( $\hat F_n(x)= \frac1n \sum\limits_{i=1}^n\frac{1}{2h} \mathds1_{X_i \in ]x-h, x+h[}$ ).
+$$
+\hat f_n(x)= \frac{\hat F_n(x+h)-\hat F_n(x-h)}{2h} = \frac 1n \sum\limits_{i=1}^n \frac1{2h} \mathds1_{X_i \in ]x-h;x+h]}
+$$
+
+Notons $\hat f(x)$ l'estimateur à noyau de la densité $f$, alors celui-ci s'écrit :
+$$
+\hat f(x) = \frac1{nh} \sum\limits_{i=1}^n K\left(\frac{X_i-x}h\right)
+$$
+ où $h$ est la fenêtre (ou paramètre de lissage), $n$ le nombre d'observations, et $K$ le noyau.
+ Cette formule n'est valable que si $h$ est petit et positif.
+ 
+ici $K(u)= \frac12 \mathds{1}_{u \in ]-1;1]}$, il s'agit du noyau de Rosenblatt, mais il existe d'autres noyaux.
+
+### Explication ce qu'est un noyau ?
+
+\begin{dfn} (Noyau)  
+
+Un noyau (kernel en anglais) est une application $K:\mathbb{R}\rightarrow\mathbb{R}$ intégrable et centrée telle que :
+$$\int_{\mathbb R} K(u) du = 1 ~~~~ \hbox{ et } ~~~~ \int_{\mathbb R} u K(u)=0$$
+si le noyau est en plus positif alors il correspond à une fonction de densité.
+\end{dfn}
+
+Exemples de noyau :
+
+ - Noyau de Rosenblatt, ou rectangulaire : $K(u)= \frac12 \mathds{1}_{u\in]-1;1]}$
+ 
+ - Noyau Gaussien : $K(u) =\frac1{\sqrt{2\pi}}exp(-\frac{u^2}2)$ 
+ 
+ - Noyau d’Epanechnikov : $K(u) =\frac34(1-u^2)\mathds{1}_{[-1,1]}(u)$
+ 
+ - Noyau triangulaire : $K(u) = (1-\mid u \mid)\mathds{1}_{[-1,1]}(u)$
+ 
+ - Noyau Biweight : $K(u) = \frac{15}{16}(1-u^2)^2\mathds{1}_{[-1,1]}(u)$
+
+Les propriétés du noyau (continuité, différentiabilité...) se transmettent à l'estimateur $\hat f_n$.

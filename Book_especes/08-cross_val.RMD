@@ -1,0 +1,79 @@
+## Choix de la fenêtre
+  L'estimation de densité nécessite le choix de la fentêtre qu'on note h.\newline En statistique non-paramétrique, ils éxistent plusieurs méthodes et critéres de qualité pour le choix de la fêntere.\newline
+  
+  On présente dans la suite deux méthodes:\newline
+   \hspace*{0.5cm}  Méthode de validation croisée.\newline
+   \hspace*{0.5cm} Méthode de Goldenshluger-Lepski.\newline
+    
+### Choix de la fenêtre $h$ par validation croisée
+ 
+ Le choix de la fenêtre dans la section précédnte est criticable: comme on l'a mentionné, il dépend de la régularité la fonction $f$ qui est inconnue dans notre cas. On peut donc essayer d'estimer cette fenêtre idéale par un estimateur $\hat{h}$. De façon à souligner la dépendance à la fonction, on va noter $\hat{f}_{n,h}$ l'estimateur associé à un choix de fenêtre $h$. L'estimateur final sera $\hat{f}_{n,\hat{h}}$, une fois le choix de $\hat{h}$ fait.\newline       **on fait un choix sur h ?**
+ On cherche à minimiser en $h$  le risque quadratique pour la distance $L_2$ :
+
+$$
+\begin{aligned}
+R(\hat {f}_{n,h})&=\mathbb{E}[\begin{Vmatrix}\hat {f}_{n,h}-f\end{Vmatrix}_2^2]\\        
+&= \mathbb{E}[\begin{Vmatrix}\hat {f}_{n,h}\end{Vmatrix}_2^2] -2~\mathbb{E}[\int \hat {f}_{n,h}(x)f(x)dx] +\begin{Vmatrix}f\end{Vmatrix}_2^2
+\end{aligned}
+$$
+
+Or la fonction $f$ étant inconnue, ce risque n'est pas calculable à partir des données. On cherche donc à estimer ce risque en utilisant uniquement les données. Remarquons tout de suite que minimiser en $h$ la quantité $R(\hat {f}_{n,h}, f)$ est équivalent à minimiser en $h$ la quantité $R(\hat {f}_{n,h}, f)-\begin{Vmatrix}f\end{Vmatrix}_2^2$. On va en fait remplacer la minimisation de la quantité inconnue $R(\hat {f}_{n,h}, f)-\begin{Vmatrix}f\end{Vmatrix}_2^2$ par la minimisation d'un estimateur $\hat {R}(h)$ de cette quantité. Plus précisément on va chercher un estimateur sans biais de cette expression:
+
+
+$$
+\mathbb{E}[\begin{Vmatrix}\hat {f}_{n,h}\end{Vmatrix}_2^2] -2~\mathbb{E}[\int \hat {f}_{n,h}(x)f(x)dx]
+$$
+
+Le premier terme admet $\begin{Vmatrix}\hat {f}_{n,h}\end{Vmatrix}_2^2$ comme estimateur trivial (d'après la propriété des estimateurs sans biais : $\mathbb{E}[\hat {\beta}]=\beta$).\newline
+Il reste à trouver un estimateur sans biais du second terme. Pour cela, nous admettons par construction l'estimateur sans biais $\hat {G}$ défini en tout points sauf en $X_i$ (c'est le principe du Leave-one-out):
+
+$$
+\hat{G} = \frac{1}{n}\sum_{i=1}^n\hat {f}_{n,h}^{(-i)}(X_i)
+$$
+avec :
+
+$$
+  \hat {f}_{n,h}^{(-i)}(x)= \frac{1}{n-1}\frac{1}{h}\sum_{j=1,j\ne i}^nK(\frac{x-X_j}{h})
+$$
+
+
+Montrons que $\mathbb{E}(\hat{G})=\mathbb{E}[\int \hat{f}_{n,h}(x)f(x)dx]$.\newline
+Comme les $X_i$ sont i.i.d., d'une part nous avons :
+$$
+\begin{aligned}
+\mathbb{E}[\int \hat {f}_{n,h}(x)f(x)dx]&= \mathbb{E}[\int \frac {1}{nh}\sum_{i=1}^nK(\frac {x-X_i}{h})f(x)dx]\\
+&=\frac{1}{h}\mathbb{E}[\int K(\frac {x-x_1}{h})f(x)dx] \\
+&=\frac{1}{h}\int f(x)\int K(\frac {x-X_1}{h})f(x_1)dx_1dx
+\end{aligned}
+$$
+
+
+D'autre part, nous avons : 
+$$ 
+\begin{aligned}
+\mathbb{E}[\hat{G}]&=\mathbb{E}[\frac{1}{n}\sum_{i=1}^n\hat{f}_{n,h}^{(-i)}(X_i)]\\
+&=\mathbb{E}[\hat{f}_{n,h}^{(-1)}(X_1)]\\
+&=\mathbb{E}[\frac{1}{n(n-1)h}\sum_{j\ne 1}K(\frac{X_j-X_1}{h})]\\
+&=\mathbb{E}[\frac{1}{h}K(\frac{X-X_1}{h})]\\
+&=\frac{1}{h}\int f(x)\int K(\frac{x-x_1}{h})f(x_1)dx_1dx\\
+&=\mathbb{E}[\int \hat{f}_{n,h}(x)f(x)dx] 
+\end{aligned}
+$$
+
+Donc, $\hat{G}$ est un estimateur sans biais de $\int\hat{f}_{n,h}(x)f(x)dx$. Finalement, l'estimateur sans biais de $R(\hat{f}_{n,h}, f)-\begin{Vmatrix}{f}\end{Vmatrix}_2^2$ est donné par:
+
+$$
+\hat{R}(h)=\begin{Vmatrix}\hat{f}_{n,h}\end{Vmatrix}_2^2-\frac{2}{n(n-1)}\sum_{i=1}\sum_{j=1,j\ne i}\frac{1}{h}K(\frac{X_i-X_j}{h})
+$$
+
+
+On définit alors 
+ 
+$$
+\hat{h} = arg\ \underset{h\in H}{min}\hat{R}(h)
+$$
+
+
+Si ce minimum est atteint. On cherche une fenêtre parmi une grille finie de valeurs, grille qu'on a notée $H$ dans la formule ci-dessus.  
+L'estimateur $\hat{f}_{n,\hat{h}}$ a de bonnes propriétés pratiques et de consistence.
+La validation croisée est une méthode très générale mais nous l'utilisons ici pour le choix la fenêtre $h$ optimale.

@@ -1,0 +1,50 @@
+# Méthodes adaptatives :
+
+ \hspace*{0.5cm} On a introduit précédemment la notion de l'estimation de la densité qui dépend d'un paramètre de lissage h. Soit  $(\hat{f_h})_{h\in \mathcal H}$ une famille des estimateurs de la vrai fonction densité $f$ .\newline
+ La question qui se pose   est donc la suivante : comment peut on construire un estimateur à risque optimal à partir de cette famille (en prenant en considération les observations) ? \newline
+  \hspace*{0.5cm}  Dans cette partie et afin de repondre a la question qu'on a poser on va discuter au premier temps du choix du noyau. Ensuite, on va introduire deux méthodes pour le choix du paramètre de lissage h .
+ 
+## Choix du noyau
+
+
+
+
+
+
+
+
+
+
+### Comment choisir les paramètres de la méthode ?
+
+  Dans la méthode d'estimation à noyau le choix du noyau n'est pas le plus important, le vrai enjeu de cette méthode est le choix de la fenêtre $h$ (*bandwidth*).
+  En effet, la fenêtre détermine l'influence des données dans l'estimation. Si $h$ est petit, l'effet local est important donc on aura beaucoup de bruit. Si $h$ est grand on aura une estimation plus douce, plus lisse.
+  
+  Nous pouvons constater l'influence du paramètre $h$ sur l'exemple suivant :
+  Nous avons simulé 500 variables suivant une loi de Weibull de paramètres ($\alpha = 1.7$, $\lambda=2$) représentées dans l'histogramme. La courbe en rouge est la vraie fonction de densité et la bleue est l'estimation avec la méthode des noyaux sur les variables simulées.
+```{r}
+par(mfrow=c(1,3))
+
+seq <- seq(0,6, length.out = 40)
+yweib <- dweibull(seq,1.7,2)
+rand <-rweibull(500,1.7,2)
+
+hist(rand, breaks = 12, freq = F, main = "")
+lines(density(rand, bw = 0.1), col ="blue")
+lines(density(rand), col ="blue")
+lines(density(rand, bw = 2), col ="blue")
+lines(seq, yweib, col="red")
+title("Fenêtre trop petite,\n h = 0.1")
+
+hist(rand, breaks = 12, freq = F, main = "")
+lines(density(rand), col ="blue")
+lines(seq, yweib, col="red")
+title("Fenêtre raisonnable,\n h = 0.372")
+
+hist(rand, breaks = 12, freq = F, main = "")
+lines(density(rand, bw = 2), col ="blue")
+lines(seq, yweib, col="red")
+title("Fenêtre trop petite,\n h = 2")
+```
+La fenêtre $h$ du second graphique est calculé automatiquement par la fonction `density`de R. 
+ 

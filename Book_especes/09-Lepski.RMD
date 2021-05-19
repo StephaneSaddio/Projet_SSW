@@ -1,0 +1,34 @@
+### Méthode de Goldenshluger-Lepski
+
+  La méthode de Goldenshluger-Lepski donne principalement des critères pour le choix entre estimateurs à noyau $(\hat{f_h})_{h\in \mathcal H}$ avec différentes fenêtres qu'on fixe en prennant n considération l'échantillon des observations.\newline
+  Cette méthode propose de choisir le $\hat h$ qui minimise l'expression suivante:
+$$
+B(h)+V(h)
+$$
+Avec :
+
+$$
+B(h)=sup_{h' \in \mathcal H}{[\parallel\hat f_{h'} - \hat f _h \parallel-V(h')]}
+$$
+Et 
+$$
+V(h)=a \frac{\parallel K_{h'}\parallel^2}{n}
+$$
+Tel que $K$ est le noyau, $a$ un paramètre et $V(h)$ est le terme de pénalisation.\newline
+
+On a donc le $\hat h$ est égale à:
+$$
+\hat h = arg min_{h \in \mathcal H}(B(h)+V(h))
+$$
+
+\begin{rem}
+Le terme de pénalisation choisi est proportionnel à la variance de l'estimateur.
+\end{rem}
+
+
+  On s'intéresse dans cette méthode à déterminer le terme de pénalisation minimal $V(h)$ tel que si on le dépasse on n'obtient plus l'équilibre biais-variance.\newline
+  
+  Dans ce cas, la valeur de $\hat h$ est d'ordre $\frac{1}{n}$,
+  
+  Le choix optimal de la fenêtre $h$ suivant cette méthode dans ce cas est $n^{-\frac{1}{2 \alpha +1}}$
+  

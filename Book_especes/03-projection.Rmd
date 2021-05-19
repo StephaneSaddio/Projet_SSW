@@ -1,0 +1,27 @@
+## Estimateurs par projection :
+
+
+\begin{dfn}
+Estimation par projection : \newline
+Supposant que la fonction $f$ à estimer est dans l'espace de Hilbert
+$\mathcal F = (L^2 , \parallel\,.\parallel, <\,.,~.>_)$ avec $(\Phi_j)_{j>0}$ une base orthonormée de $L^2$, $\mathbb E _N$  un sous-espace fini de $\mathcal F$ et $1 \leq |N| < \infty$.\newline
+De plus $a_{\lambda} = <f,\Phi_{\lambda}> = \int_{\mathbb R}f(x)\Phi_{\lambda}(x) dx$.\newline
+Alors, on estime la fonction $f$ par son projeté 
+
+$$
+\Pi_N~f = \sum_{\lambda \in N} a_{\lambda} \Phi_{\lambda}
+$$
+\end{dfn}
+
+
+
+\begin{rem}
+-Cette méthode nous ramène au cas paramétrique.\newline
+\end{rem}
+
+
+
+ Dans la suite on procèdera à la méthode la plus fréquemment utilisée pour l'estimation d'une densité :     L'estimation à noyau.\newline 
+ 
+ (Argument pour le choix de la méthode à voir)
+

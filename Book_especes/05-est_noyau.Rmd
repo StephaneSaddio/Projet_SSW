@@ -1,0 +1,41 @@
+# Estimateur de densité à noyau :
+
+## Evaluer un estimateur
+
+
+Avant de commencer cette partie on va d'abord introduire quelques notions et définitions\newline
+
+\begin{dfn} {Noyau}  
+On note par le noyau la fonction intégrable K$\mathbb{R}\rightarrow\mathbb{R}$ tel que:
+$$\int_{\mathbb{R}}K(u)du =1$$
+et soient $h<0$ le paramètre de lissage.\newline $K_h : u\in \mathbb{R} \rightarrow K(\frac{u}{h})/h$
+
+\end{dfn}
+
+\begin{lem}
+On peut approximer la famille $(K_h)_{h>0}$ par l'identité du produit de convolution.
+\end{lem}
+
+\begin{demo}
+A Faire
+\end{demo}
+
+\begin{corol}
+$K_h * f : x \rightarrow \int_{\mathbb R} K_h(y-x) f(x) dx$ tend vers la fonction f quand h tend vers 0.(pour la distance $L^2$)
+\end{corol}
+
+Pour évaluer un estimateur on définit le risque associé d'un estimateur $\hat f$ pour l'estimateur f.\newline **Pas compris**
+
+\begin{dfn} 
+La fonction de risque : 
+$$ 
+\mathcal R(\hat f ,f)=\mathbb E_f[\parallel\hat f -f\parallel^2]
+$$
+\end{dfn}
+
+
+\begin{rem}
+  La fonction de risque associé nous permet de comparer l'estimateur $\hat f$ et l'estimation f.\newline
+On cherche à ce que ce risque associé soit minimal (i.e tend vers 0 pour un nombre d'observation assez grand).\newline
+\end{rem}
+

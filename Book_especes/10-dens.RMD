@@ -1,0 +1,10 @@
+# Applications
+
+  Rappelons que nous cherchons à estimer la fonction de densité $f$ de la durée avant la création d'une nouvelle espèce. Dans ce cadre nous allons faire nos estimations à noyau de la densité sur R en applicant la théorie que nous avons vue jusque là.
+
+## Fonction dens
+
+Dans cette partie nous présenterons la fonction `dens` que nous avons créée en voulant reproduire ce que fait la fonction `density` de R.
+Voici son code : 
+
+Insérer le script de fonc_dens.R

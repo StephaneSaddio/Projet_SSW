@@ -1,0 +1,37 @@
+--- 
+title: "Rapport du projet de M1"
+subtitle: "Combien de temps pour faire une espèce ?"
+#subtitle: "ou estimation non-paramétrique et noyau de densité"
+author: 
+ - "Wiam Chaoui"
+ - "Sophie Manuel"
+ - "Stéphane Sadio"
+date: "2021"
+#date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+output:
+  bookdown::pdf_book:
+    keep_tex: yes
+    extra_dependencies: 
+    - dsfont
+description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+---
+
+\newtheorem{dfn}{Définition}
+\newtheorem{exem}{Exemple}
+\newtheorem{corol}{Corollaire}
+\newtheorem{prop}{Proposition}
+\newtheorem{lem}{Lemme}
+\newtheorem{demo}{Démonstration}
+\newtheorem{rem}{Remarque}
+\newtheorem{propri}{Propriété}
+\newtheorem{thm}{Théorème}
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T, warning = F, message = F, include = T)
+```
