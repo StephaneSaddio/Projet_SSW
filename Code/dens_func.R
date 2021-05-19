@@ -1,11 +1,19 @@
-seq <- seq(0,30, length.out = 60)
-ychi2 <- dchisq(seq,6)
-plot(seq, ychi2, type = "l", col = "red")
+seque <- seq(0,30, length.out = 60)
+ychi2 <- dchisq(seque,6)
+plot(seque, ychi2, type = "l", col = "red")
 
-rand <-rchisq(100,6)
+rand <-rnorm(100 ,15,1)
 hist(rand, breaks = 60, freq = F, xlim=c(0, max(rand)+3))
 
-dens <- function(X, bandwith , kernel){
+#      hat_f <- function(x, X, bandwith, kern) { # X est l'échantillon, x de \hat f(x)
+#        for (i in 1:length(x)){
+#          hatf$vect[i] <- sum(kern((X-x[i])/bandwith)) / (bandwith*length(X)) # formule noyau
+#        }
+#        
+#        return(hatf)
+#      }
+      
+dens <- function(X, bandwith, kernel){
 
   
       n <- length(X)
@@ -13,27 +21,21 @@ dens <- function(X, bandwith , kernel){
       if (missing(kernel)) {kernel = "gaussian"}
       kern <- switch(kernel,
                   gaussian = function(u){return(dnorm(u))},
-                  rectangular = {
+                  rectangular = function(u){
                     ifelse(abs(u) < 1, .5, 0) },
                   triangular = function(u) {
                     return(ifelse(abs(u) < 1, (1 - abs(u)), 0)) },
                   epanechnikov = function(u){
                    return(ifelse(abs(u) < 1, 3/4*(1 - u^2), 0)) },
                   biweight = function(u){ 
-                    return(ifelse(abs(u) < 1, 15/16*(1 - u^2)^2, 0)) }) #noyau caractère en fonction
+                    return(ifelse(abs(u) < 1, 15/16*(1 - u^2)^2, 0)) }) # noyau caractère en fonction
       
-      hat_f <- function(x, X, bandwith) { # X est l'échantillon, x de \hat f(x)
-        for (i in 1:length(x)){
-          hatf$vect[i] <- sum(kern((X-x[i])/bandwith)) / (bandwith*length(X)) #formule noyau
-        }
-        
-        return(hatf)
-      }
+
       
     if (missing(bandwith)){
         
       bandwith <- seq(0,5,0.1)
-      
+      bw
       s <- 0
       for (i in 1:n){ 
       s<- s + sum(kern( (X[i]-X[-i])/bandwith)) 
@@ -47,15 +49,25 @@ dens <- function(X, bandwith , kernel){
       #gradient ?
       bandwith <- optim(bandwith, R)
       #bandwith <- bandwith[which.max(R)]
+    }
+      hatfvect <- NULL
+      for (i in 1:n){
+        som = 0
+        for (j in 1:n){
+          som = som + kern((X[j]-x[i])/bandwith)
+        }
+        hatfvect[i] <- som / (bandwith*n) # formule noyau
       }
-      
-      hat_f(x, X, bandwith) 
+      return(hatfvect)
       
   
 }
 
 
 
-test = dens(rand, bandwith = 1, "gaussian")
-lines(test)
- 
+test = dens(rand, bandwith = "ucv", "rectangular")
+plot(seq(min(rand), max(rand), length.out =  1000), test)
+lines(dchisq(0:100,6)) 
+lines(density(rand, kernel = "rectangular", bw="ucv"), col = "red")
+a=density(rand)
+str(a)
