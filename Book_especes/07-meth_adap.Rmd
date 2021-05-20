@@ -72,27 +72,28 @@ seq <- seq(0,6, length.out = 40)
 yweib <- dweibull(seq,1.7,2)
 rand <-rweibull(500,1.7,2)
 
-hist(rand, breaks = 12, freq = F, main = "")
+hist(rand, breaks = 12, freq = F, xlab = "valeurs de l'échatillon", ylim = c(0,0.5), main = "")
 lines(density(rand, bw = 0.1), col ="blue")
 lines(seq, yweib, col="red")
 title("Fenêtre trop petite,\n h = 0.1")
 
-hist(rand, breaks = 12, freq = F, main = "")
+hist(rand, breaks = 12, freq = F, xlab = "valeurs de l'échatillon", ylim = c(0,0.5), main = "")
 lines(density(rand), col ="blue")
 lines(seq, yweib, col="red")
 title("Fenêtre raisonnable,\n h = 0.372")
 
-hist(rand, breaks = 12, freq = F, main = "")
+hist(rand, breaks = 12, freq = F, xlab = "valeurs de l'échatillon", ylim = c(0,0.5), main = "")
 lines(density(rand, bw = 2), col ="blue")
 lines(seq, yweib, col="red")
-title("Fenêtre trop petite,\n h = 2")
+title("Fenêtre trop grande \nh = 2")
 
 x <- seq(0.03, 1, by = 0.01)
 risvec <- NULL
 j=1
 for (i in x){risvec[j]=Risk(rand,i); j=j+1}
 plot(x, risvec, type = "l", xlab = "taille de la fenêtre h",
-     ylab = "Risque (MSE)")
+     ylab = "Risque (MSE)", main= "")
+title("Risque estimé en fonction de h \npar validation croisée")
 ```
 La fenêtre $h$ du second graphique est calculé automatiquement par la fonction `density`de R. 
  
