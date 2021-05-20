@@ -22,8 +22,8 @@
   
   Nous pouvons constater l'influence du paramètre $h$ sur l'exemple suivant :
   Nous avons simulé 500 variables suivant une loi de Weibull de paramètres ($\alpha = 1.7$, $\lambda=2$) représentées dans l'histogramme. La courbe en rouge est la vraie fonction de densité et la bleue est l'estimation avec la méthode des noyaux sur les variables simulées.
-```{r}
-par(mfrow=c(1,3))
+```{r, echo=F}
+par(mfrow=c(2,2))
 
 seq <- seq(0,6, length.out = 40)
 yweib <- dweibull(seq,1.7,2)
@@ -31,8 +31,6 @@ rand <-rweibull(500,1.7,2)
 
 hist(rand, breaks = 12, freq = F, main = "")
 lines(density(rand, bw = 0.1), col ="blue")
-lines(density(rand), col ="blue")
-lines(density(rand, bw = 2), col ="blue")
 lines(seq, yweib, col="red")
 title("Fenêtre trop petite,\n h = 0.1")
 

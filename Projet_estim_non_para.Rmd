@@ -10,7 +10,7 @@ date: "2021"
 header-includes:
   - \usepackage{fancyhdr}
   - \pagestyle{fancy}
-  - \fancyhead[L]{Combient de temps pour crée une espèce ?}
+  - \fancyhead[L]{Combien de temps pour créer une espèce ?}
   - \fancyhead[R]{\emph{M1 - Biostatistique}}
   - \usepackage{dsfont}
   - \usepackage{subfig}
@@ -41,9 +41,9 @@ text-align: justify}
 \newtheorem{exemple}{Exemple}
 \newtheorem{corollary}{Corollaire}
 \newtheorem*{proposition}{Proposition}
-\newtheorem{lemma}{Lemme}
-\newtheorem*{demonstration}{Démonstration}
-\newtheorem{remark}{Remarque}
+\newtheorem{lem}{Lemme}
+\newtheorem*{demo}{Démonstration}
+\newtheorem{rem}{Remarque}
 \newtheorem{propetie}{Propriété}
 \newtheorem{theorem}{Théorème}
 \newpage
