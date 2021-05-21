@@ -1,10 +1,31 @@
 ---
 title: "Rapport du projet de M1"
+<<<<<<< HEAD
 author:
 - Wiam Chaoui
 - Sophie Manuel
 - Stéphane Sadio
 date: '2021'
+=======
+subtitle: "Combien de temps pour faire une espèce ?"
+subtitle: "ou estimation non-paramétrique et noyau de densité"
+author: 
+ - "Wiam Chaoui"
+ - "Sophie Manuel"
+ - "Stéphane Sadio"
+date: "2021"
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancyhead[L]{Combien de temps pour créer une espèce ?}
+  - \fancyhead[R]{\emph{M1 - Biostatistique}}
+  - \usepackage{dsfont}
+  - \usepackage{subfig}
+  - \usepackage{amsmath}
+  - \usepackage{amssymb}
+  - \usepackage{amsthm}
+  - \usepackage{amsmath}
+>>>>>>> 17e5afbd4c4cdee24aa8c970975c7a7b9d3d3c34
 output:
   html_document:
     toc_depth: '3'
@@ -42,9 +63,9 @@ text-align: justify}
 \newtheorem{exemple}{Exemple}
 \newtheorem{corollary}{Corollaire}
 \newtheorem*{proposition}{Proposition}
-\newtheorem{lemma}{Lemme}
-\newtheorem*{demonstration}{Démonstration}
-\newtheorem{remark}{Remarque}
+\newtheorem{lem}{Lemme}
+\newtheorem*{demo}{Démonstration}
+\newtheorem{rem}{Remarque}
 \newtheorem{propetie}{Propriété}
 \newtheorem{theorem}{Théorème}
 \newpage
