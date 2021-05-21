@@ -13,7 +13,7 @@ deux classes et expliquer pourquoi on fait le choix de l'estimation à noyau.
 
 \begin{dfn}
     Estimation non-paramétrique :\newline
- L'estimation non-paramétrique vise à résoudre des problèmes d'estmation dans le cadre statistique où le modèle auquel on s'intéresse n'est pas décrit par un nombre fini de paramètres et dont chacun de ces paramètres ne permet pas de décrire la structure générale de la distribution des variables aléatoires.\newline Cela signifie qu'on utilise des modèles statistiques à dimension infini.
+ L'estimation non-paramétrique vise à résoudre des problèmes d'estimation dans le cadre statistique où le modèle auquel on s'intéresse n'est pas décrit par un nombre fini de paramètres et dont chacun de ces paramètres ne permet pas de décrire la structure générale de la distribution des variables aléatoires.\newline Cela signifie qu'on utilise des modèles statistiques à dimension infini.
 \end{dfn}
 
   Dans le cadre de notre problématique on s'intéresse a l'estimation de densité.\newline
@@ -22,8 +22,8 @@ deux classes et expliquer pourquoi on fait le choix de l'estimation à noyau.
 \begin{dfn}
 Pour un échantillon d'observations quantitatives $X=\{X_1, \dots,X_n\}$ de variables aléatoires i.i.d admettant une densité $f= F'$. Supposons que $f \in \mathcal F$ où $\mathcal{F}$ est un espace fonctionnel. On cherche à estimer la fonction de densité inconnue $f$ à partir de ces observations.\newline
 On notera $\hat f_n$ l'estimateur de f.\newline
-On se trouve donc avec le modèle suivant $\{\mathbb P=\mathbb P_f,~f \in \mathcal F\}$, 
-tel que $\mathbb P_f$ est la mesure probabilté de la densité $f$.
+On se trouve donc avec le modèle suivant $\{\mathbb P=\mathbb P_f,~f \in \mathcal F\}$,
+tel que $\mathbb P_f$ est la mesure probabilité de la densité $f$.
 \end{dfn}
 
   L'estimation ici concerne donc la fonction elle même plutôt que les paramètres, ce qui explique le nom d'estimation non-paramétrique.\newline

@@ -16,12 +16,8 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-## Méthode non paramétrique d'estimation de la densité__\
-   __Méthode d'estimation à noyau__\
-       __Principe__:
-   
 
-   
+  
 ## Risque quadratique ponctuel des estimateurs à noyau sur les classe des espaces de Hölder ##
    
   Nous nous intéressons au risque quadratique ponctuel de $\hat{f}_n$, i.e étant donné\

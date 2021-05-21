@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.9)  17 MAY 2021 21:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.9)  20 MAY 2021 01:54
 entering extended mode
-**./Projet_estim_non_para.tex
-(Projet_estim_non_para.tex
+**./readct-steph.tex
+(readct-steph.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-02-18> (C:\Users\SADIO\AppData\Local\Programs\MiKTeX
 \tex/latex/base\article.cls
@@ -423,8 +423,8 @@ File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count291
 \l__pdf_internal_box=\box49
 )
-No file Projet_estim_non_para.aux.
-\openout1 = `Projet_estim_non_para.aux'.
+No file readct-steph.aux.
+\openout1 = `readct-steph.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 88.
 LaTeX Font Info:    ... okay on input line 88.
@@ -576,107 +576,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (C:\Users\SADIO\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-\c@definition=\count299
-\c@exemple=\count300
-\c@corollary=\count301
-\c@lemma=\count302
-\c@remark=\count303
-\c@propetie=\count304
-\c@theorem=\count305
-[1
-
-{C:/Users/SADIO/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-\tf@toc=\write3
-\openout3 = `Projet_estim_non_para.toc'.
-
-[2]
-<Images/arbre_intro.jpg, id=18, 963.6pt x 400.49625pt>
-File: Images/arbre_intro.jpg Graphic file (type jpg)
-<use Images/arbre_intro.jpg>
-Package pdftex.def Info: Images/arbre_intro.jpg  used on input line 124.
-(pdftex.def)             Requested size: 469.75679pt x 195.24266pt.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 126.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 126.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 126.
-
-Underfull \hbox (badness 10000) in paragraph at lines 124--129
-
- []
-
-[3 <./Images/arbre_intro.jpg>] [4]
-Underfull \hbox (badness 10000) in paragraph at lines 186--189
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 197--200
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--234
-
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 236--238
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 245--247
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 278--280
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 300--304
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 305--306
-
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 315--316
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 317--318
-
- []
-
-[7]
-
-LaTeX Warning: Command \' invalid in math mode on input line 401.
-
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
-
- []
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.419   *_
-           L'estimateur dépend de $\beta$ à travers la fenêtre $h$. Or, s...
- 
+! Undefined control sequence.
+l.91 \newthm
+            {dfn}{Définition} 
 Here is how much of TeX's memory you used:
- 14120 strings out of 479321
- 216939 string characters out of 2856584
- 562435 words of memory out of 3000000
- 31209 multiletter control sequences out of 15000+600000
- 467071 words of font info for 125 fonts, out of 8000000 for 9000
+ 13855 strings out of 479321
+ 213713 string characters out of 2856584
+ 546417 words of memory out of 3000000
+ 31085 multiletter control sequences out of 15000+600000
+ 425734 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,12n,88p,573b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 85i,6n,88p,519b,270s stack positions out of 5000i,500n,10000p,200000b,80000s
+
 !  ==> Fatal error occurred, no output PDF file produced!
