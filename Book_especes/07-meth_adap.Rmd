@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Méthodes adaptatives :
 
   \hspace*{0.5cm} On introduit précédemment la notion de l'estimation de la densité qui dépend d'un paramètre de lissage h. Soit  $(\hat{f_h})_{h\in \mathcal H}$ une famille des estimateurs de le fonction densité $f$ que que l'on cherchons cherche à estimer.\newline
@@ -127,21 +132,11 @@ eff(K) = \frac{3}{5\times \int_{\mathbb R}K(t)^2 dt\sqrt{5 \times\int_{\mathbb R
 $$
 Voici un tableau récapitulatif de l'efficacité  de plusieurs noyaux continus symétriques.
 
-```{r ker_tab}
+```{r ker_tab, echo = F}
 dt <- data.frame(Noyau = c("Epanechnikov", "Bigweight", "Triangular",
 "Gaussien", "Rectangulaire"), Efficacité = c(1.000, 0.994, 0.986, 0.951, 0.930))
 knitr::kable(dt, caption = "Efficacité des noyaux continus symétriques")
 ```
-
-==================
-Noyau|Efficacité
-------------------
-Epanechnikov|1.000
-Bigweight|0.994
-Triangular|0.986
-Gaussien|0.951
-Rectangulaire|0.930
-===================
 
 \begin{rem}
 Les valeurs d'efficacité des noyaux sont très proches les unes des autres dans le cas étudié, surtout pour les trois premiers noyaux du tableau. c'est pour cela que le choix du noyau n'a au final que peu d'importance dans l'estimation de la densité. 

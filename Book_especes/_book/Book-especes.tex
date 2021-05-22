@@ -717,14 +717,6 @@ eff(K) = \frac{3}{5\times \int_{\mathbb R}K(t)^2 dt\sqrt{5 \times\int_{\mathbb R
 \]
 Voici un tableau récapitulatif de l'efficacité de plusieurs noyaux continus symétriques.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{dt <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Noyau =} \KeywordTok{c}\NormalTok{(}\StringTok{"Epanechnikov"}\NormalTok{, }\StringTok{"Bigweight"}\NormalTok{, }\StringTok{"Triangular"}\NormalTok{,}
-\StringTok{"Gaussien"}\NormalTok{, }\StringTok{"Rectangulaire"}\NormalTok{), Efficacité =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{1.000}\NormalTok{, }\FloatTok{0.994}\NormalTok{, }\FloatTok{0.986}\NormalTok{, }\FloatTok{0.951}\NormalTok{, }\FloatTok{0.930}\NormalTok{))}
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(dt, }\DataTypeTok{caption =} \StringTok{"Efficacité des noyaux continus symétriques"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \textbackslash begin\{table\}
 
 \textbackslash caption\{(\#tab:ker\_tab)Efficacité des noyaux continus symétriques\}
@@ -747,16 +739,6 @@ Rectangulaire & 0.930\\
 \end{tabular}
 
 \textbackslash end\{table\}
-
-==================
-Noyau\textbar Efficacité
-------------------
-Epanechnikov\textbar1.000
-Bigweight\textbar0.994
-Triangular\textbar0.986
-Gaussien\textbar0.951
-Rectangulaire\textbar0.930
-===================
 
 \begin{rem}
 Les valeurs d'efficacité des noyaux sont très proches les unes des autres dans le cas étudié, surtout pour les trois premiers noyaux du tableau. c'est pour cela que le choix du noyau n'a au final que peu d'importance dans l'estimation de la densité. 
@@ -982,6 +964,9 @@ Estimer loi espérance variance.
 
 \hypertarget{conclusion}{%
 \chapter{Conclusion}\label{conclusion}}
+
+\hypertarget{references}{%
+\chapter{References}\label{references}}
 
 \label{eq:oracle} Lucie Montuelle. Inégalités d'oracle et mélanges. Statistiques {[}math.ST{]}. Université Paris-Sud, 2014.
 Français.\newline
