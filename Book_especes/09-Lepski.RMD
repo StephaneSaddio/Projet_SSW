@@ -1,18 +1,27 @@
 ### Méthode de Goldenshluger-Lepski
 
-  La méthode de Goldenshluger-Lepski donne principalement des critères pour le choix entre estimateurs à noyau $(\hat{f_h})_{h\in \mathcal H}$ avec différentes fenêtres qu'on fixe en prennant n considération l'échantillon des observations.\newline
-  Cette méthode propose de choisir le $\hat h$ qui minimise l'expression suivante:
-$$
-B(h)+V(h)
-$$
-Avec :
+  La méthode de Goldenshluger-Lepski donne principalement des critères de sélection dans une famille d'estimateurs linéaires à noyau, afin d'obtenir un estimateur vérifiant une inégalité d'oracle.  
+  Avant de présenter ces critéres de sélection on commence d'abord par une introduction aux inégalités d'oracle dans l'estimation adaptative. 
+  
+#### Inégalités d'oracle
 
+(ref de cette partie sont : https://hal.inria.fr/tel-01109103/document \newline
+Sur l’estimation adaptative d’une densit´e
+multivari´ee sous l’hypoth`ese de la structure
+d’ind´ependance
+ : l’estimation adaptative d’une densit´e
+multivari´ee sous l’hypoth`ese de la structure
+d’ind´ependance
+)\newline
+  Supposons que la fonction estimée appartient à une classe fonctionnelle $\mathcal{F}$ et qu'on a un nombre d'observations n fixé.  
+  On a pour objectif de choisir, dans une famille d'estimateurs $\mathbb{F} =${$\hat{f}_h ; h\in \mathcal{H}$} indexée par le paramètre $h \in \mathcal{H}$, un estimateur $\hat{f}_{h^*}$ qui soit le meilleur possible.  
+  Cela revient à résoudre le problème de minimisation
 $$
-B(h)=sup_{h' \in \mathcal H}{[\parallel\hat f_{h'} - \hat f _h \parallel-V(h')]}
+h^*=arg~inf_{h \in \mathcal{H}} R(\hat{f}_h,f)
 $$
-Et 
+L'estimateur $\hat{f}_{h^*}$ n'est pas possible à trouver puisqu'il dépend de la fonction inconnue f et c'est aussi pourquoi il est souvent appelé oracle. Le but est donc de s'en servir de son risque pour trouver un estimateur qui fonctionne presque comme cet oracle. Pour cela nous utilisons l'échantillon des observations pour sélectionner un  paramètre $\hat{h} \in \mathcal{H}$ tel que $\hat{f}_{\hat{h}}$ vérifie une égalité d'oracle
 $$
-V(h)=a \frac{\parallel K_{h'}\parallel^2}{n}
+\mathcal{R}(\hat{f}_{\hat{h}},f) \leq C~inf_{h\in \mathcal{H}}~\mathcal{R}(\hat{f}_{h},f)+\delta~~~~\forall~~f \in \mathcal{F}
 $$
 Tel que $K$ est le noyau, $a$ un paramètre et $V(h)$ est le terme de pénalisation.\newline
 

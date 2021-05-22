@@ -1,8 +1,10 @@
 # Méthodes adaptatives :
 
- \hspace*{0.5cm} On a introduit précédemment la notion de l'estimation de la densité qui dépend d'un paramètre de lissage h. Soit  $(\hat{f_h})_{h\in \mathcal H}$ une famille des estimateurs de la vrai fonction densité $f$ .\newline
- La question qui se pose   est donc la suivante : comment peut on construire un estimateur à risque optimal à partir de cette famille (en prenant en considération les observations) ? \newline
-  \hspace*{0.5cm}  Dans cette partie et afin de repondre a la question qu'on a poser on va discuter au premier temps du choix du noyau. Ensuite, on va introduire deux méthodes pour le choix du paramètre de lissage h .
+ \hspace*{0.5cm} On introduit précédemment la notion de l'estimation de la densité qui dépend d'un paramètre de lissage h. Soit  $(\hat{f_h})_{h\in \mathcal H}$ une famille des estimateurs de le fonction densité $f$ que que l'on cherchons cherche à estimer.\newline
+Une question s'impose : comment peut on construire un estimateur à risque optimal à partir de cette famille en tenant en considération les observations? \newline
+Dans la théorie adaptative f est toujours supposée appartenir à une classe fonctionnelle. Cette classe n'est pas connu à priori mais supposé appartenir à une famille de classes fonctionnelles{$\mathcal{F_{\alpha}},\alpha \in\mathcal{A}$} oû $\mathcal{A}$ est un ensemble des paramètres de nuisance. ( ref : Sur l’estimation adaptative d’une densite multivariee sous l’hypotese de la structure d’independance-Approche minimax adaptative)\newline
+.
+  \hspace*{0.5cm}  Dans cette partie et afin de répondre a la question qu'on à posé auparavant, on va discuter en premier lieu du choix du noyau, ensuite on introduira deux méthodes pour le choix du paramètre de lissage h.
  
 ## Choix du noyau
 
