@@ -1,15 +1,20 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Introduction {#intro}
 
 ## Motivation  
 
  \hspace*{0.5cm}
-La classification du vivant est depuis longtemps un vrai casse-tête pour les biologistes, surtout en ce qui concerne la notion d'*espèce*. De fait, il existe plusieurs définitions du mot espèce, ce qui rend encore plus compliqué un concensus. C'est pour cela que dans la suite nous ne nous étendrons pas sur cette notion et on se concentrera que sur des espèces prédéfinies. 
+La classification du vivant est depuis longtemps un vrai casse-tête pour les biologistes, surtout en ce qui concerne la notion d'*espèce*. De fait, il existe plusieurs définitions du mot espèce, ce qui rend encore plus compliqué un consensus. C'est pour cela que dans la suite nous ne nous étendrons pas sur cette notion et nous ne nous concentrerons que sur des espèces prédéfinies. 
 
-Les *arbres phylogénétiques* sont des outils permettant de représenter graphiquement certaines données de classification. En effet, ils présentent les relations de parenté entre *espèces*. On retrouve dessous différentes espèces actuelles, mais aussi leurs ancêtres communs (les *branchements évolutifs* qui correspondent à l'apparition d'une nouvelle homologie), ou encore la durée avant l'apparition d'une nouvelle espèce qui est donnée par la longeur des branches.
+Les *arbres phylogénétiques* sont des outils permettant de représenter graphiquement certaines données de classification. En effet, ils présentent les relations de parenté entre *espèces*. On retrouve dessous différentes espèces actuelles, mais aussi leurs ancêtres communs (les *branchements évolutifs* qui correspondent à l'apparition d'une nouvelle homologie), ou encore la durée avant l'apparition d'une nouvelle espèce qui est donnée par la longueur des branches.
 
 ![Arbre phylogénétique](Images\arbre_intro.jpg)
-Dans la suite, on s'intéresse aux *branchements évolutifs*.
-On suppose qu'un branchement évolutif apparaît après une durée aléatoire d'une loi fixée $\mu$ indépendamment du passé et du futur évolutif des espèces.  
+Dans la suite, nous nous intéresserons aux *branchements évolutifs*.
+Supposons qu'un branchement évolutif apparaît après une durée aléatoire d'une loi fixée $\mu$ indépendamment du passé et du futur évolutif des espèces.  
 Quelle est cette loi $\mu$? Sa variance ? Sa moyenne ? \newline
 
 \hspace*{0.5cm} On observe des branchements successifs qui composent l'arbre
@@ -17,17 +22,16 @@ phylogénétique et à partir de ces données quantitatives observées, on
 veut estimer la fonction de densité $f$ qui donne la probabilité
 qu'un nouveau branchement évolutif apparaisse après un certain temps.  
 
-Formellement, on a un échantillon $X$={$X_1,\dots,X_n$} de longueurs de branche observées qui ont pour
-une fonction de densité $f \in \mathcal F$ où $\mathcal F$ est un espace
-fonctionnel. On cherche à estimer cette fonction densité $f$ sur laquelle on fait le moins d'hypothèses possibles. On fera seulement les hypothèses d'existence, de continuité et de positivité de la fonction $f$. 
+Formellement on a le modèle densité suivant, soient les vecteurs aléatoires $X_1,\dots,X_n$ tel que $n \in \mathbb{N^*}$ à valeur dans $\mathbb{R}$, indépendants et identiquement distribués de longueurs de branche observées qui ont pour
+une fonction de densité $f$ par rapport à la mesure de Lebesgue sur $\mathbb{R}$ supposée inconnue. Notre objectif est d'estimer cette fonction densité f sur laquelle on fait le moins d'hypothèses possibles. On fera seulement les hypothèses d'existence, de continuité et de positivité de la fonction,en servant une observation $(X_1,...X_n)$, ce qui nous mène en statistique non-paramétrique, où le paramètre cherché est une densité de probabilité qui appartient à un espace fonctionnel infini, d'où la problématique de notre sujet.
 
-D'où le choix du modèle suivant $\{P=P_f,~f\in \mathcal F\}$ qui revient à faire une estimation
-non-paramétrique de la densité. Ce qui nous mène à la problématique de notre sujet. 
+
+
 
 ## Problématique
   Comment estimer la loi de densité de la création d'une nouvelle espèce
 avec une méthode d'estimation non-paramétrique ?  
 
-Pour commencer, nous introduirons les méthodes d'estimations non-paramétriques, en donnant quelques définitions et en présentant quelques types d'estimateurs.
-Ensuite, nous allons approfondir sur les estimateurs de densité à noyau en parlant de leur évaluation et des méthodes adaptatives.
-Enfin, pour répondre à la problématique, on cherchera à implémenter un estimateur à noyau adaptatif, de type Goldenshluger-Lepski puis l'utiliser sur des données d'arbres phylogénétiques.  
+Pour commencer, en se basant sur quelques définitions nous présenterons les méthodes d'estimations non-paramétriques et en introduisant quelques types d'estimateurs.\newline
+Par la suite, nous approfondirons les estimateurs de densité à noyau en menant une discussion sur leurs critères d'évaluation. Ainsi nous consacrerons un chapitre pour présenter des méthodes adaptatives.\newline
+Enfin, pour répondre à la problématique, nous implémenterons un estimateur à noyau adaptatif, de type Goldenshluger-Lepski puis l'utiliser sur des données d'arbres phylogénétiques.  

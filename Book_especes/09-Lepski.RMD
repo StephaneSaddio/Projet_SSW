@@ -1,34 +1,94 @@
-### Méthode de Goldenshluger-Lepski
+#### Méthode de Goldenshluger-Lepski
 
-  La méthode de Goldenshluger-Lepski donne principalement des critères pour le choix entre estimateurs à noyau $(\hat{f_h})_{h\in \mathcal H}$ avec différentes fenêtres qu'on fixe en prennant n considération l'échantillon des observations.\newline
-  Cette méthode propose de choisir le $\hat h$ qui minimise l'expression suivante:
-$$
-B(h)+V(h)
-$$
-Avec :
+  La méthode de Goldenshluger-Lepski donne principalement des critères de sélection dans une famille d'estimateurs linéaires à noyau, afin d'obtenir un estimateur vérifiant une inégalité d'oracle.  
+  Avant de présenter ces critères de sélection, commençons d'abord par une introduction aux inégalités d'oracle dans l'estimation adaptative. 
+  
+##### Inégalités d'oracle
 
+References pour cette partie.(\#eq:oracle) et (\#eq:est-ad) \newline
+  Supposons que la fonction estimée appartient à une classe fonctionnelle $\mathcal{F}$ et qu'on a un nombre d'observations n fixé.  
+  On a pour objectif de choisir, dans une famille d'estimateurs $\mathbb{F} =${$\hat{f}_h ; h\in \mathcal{H}$} indexée par le paramètre $h \in \mathcal{H}$, un estimateur $\hat{f}_{h^*}$ qui soit le meilleur possible.  
+  Cela revient à résoudre le problème de minimisation
 $$
-B(h)=sup_{h' \in \mathcal H}{[\parallel\hat f_{h'} - \hat f _h \parallel-V(h')]}
+h^*=arg~inf_{h \in \mathcal{H}} R(\hat{f}_h,f)
 $$
-Et 
+L'estimateur $\hat{f}_{h^*}$ n'est pas calculable en pratique puisqu'il dépend de la fonction inconnue $f$. C'est aussi pourquoi il est souvent appelé oracle. Le but est donc de se servir de son risque pour trouver un estimateur qui fonctionne presque comme cet oracle. Pour cela nous utilisons l'échantillon des observations pour sélectionner un  paramètre $\hat{h} \in \mathcal{H}$ tel que $\hat{f}_{\hat{h}}$ vérifie une égalité d'oracle
 $$
-V(h)=a \frac{\parallel K_{h'}\parallel^2}{n}
+\mathcal{R}(\hat{f}_{\hat{h}},f) \leq C~inf_{h\in \mathcal{H}}~\mathcal{R}(\hat{f}_{h},f)+\delta,~~~~\forall~~f \in \mathcal{F}.
 $$
-Tel que $K$ est le noyau, $a$ un paramètre et $V(h)$ est le terme de pénalisation.\newline
-
-On a donc le $\hat h$ est égale à:
-$$
-\hat h = arg min_{h \in \mathcal H}(B(h)+V(h))
-$$
-
+où $C \geq 1$ est une constante indépendante de n et de f, $inf_{h\in \mathcal{H}}R(\hat{f}_h,f)$ est le risque d'oracle et $\delta$ un terme résiduel indépendant de f, souvent négligeable devant le risque d'oracle.  
 \begin{rem}
-Le terme de pénalisation choisi est proportionnel à la variance de l'estimateur.
+Lorsque C vaut 1, l'inégalité est dite exacte et $\hat{f}_{\hat{h}}$ imite l'oracle sur $\mathcal{H}$. \newline
+Lorsque C > 1, l'estimateur imite seulement la vitesse de convergence de l'oracle.\newline
+Parfois quand il est difficile de comparer le risque de l'estimateur sélectionné avec celui de l'oracle. on cherche à obtenir une inégalité d'oracle
+$$
+\mathcal{R}(\hat{f}_{\hat{h}},f) \leq inf_{h \in \mathcal{H}}\mathcal{R}(h,f)+\delta,~~~~\forall~~f \in \mathcal{F}.
+$$
+ Avec $\mathcal{R}(h,f)$ une approximation du risque $\mathcal{R}(\hat{f}_{h},f)$ 
 \end{rem}
 
+La question qui se pose dans la suite est \newline
+Soit $\mathcal{F}$ une collection d'estimateurs construits à partir des données et $\hat{f}_h \rightarrow \mathcal{R}(\hat{f}_h,f)$ un risque pour l'estimation de f, comment construire un estimateur $\hat{f}_{\hat h}$ tel que $\mathcal{R}(\hat{f}_{\hat h},f) \approx~~inf_{h \in \mathcal{H}} \mathcal{R}(\hat{f}_h,f)$ où $\mathbb{E}[\mathcal{R}(\hat{f}_{\hat{h}},f)] \approx inf_{h \in \mathcal {H}} \mathbb{E}[\mathcal{R}(\hat{f}_h,f)]$?
+C'est là que s'applique la méthode de Goldenshluger et Lepski. Il s'agit une des méthodes usuelles qui imite la décomposition biais-variance du risque de l'estimateur. \newline
+Cette méthode se base sur l'observation. Elle consiste à choisir un estimateur dans une famille d'estimateurs linéaires $\mathbb{F} =${$\hat{f}_h,h \in \mathcal{H}$}. Pour cela on doit imposer d'abord quelques suppositions. \newline
+*Suppositions* \newline
+-1) Le noyau K est lipschitzienne\newline
 
-  On s'intéresse dans cette méthode à déterminer le terme de pénalisation minimal $V(h)$ tel que si on le dépasse on n'obtient plus l'équilibre biais-variance.\newline
-  
-  Dans ce cas, la valeur de $\hat h$ est d'ordre $\frac{1}{n}$,
-  
-  Le choix optimal de la fenêtre $h$ suivant cette méthode dans ce cas est $n^{-\frac{1}{2 \alpha +1}}$
-  
+$$
+|K(x)~-~K(y)| \leq c|x-y|,~~~~\forall(x,y)\in \mathbb{R}.
+$$
+OÙ |.| est la distance euclidienne.\newline
+-2)Il existe un réel $k_{\infty}<\infty$ tel que $||K||_{\infty} \leq k_{\infty}$
+
+Passons ensuite au critère de sélection.\newline
+*Critère de sélection* \newline
+Ce critère comme abordé au dessus se base sur la comparaisons des estimateurs deux à deux en faisant intervenir des estimateurs auxiliaires {$\hat f_{h,\mu},h~~ et~~ \mu \in \mathcal{H}$} définies comme suit
+$$
+\hat f_{h,\mu}(x)=\frac{1}{n}\sum^n_{i=1}[K_h * K_{\mu}](x-X_i),
+$$
+où * est le produit de convolution sur $\mathbb{R}$.\newline
+On définit aussi\newline
+$$
+\forall h \in \mathcal{H}~~\hat{\mathcal R}_h = sup_{\mu \in \mathcal{H}}[||\hat f_{h,\mu}-\hat f_\mu ||_s - m_s(h,\mu)]_+ + m^*_s(h),
+$$
+où la fonction $m_s$ est appelé le majorant et $m^*_s(h) = sup_{\mu \in \mathcal{H}}m_s(h,\mu) ~~ \forall h \in \mathcal{H}$\newline
+\begin{prop}
+Soient $\xi_{h,\mu}$ et $\xi_\mu$ les erreurs stochastiques relatives aux estimateurs $\hat f_{h,\mu}$ et $\hat f_\mu$.\newline
+La fonction $m_s$ est une majorante uniforme de la perte aléatoire$||\xi_{h,\mu}-\xi_\mu||_s$
+\end{prop}
+\begin{demo}
+BANDWIDTH SELECTION IN KERNEL DENSITY ESTIMATION:
+ORACLE INEQUALITIES AND ADAPTIVE MINIMAX
+OPTIMALITY By ALEXANDER GOLDENSHLUGER1 AND OLEG LEPSKI
+\end{demo}
+
+\begin{rem}
+La fonction majorante $m_s$ ne dépend pas de la fonction densité f.
+\end{rem}
+De tout ce qui précède $\hat h$ est définie par\newline
+
+$$
+\hat h = arg~inf_{h \in \mathcal{H}} \mathcal{\hat R}_h.
+$$
+
+Et le critère de comparaison 
+
+$$
+\hat{\Delta}(h)= sup_{\mu \in \mathcal{H}}[||\hat f_{h,\mu}-\hat f_\mu||_s - m_s(h,\mu)]_+,~~~~\forall h,\mu \in \mathcal H,~~\forall \hat f \in \mathbb F.
+$$
+\begin{rem}
+Soient h et$\mu \in \mathcal H$, $m_s$ la fonction majorante définie auparavant et $\hat f \in \mathbb F$
+$m_s$ est de l'ordre de l'écart type de $|\hat f_{h,\mu}(x)-\hat f_\mu(x)|$ pour tout x dans $\mathbb R$.
+\end{rem}
+Donc si l'inégalité suivante est vérifiée
+
+$$
+sup_{h \in \mathcal{H}}(\mathbb{E}_f~sup_{\mu \in \mathcal H}[||\xi_{h,\mu}-\xi_\mu || - m_s(h,\mu)]_+^2)^{\frac{1}{2}} \leq \delta,~~\forall f \in \mathbb{F}, ~~\forall h,\mu \in \mathcal H.
+$$
+ Et si il existe $\hat h \in \mathcal{H}$ mesurable par rapport à l'observation et vérifiant
+ 
+$$
+\hat{\Delta}(\hat h)+sup_{\mu \in \mathcal H}m_s(\hat h, \mu) \leq inf_{h \in \mathcal H}(\hat \Delta(h) +sup_{\mu \in \mathcal H}m_s(h,\mu)).
+$$
+Alors l'estimation sectionnée est $\hat f_{\hat h}$.
+ 

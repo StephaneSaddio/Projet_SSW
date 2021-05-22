@@ -1,6 +1,19 @@
+<<<<<<< HEAD
 ### Choix de la fenêtre $h$ par validation croisée
  
  Le choix de la fenêtre dans la section précédente est critiquable: comme on l'a mentionné, il dépend de la régularité la fonction $f$ qui est inconnue dans notre cas. On peut donc essayer d'estimer cette fenêtre idéale par un estimateur $\hat{h}$. De façon à souligner la dépendance à la fonction, on va noter $\hat{f}_{n,h}$ l'estimateur associé à un choix de fenêtre $h$. L'estimateur final sera $\hat{f}_{n,\hat{h}}$, une fois le choix de $\hat{h}$ fait.\newline 
+=======
+### Choix de la fenêtre
+  L'estimation de densité nécessite le choix de la fenêtre qu'on note h.\newline En statistique non-paramétrique, ils existent plusieurs méthodes et critères de qualité pour le choix de la fenêtre.\newline
+  
+  On présente dans la suite deux méthodes:\newline
+   \hspace*{0.5cm}  Méthode de validation croisée.\newline
+   \hspace*{0.5cm} Méthode de Goldenshluger-Lepski.\newline
+    
+#### Choix de la fenêtre $h$ par validation croisée
+ 
+ Le choix de la fenêtre dans la section précédente est critiquable: comme on l'a mentionné, il dépend de la régularité la fonction $f$ qui est inconnue dans notre cas. On peut donc essayer d'estimer cette fenêtre idéale par un estimateur $\hat{h}$. De façon à souligner la dépendance à la fonction, on va noter $\hat{f}_{n,h}$ l'estimateur associé à un choix de fenêtre $h$. L'estimateur final sera $\hat{f}_{n,\hat{h}}$, une fois le choix de $\hat{h}$ fait.\newline       **on fait un choix sur h ?**
+>>>>>>> ba031c5db4d96b8328f51610e88b0c6a9116d671
  On cherche à minimiser en $h$  le risque quadratique pour la distance $L_2$ :
 $$
 \begin{aligned}
@@ -70,4 +83,8 @@ $$
 
 Si ce minimum est atteint. On cherche une fenêtre parmi une grille finie de valeurs, grille qu'on a notée $H$ dans la formule ci-dessus.  
 L'estimateur $\hat{f}_{n,\hat{h}}$ a de bonnes propriétés pratiques et de consistance.
+<<<<<<< HEAD
 La validation croisée est une méthode très générale mais nous l'utilisons ici pour le choix la fenêtre $h$ optimale.
+=======
+La validation croisée est une méthode très générale mais nous l'utilisons ici pour le choix la fenêtre $h$ optimale.
+>>>>>>> ba031c5db4d96b8328f51610e88b0c6a9116d671

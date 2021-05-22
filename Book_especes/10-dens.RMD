@@ -1,6 +1,6 @@
 # Applications
 
-  Rappelons que nous cherchons à estimer la fonction de densité $f$ de la durée avant la création d'une nouvelle espèce. Dans ce cadre nous allons faire nos estimations à noyau de la densité sur R en applicant la théorie que nous avons vue jusque là.
+  Rappelons que nous cherchons à estimer la fonction de densité $f$ de la durée avant la création d'une nouvelle espèce. Dans ce cadre nous allons faire nos estimations à noyau de la densité sur R en appliquant la théorie que nous avons vue jusque là.
 
 ## Fonction dens
 

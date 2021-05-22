@@ -1,15 +1,22 @@
 ## Estimateurs par projection :
 
-
 \begin{dfn}
-Estimation par projection : \newline
-Supposant que la fonction $f$ à estimer est dans l'espace de Hilbert
-$\mathcal F = (L^2 , \parallel\,.\parallel, <\,.,~.>_)$ avec $(\Phi_j)_{j>0}$ une base orthonormée de $L^2$, $\mathbb E _N$  un sous-espace fini de $\mathcal F$ et $1 \leq |N| < \infty$.\newline
-De plus $a_{\lambda} = <f,\Phi_{\lambda}> = \int_{\mathbb R}f(x)\Phi_{\lambda}(x) dx$.\newline
-Alors, on estime la fonction $f$ par son projeté 
+Soient $X= (X_1,...,X_n)$ considérer dans le modèle de densité présenté précédemment et $T_j : \mathbb{R}^d$x$\mathbb{R}^d \rightarrow \mathbb{R}$ des fonctions mesurables.  
+Un estimateur $x \rightarrow \hat{f}(x) = \hat{f}(x,X)$ est dit linéaire si il peut s'écrire sous la forme
 
 $$
-\Pi_N~f = \sum_{\lambda \in N} a_{\lambda} \Phi_{\lambda}
+\hat{f}(x) = \sum^N_{j=1}T_j(x,X_j), \forall x \in \mathbb{R}^d.
+$$
+
+\end{dfn} 
+
+\begin{dfn}
+(Estimateur par projection) \newline
+Soit $f \in \mathcal F = (L^2 , \parallel\,.\parallel, <\,.,~.>_)$ oû $\mathcal{F} $ un espace de Hilbert muni d'une base orthonormée $(\Phi_j)_{j \in \mathbb{N^*}}$ de $L^2$.Si $\mathbb E _N$  un sous-espace fini de $\mathcal F$ et $a_j = <f,\Phi_j> = \int_{\mathbb R}f(x)\Phi_j(x) dx$ avec $1 \leq |N| < \infty$.\newline
+On appelle un estimateur par projection de la fonction $f$ sur $\mathbb E_N$, la fonction $\Pi_N~f$ définit comme suit 
+
+$$
+\Pi_{vect(1,..N)}~f = \sum_{j=1}^N a_j \Phi_j
 $$
 \end{dfn}
 
@@ -21,7 +28,7 @@ $$
 
 
 
- Dans la suite on procèdera à la méthode la plus fréquemment utilisée pour l'estimation d'une densité :     L'estimation à noyau.\newline 
+ Dans la suite on procédera à la méthode la plus fréquemment utilisée pour l'estimation d'une densité :     L'estimation à noyau.\newline 
  
  (Argument pour le choix de la méthode à voir)
 
