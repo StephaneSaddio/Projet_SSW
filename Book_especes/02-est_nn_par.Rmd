@@ -30,8 +30,7 @@ où $\mathbb P_f$ est la mesure probabilité de la densité $f$.
 
 ## Estimation par histogramme
 
-  Une des premières approches possibles d'estimations non-paramétriques de la fonction de densité est l'estimation par l'histogramme. C'est une méthode qui consiste à obtenir un graphique de type histogramme pour la répartition des observations et à considèrer cet histogramme comme une approximation de la fonction densité f.(ref : https://cedric.cnam.fr/vertigo/Cours/ml/coursEstimationDensite.html) 
-  
+  Une des premières approches possibles d'estimations non-paramétriques de la fonction de densité est l'estimation par l'histogramme. C'est une méthode qui consiste à obtenir un graphique de type histogramme pour la répartition des observations et à considèrer cet histogramme comme une approximation de la fonction densité f.(\#eq:cours-est)
   (ajout formule graphique)
 
   

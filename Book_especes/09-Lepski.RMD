@@ -5,13 +5,7 @@
   
 ##### Inégalités d'oracle
 
-(ref de cette partie sont : https://hal.inria.fr/tel-01109103/document \newline
-Sur l’estimation adaptative d’une densité
-multivariée sous l’hypothèse de la structure
-d’indépendance
- : l’estimation adaptative d’une densité
-multivariée sous l’hypothèse
-)\newline
+References pour cette partie.(\#eq:oracle) et (\#eq:est-ad) \newline
   Supposons que la fonction estimée appartient à une classe fonctionnelle $\mathcal{F}$ et qu'on a un nombre d'observations n fixé.  
   On a pour objectif de choisir, dans une famille d'estimateurs $\mathbb{F} =${$\hat{f}_h ; h\in \mathcal{H}$} indexée par le paramètre $h \in \mathcal{H}$, un estimateur $\hat{f}_{h^*}$ qui soit le meilleur possible.  
   Cela revient à résoudre le problème de minimisation
