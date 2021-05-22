@@ -1,6 +1,5 @@
 ## Estimateurs par projection :
 
-
 \begin{dfn}
 Soient $X= (X_1,...,X_n)$ considérer dans le modèle de densité présenté précédemment et $T_j : \mathbb{R}^d$x$\mathbb{R}^d \rightarrow \mathbb{R}$ des fonctions mesurables.  
 Un estimateur $x \rightarrow \hat{f}(x) = \hat{f}(x,X)$ et dit linéaire si il peut s'écrire sous la forme

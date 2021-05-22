@@ -1,4 +1,4 @@
-# Estimateur de densité à noyau :
+# Estimateur de densité à noyau 
 
 ## Evaluer un estimateur
 
