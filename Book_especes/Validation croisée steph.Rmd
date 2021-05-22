@@ -75,7 +75,8 @@ $$
 $$
 
 Le premier terme admet $\begin{Vmatrix}\hat {f}_{n,h}\end{Vmatrix}_2^2$ comme estimateur trivial (d'après la propriété des estimateurs sans biais : $\mathbb{E}[\hat {\beta}]=\beta$).\newline
-Il reste à trouver un estimateur sans biais du second terme. Pour cela, nous admettons par construction l'estimateur sans biais $\hat {G}$ définit en tout points sauf en $X_i$ (c'est le principe du Leave-one-out):
+Il reste à trouver un estimateur sans biais du second terme.
+\begin{lemme} Soit $\hat {G}$ définit en tout points sauf en $X_i$ (c'est le principe du Leave-one-out):
 
 $$
 \hat{G} = \frac{1}{n}\sum_{i=1}^n\hat {f}_{n,h}^{(-i)}(X_i)
@@ -85,8 +86,9 @@ avec :
 $$
   \hat {f}_{n,h}^{(-i)}(x)= \frac{1}{n-1}\frac{1}{h}\sum_{j=1,j\ne i}^nK(\frac{x-X_j}{h})
 $$
-
-
+Cette estimateur $\hat G$, par construction est l'estimateur sans biais de $\int \hat{f}_{n,h}(x)f(x)dx$.
+\end{lemme}
+\begin{demonstration}
 Montrons que $\mathbb{E}(\hat{G})=\mathbb{E}[\int \hat{f}_{n,h}(x)f(x)dx]$.\newline
 Comme les $X_i$ sont i.i.d., d'une part nous avons :
 $$
@@ -108,7 +110,10 @@ $$
 \end{aligned}
 $$
 
-Donc, $\hat{G}$ est un estimateur sans biais de $\int\hat{f}_{n,h}(x)f(x)dx$. Finalement, l'estimateur sans biais de $R(\hat{f}_{n,h}, f)-\begin{Vmatrix}{f}\end{Vmatrix}_2^2$ est donné par:
+Donc, $\hat{G}$ est un estimateur sans biais de $\int\hat{f}_{n,h}(x)f(x)dx$.
+\end{demonstrantion}
+
+Finalement, l'estimateur sans biais de $R(\hat{f}_{n,h}, f)-\begin{Vmatrix}{f}\end{Vmatrix}_2^2$ est donné par:
 
 $$
 \hat{R}(h)=\begin{Vmatrix}\hat{f}_{n,h}\end{Vmatrix}_2^2-\frac{2}{n(n-1)}\sum_{i=1}\sum_{j=1,j\ne i}\frac{1}{h}K(\frac{X_i-X_j}{h})
