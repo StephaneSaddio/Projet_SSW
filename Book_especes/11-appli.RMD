@@ -1,6 +1,6 @@
 ## Applications aux données du vivant
 
-Maintenant que nous avons notre fonction `dens` nous allons pouvoir la comparer à la fonction `density` de R. Pour les comparer nous allons en profiter pour en même temps les appliquer aux données qu'on veux étudier.
+Maintenant que nous avons notre fonction `dens` nous allons pouvoir la comparer à la fonction `density` de R. Pour les comparer nous allons en profiter pour en même temps les appliquer aux données qu'on veut étudier.
 
 Insérer test noyau.R
 
