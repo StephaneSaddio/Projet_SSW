@@ -1,25 +1,23 @@
 # Méthodes non-paramétriques
 
-  \hspace*{0.5cm} En statistique, on parle d'estimation quand on cherche à trouver certains paramètres inconnus caractérisant une distribution à partir d'un échantillon de données observées en se basant sur différentes méthodes.
-On se tourne vers l'estimation non-paramétrique lorsqu'on traite des paramètres à dimension infini.  Dans notre sujet ce paramètre est la fonction densité appartenant à un espace fonctionnel.    
- \hspace*{0.5cm} nous présenterons dans la suite une courte introduction
-à l'estimation non paramétrique et nous introduirons  les deux classes
+  \hspace*{0.5cm} En statistique, on parle d'estimation quand on cherche à trouver certains paramètres inconnus caractérisant une distribution à partir d'un échantillon de données observées, en se basant sur différentes méthodes.
+On se tourne vers l'estimation non-paramétrique lorsque l'on traite des paramètres à dimension infinie. Dans notre cas, ce paramètre est la fonction densité appartenant à un espace fonctionnel.    
+ \hspace*{0.5cm} Nous présenterons dans la suite une courte introduction
+à l'estimation non-paramétrique et nous introduirons les deux classes
 principales de l'estimation fonctionnelle (l'estimation par projection
 et l'estimation à noyau).
 
 ## Introduction
 
- L'estimation non-paramétrique vise à résoudre des problèmes d'estimation dans le cadre statistique où le modèle auquel on s'intéresse n'est pas décrit par un nombre fini de paramètres et dont chacun de ces paramètres ne permet pas de décrire la structure générale de la distribution des variables aléatoires.\newline Cela signifie qu'on utilise des modèles statistiques à dimension infini.
-
+ L'estimation non-paramétrique vise à résoudre des problèmes d'estimation dans le cadre statistique où le modèle auquel on s'intéresse n'est pas décrit par un nombre fini de paramètres et dont chacun de ces paramètres ne permet pas de décrire la structure générale de la distribution des variables aléatoires.\newline Cela signifie qu'on utilise des modèles statistiques à dimension infinie.  
 
   Dans le cadre de notre problématique on s'intéresse à l'estimation de densité.\newline
   Un des principes de base de l'estimation de la densité selon une méthode d'estimation non-paramétrique est le suivant \newline
   
-
 Soit un échantillon d'observations  $X=\{X_1, \dots,X_n\}$ de variables aléatoires i.i.d admettant une densité $f= F'$. Supposons que $f \in \mathcal F$ où $\mathcal{F}$ est un espace fonctionnel. On cherche à estimer la fonction de densité inconnue $f$ à partir de ces observations.\newline
 On notera $\hat f$ l'estimateur de f.\newline
 On se trouve donc avec le modèle suivant $\{\mathbb P=\mathbb P_f,~f \in \mathcal F\}$
-oû $\mathbb P_f$ est la mesure probabilité de la densité $f$.
+où $\mathbb P_f$ est la mesure probabilité de la densité $f$.
 
 
   L'estimation ici concerne donc la fonction elle même plutôt que les paramètres, ce qui explique le nom d'estimation non-paramétrique.\newline

@@ -2,7 +2,7 @@
 
 \begin{dfn}
 Soient $X= (X_1,...,X_n)$ considérer dans le modèle de densité présenté précédemment et $T_j : \mathbb{R}^d$x$\mathbb{R}^d \rightarrow \mathbb{R}$ des fonctions mesurables.  
-Un estimateur $x \rightarrow \hat{f}(x) = \hat{f}(x,X)$ et dit linéaire si il peut s'écrire sous la forme
+Un estimateur $x \rightarrow \hat{f}(x) = \hat{f}(x,X)$ est dit linéaire si il peut s'écrire sous la forme
 
 $$
 \hat{f}(x) = \sum^N_{j=1}T_j(x,X_j), \forall x \in \mathbb{R}^d.
@@ -11,7 +11,7 @@ $$
 \end{dfn} 
 
 \begin{dfn}
-Estimateur par projection : \newline
+(Estimateur par projection) \newline
 Soit $f \in \mathcal F = (L^2 , \parallel\,.\parallel, <\,.,~.>_)$ oû $\mathcal{F} $ un espace de Hilbert muni d'une base orthonormée $(\Phi_j)_{j \in \mathbb{N^*}}$ de $L^2$.Si $\mathbb E _N$  un sous-espace fini de $\mathcal F$ et $a_j = <f,\Phi_j> = \int_{\mathbb R}f(x)\Phi_j(x) dx$ avec $1 \leq |N| < \infty$.\newline
 On appelle un estimateur par projection de la fonction $f$ sur $\mathbb E_N$, la fonction $\Pi_N~f$ définit comme suit 
 
@@ -28,7 +28,7 @@ $$
 
 
 
- Dans la suite on procèdera à la méthode la plus fréquemment utilisée pour l'estimation d'une densité :     L'estimation à noyau.\newline 
+ Dans la suite on procédera à la méthode la plus fréquemment utilisée pour l'estimation d'une densité :     L'estimation à noyau.\newline 
  
  (Argument pour le choix de la méthode à voir)
 

@@ -171,7 +171,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#applications-aux-données-du-vivant"><i class="fa fa-check"></i><b>5.2</b> Applications aux données du vivant</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -230,7 +231,7 @@ Nous estimons la fonction densité d’une somme de deux variables gaussiennes c
 <span class="math display">\[
 f(x)=\frac{1}{2}\frac{1}{\sqrt{2\pi}}(exp(-\frac{(x-2)^2}{2})+exp(-\frac{(x-6)^2}{2}))
 \]</span>
-On va en fait utiliser <code>ggplot</code> pour représenter l’estimateur à noyau. La fonction qui permet de dessiner l’estimateur à noyau est <span class="math inline">\(\texttt{geom_density}\)</span>. Le paramètre représentant le fenêtre h rappelle <span class="math inline">\(\texttt{bw}\)</span> (comme bandwidth en Anglais).</p>
+On va en fait utiliser <code>ggplot</code> pour représenter l’estimateur à noyau. La fonction qui permet de dessiner l’estimateur à noyau est <code>geom_density</code>. Le paramètre représentant le fenêtre h rappelle <code>bw</code> (comme bandwidth en Anglais).</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="estimateur-de-densité-à-noyau.html#cb1-1"></a><span class="kw">library</span>(ggplot2)</span>
 <span id="cb1-2"><a href="estimateur-de-densité-à-noyau.html#cb1-2"></a><span class="kw">library</span>(gridExtra)</span>
 <span id="cb1-3"><a href="estimateur-de-densité-à-noyau.html#cb1-3"></a></span>

@@ -171,7 +171,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#applications-aux-données-du-vivant"><i class="fa fa-check"></i><b>5.2</b> Applications aux données du vivant</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -241,13 +242,10 @@ AMISE(x)&amp;= \frac1{nh} \int_{\mathbb R}f(x)dx \int_{\mathbb R}K(t)^2 dt + \fr
 eff(K_1,K_2) = \frac{AMISE(K_1)}{AMISE(K_2)}.
 \]</span>
 Supposons que <span class="math inline">\(K_1\)</span> est le noyau d’Epanechnikov, il est souvent utilisé comme référence par rapport aux autres noyaux continus. Après quelques calculs, on obtient que l’efficacité d’un noyau K par rapport à celui d’Epanachnikov est donnée par
-<span class="math display" id="eq:cours-est" id="eq:est-ad" id="eq:oracle">\[
+<span class="math display">\[
 eff(K) = \frac{3}{5\times \int_{\mathbb R}K(t)^2 dt\sqrt{5 \times\int_{\mathbb R}t^2K(t) dt} } \leq1.
 \]</span>
 Voici un tableau récapitulatif de l’efficacité de plusieurs noyaux continus symétriques.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="méthodes-adaptatives.html#cb1-1"></a>dt &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Noyau =</span> <span class="kw">c</span>(<span class="st">&quot;Epanechnikov&quot;</span>, <span class="st">&quot;Bigweight&quot;</span>, <span class="st">&quot;Triangular&quot;</span>,</span>
-<span id="cb1-2"><a href="méthodes-adaptatives.html#cb1-2"></a><span class="st">&quot;Gaussien&quot;</span>, <span class="st">&quot;Rectangulaire&quot;</span>), Efficacité =<span class="st"> </span><span class="kw">c</span>(<span class="fl">1.000</span>, <span class="fl">0.994</span>, <span class="fl">0.986</span>, <span class="fl">0.951</span>, <span class="fl">0.930</span>))</span>
-<span id="cb1-3"><a href="méthodes-adaptatives.html#cb1-3"></a>knitr<span class="op">::</span><span class="kw">kable</span>(dt, <span class="dt">caption =</span> <span class="st">&quot;Efficacité des noyaux continus symétriques&quot;</span>)</span></code></pre></div>
 <table>
 <caption>(#tab:ker_tab)Efficacité des noyaux continus symétriques</caption>
 <thead>
@@ -279,15 +277,6 @@ Voici un tableau récapitulatif de l’efficacité de plusieurs noyaux continus 
 </tr>
 </tbody>
 </table>
-<p>==================
-Noyau|Efficacité
-——————
-Epanechnikov|1.000
-Bigweight|0.994
-Triangular|0.986
-Gaussien|0.951
-Rectangulaire|0.930
-===================</p>
 
 <div id="comment-choisir-les-paramètres-de-la-méthode" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Comment choisir les paramètres de la méthode ?</h3>
@@ -295,21 +284,140 @@ Rectangulaire|0.930
 En effet, la fenêtre détermine l’influence des données dans l’estimation. Si <span class="math inline">\(h\)</span> est petit, l’effet local est important donc on aura beaucoup de bruit. Si <span class="math inline">\(h\)</span> est grand on aura une estimation plus douce, plus lisse.</p>
 <p>Nous pouvons constater l’influence du paramètre <span class="math inline">\(h\)</span> sur l’exemple suivant :</p>
 <p>Nous avons simulé 500 variables suivant une loi de Weibull de paramètres (<span class="math inline">\(\alpha = 1.7\)</span>, <span class="math inline">\(\lambda=2\)</span>) représentées dans l’histogramme. La courbe en rouge est la fonction de densité de la loi de Weibull et la bleue est l’estimation avec la méthode des noyaux sur les variables simulées.</p>
-<p><img src="Book-especes_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<p><img src="Book-especes_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 La fenêtre <span class="math inline">\(h\)</span> du second graphique est calculé automatiquement par la fonction <code>density</code>de R.</p>
 
 </div>
 </div>
 <div id="choix-de-la-fenêtre" class="section level2">
 <h2><span class="header-section-number">4.2</span> Choix de la fenêtre</h2>
+<p>L’estimation de densité nécessite le choix de la fentêtre qu’on note h.En statistique non-paramétrique, ils éxistent plusieurs méthodes et critéres de qualité pour le choix de la fêntere.</p>
+<p>On présente dans la suite deux méthodes:
+ Méthode de validation croisée.
+ Méthode de Goldenshluger-Lepski.</p>
 <div id="choix-de-la-fenêtre-h-par-validation-croisée" class="section level3">
 <h3><span class="header-section-number">4.2.1</span> Choix de la fenêtre <span class="math inline">\(h\)</span> par validation croisée</h3>
+<p>Le choix de la fenêtre dans la section précédnte est criticable: comme on l’a mentionné, il dépend de la régularité la fonction <span class="math inline">\(f\)</span> qui est inconnue dans notre cas. On peut donc essayer d’estimer cette fenêtre idéale par un estimateur <span class="math inline">\(\hat{h}\)</span>. De façon à souligner la dépendance à la fonction, on va noter <span class="math inline">\(\hat{f}_{n,h}\)</span> l’estimateur associé à un choix de fenêtre <span class="math inline">\(h\)</span>. L’estimateur final sera <span class="math inline">\(\hat{f}_{n,\hat{h}}\)</span>, une fois le choix de <span class="math inline">\(\hat{h}\)</span> fait.*on fait un choix sur h ?**
+On cherche à minimiser en <span class="math inline">\(h\)</span> le risque quadratique pour la distance <span class="math inline">\(L_2\)</span> :</p>
+<p><span class="math display">\[
+\begin{aligned}
+R(\hat {f}_{n,h})&amp;=\mathbb{E}[\begin{Vmatrix}\hat {f}_{n,h}-f\end{Vmatrix}_2^2]\\        
+&amp;= \mathbb{E}[\begin{Vmatrix}\hat {f}_{n,h}\end{Vmatrix}_2^2] -2~\mathbb{E}[\int \hat {f}_{n,h}(x)f(x)dx] +\begin{Vmatrix}f\end{Vmatrix}_2^2
+\end{aligned}
+\]</span></p>
+<p>Or la fonction <span class="math inline">\(f\)</span> étant inconnue, ce risque n’est pas calculable à partir des données. On cherche donc à estimer ce risque en utilisant uniquement les données. Remarquons tout de suite que minimiser en <span class="math inline">\(h\)</span> la quantité <span class="math inline">\(R(\hat {f}_{n,h}, f)\)</span> est équivalent à minimiser en <span class="math inline">\(h\)</span> la quantité <span class="math inline">\(R(\hat {f}_{n,h}, f)-\begin{Vmatrix}f\end{Vmatrix}_2^2\)</span>. On va en fait remplacer la minimisation de la quantité inconnue <span class="math inline">\(R(\hat {f}_{n,h}, f)-\begin{Vmatrix}f\end{Vmatrix}_2^2\)</span> par la minimisation d’un estimateur <span class="math inline">\(\hat {R}(h)\)</span> de cette quantité. Plus précisément on va chercher un estimateur sans biais de cette expression:</p>
+<p><span class="math display">\[
+\mathbb{E}[\begin{Vmatrix}\hat {f}_{n,h}\end{Vmatrix}_2^2] -2~\mathbb{E}[\int \hat {f}_{n,h}(x)f(x)dx]
+\]</span></p>
+<p>Le premier terme admet <span class="math inline">\(\begin{Vmatrix}\hat {f}_{n,h}\end{Vmatrix}_2^2\)</span> comme estimateur trivial (d’après la propriété des estimateurs sans biais : <span class="math inline">\(\mathbb{E}[\hat {\beta}]=\beta\)</span>).
+Il reste à trouver un estimateur sans biais du second terme. Pour cela, nous admettons par construction l’estimateur sans biais <span class="math inline">\(\hat {G}\)</span> défini en tout points sauf en <span class="math inline">\(X_i\)</span> (c’est le principe du Leave-one-out):</p>
+<p><span class="math display">\[
+\hat{G} = \frac{1}{n}\sum_{i=1}^n\hat {f}_{n,h}^{(-i)}(X_i)
+\]</span>
+avec :</p>
+<p><span class="math display">\[
+  \hat {f}_{n,h}^{(-i)}(x)= \frac{1}{n-1}\frac{1}{h}\sum_{j=1,j\ne i}^nK(\frac{x-X_j}{h})
+\]</span></p>
+<p>Montrons que <span class="math inline">\(\mathbb{E}(\hat{G})=\mathbb{E}[\int \hat{f}_{n,h}(x)f(x)dx]\)</span>.
+Comme les <span class="math inline">\(X_i\)</span> sont i.i.d., d’une part nous avons :
+<span class="math display">\[
+\begin{aligned}
+\mathbb{E}[\int \hat {f}_{n,h}(x)f(x)dx]&amp;= \mathbb{E}[\int \frac {1}{nh}\sum_{i=1}^nK(\frac {x-X_i}{h})f(x)dx]\\
+&amp;=\frac{1}{h}\mathbb{E}[\int K(\frac {x-x_1}{h})f(x)dx] \\
+&amp;=\frac{1}{h}\int f(x)\int K(\frac {x-X_1}{h})f(x_1)dx_1dx
+\end{aligned}
+\]</span></p>
+<p>D’autre part, nous avons :
+<span class="math display">\[ 
+\begin{aligned}
+\mathbb{E}[\hat{G}]&amp;=\mathbb{E}[\frac{1}{n}\sum_{i=1}^n\hat{f}_{n,h}^{(-i)}(X_i)]\\
+&amp;=\mathbb{E}[\hat{f}_{n,h}^{(-1)}(X_1)]\\
+&amp;=\mathbb{E}[\frac{1}{n(n-1)h}\sum_{j\ne 1}K(\frac{X_j-X_1}{h})]\\
+&amp;=\mathbb{E}[\frac{1}{h}K(\frac{X-X_1}{h})]\\
+&amp;=\frac{1}{h}\int f(x)\int K(\frac{x-x_1}{h})f(x_1)dx_1dx\\
+&amp;=\mathbb{E}[\int \hat{f}_{n,h}(x)f(x)dx] 
+\end{aligned}
+\]</span></p>
+<p>Donc, <span class="math inline">\(\hat{G}\)</span> est un estimateur sans biais de <span class="math inline">\(\int\hat{f}_{n,h}(x)f(x)dx\)</span>. Finalement, l’estimateur sans biais de <span class="math inline">\(R(\hat{f}_{n,h}, f)-\begin{Vmatrix}{f}\end{Vmatrix}_2^2\)</span> est donné par:</p>
+<p><span class="math display">\[
+\hat{R}(h)=\begin{Vmatrix}\hat{f}_{n,h}\end{Vmatrix}_2^2-\frac{2}{n(n-1)}\sum_{i=1}\sum_{j=1,j\ne i}\frac{1}{h}K(\frac{X_i-X_j}{h})
+\]</span></p>
+<p>On définit alors</p>
+<p><span class="math display">\[
+\hat{h} = arg\ \underset{h\in H}{min}\hat{R}(h)
+\]</span></p>
+<p>Si ce minimum est atteint. On cherche une fenêtre parmi une grille finie de valeurs, grille qu’on a notée <span class="math inline">\(H\)</span> dans la formule ci-dessus.<br />
+L’estimateur <span class="math inline">\(\hat{f}_{n,\hat{h}}\)</span> a de bonnes propriétés pratiques et de consistence.
+La validation croisée est une méthode très générale mais nous l’utilisons ici pour le choix la fenêtre <span class="math inline">\(h\)</span> optimale.</p>
 
 </div>
 <div id="méthode-de-goldenshluger-lepski" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Méthode de Goldenshluger-Lepski</h3>
+<p>La méthode de Goldenshluger-Lepski donne principalement des critères de sélection dans une famille d’estimateurs linéaires à noyau, afin d’obtenir un estimateur vérifiant une inégalité d’oracle.<br />
+Avant de présenter ces critéres de sélection on commence d’abord par une introduction aux inégalités d’oracle dans l’estimation adaptative.</p>
 <div id="inégalités-doracle" class="section level4">
 <h4><span class="header-section-number">4.2.2.1</span> Inégalités d’oracle</h4>
+(ref de cette partie sont : <a href="https://hal.inria.fr/tel-01109103/document" class="uri">https://hal.inria.fr/tel-01109103/document</a> 
+Sur l’estimation adaptative d’une densit´e
+multivari´ee sous l’hypoth<code>ese de la structure d’ind´ependance  : l’estimation adaptative d’une densit´e multivari´ee sous l’hypoth</code>ese de la structure
+d’ind´ependance
+)
+Supposons que la fonction estimée appartient à une classe fonctionnelle <span class="math inline">\(\mathcal{F}\)</span> et qu’on a un nombre d’observations n fixé.<br />
+On a pour objectif de choisir, dans une famille d’estimateurs <span class="math inline">\(\mathbb{F} =\)</span>{<span class="math inline">\(\hat{f}_h ; h\in \mathcal{H}\)</span>} indexée par le paramètre <span class="math inline">\(h \in \mathcal{H}\)</span>, un estimateur <span class="math inline">\(\hat{f}_{h^*}\)</span> qui soit le meilleur possible.<br />
+Cela revient à résoudre le problème de minimisation
+<span class="math display">\[
+h^*=arg~inf_{h \in \mathcal{H}} R(\hat{f}_h,f)
+\]</span>
+L’estimateur <span class="math inline">\(\hat{f}_{h^*}\)</span> n’est pas possible à trouver puisqu’il dépend de la fonction inconnue f et c’est aussi pourquoi il est souvent appelé oracle. Le but est donc de s’en servir de son risque pour trouver un estimateur qui fonctionne presque comme cet oracle. Pour cela nous utilisons l’échantillon des observations pour sélectionner un paramètre <span class="math inline">\(\hat{h} \in \mathcal{H}\)</span> tel que <span class="math inline">\(\hat{f}_{\hat{h}}\)</span> vérifie une égalité d’oracle
+<span class="math display">\[
+\mathcal{R}(\hat{f}_{\hat{h}},f) \leq C~inf_{h\in \mathcal{H}}~\mathcal{R}(\hat{f}_{h},f)+\delta,~~~~\forall~~f \in \mathcal{F}.
+\]</span>
+où <span class="math inline">\(C \geq 1\)</span> est une constante indépendante de n et de f, <span class="math inline">\(inf_{h\in \mathcal{H}}R(\hat{f}_h,f)\)</span> est le risque d’oracle et <span class="math inline">\(\delta\)</span> un terme résiduel indépendant de f, souvent négligeable devant le risque d’oracle.<br />
+
+
+<p>La question qui se pose dans la suite est 
+Soit <span class="math inline">\(\mathcal{F}\)</span> une collection d’estimateurs construits à partir des données et <span class="math inline">\(\hat{f}_h \rightarrow \mathcal{R}(\hat{f}_h,f)\)</span> un risque pour l’estimation de f, comment construire un estimateur <span class="math inline">\(\hat{f}_{\hat h}\)</span> tel que <span class="math inline">\(\mathcal{R}(\hat{f}_{\hat h},f) \approx~~inf_{h \in \mathcal{H}} \mathcal{R}(\hat{f}_h,f)\)</span> où <span class="math inline">\(\mathbb{E}[\mathcal{R}(\hat{f}_{\hat{h}},f)] \approx inf_{h \in \mathcal {H}} \mathbb{E}[\mathcal{R}(\hat{f}_h,f)]\)</span>?
+C’est là où s’applique la méthode de Goldenshluger et Lepski. C’est une des méthodes usuelles qui imite la décomposition biais-variance du risque de l’estimateur. 
+Cette méthode se base sur l’observation. Elle consiste à choisir un estimateur dans une famille d’estimateurs linéaires <span class="math inline">\(\mathbb{F} =\)</span>{<span class="math inline">\(\hat{f}_h,h \in \mathcal{H}\)</span>}. Pour cela on doit imposer d’abord quelques suppositions. 
+<em>Suppositions</em> 
+-1) Le noyau K est lipschitzienne</p>
+<p><span class="math display">\[
+|K(x)~-~K(y)| \leq c|x-y|,~~~~\forall(x,y)\in \mathbb{R}.
+\]</span>
+OÙ |.| est la distance euclidienne.
+-2)Il existe un réel <span class="math inline">\(k_{\infty}&lt;\infty\)</span> tel que <span class="math inline">\(||K||_{\infty} \leq k_{\infty}\)</span></p>
+Passons ensuite au critère de sélection.
+<em>Critère de sélection</em> 
+Ce critère comme abordé au dessus se base sur la comparaisons des estimateurs deux à deux en faisant intervenir des estimateurs auxiliaires {<span class="math inline">\(\hat f_{h,\mu},h~~ et~~ \mu \in \mathcal{H}\)</span>} définies comme suit
+<span class="math display">\[
+\hat f_{h,\mu}(x)=\frac{1}{n}\sum^n_{i=1}[K_h * K_{\mu}](x-X_i),
+\]</span>
+où * est le produit de convolution sur <span class="math inline">\(\mathbb{R}\)</span>.
+On définit aussi
+<span class="math display">\[
+\forall h \in \mathcal{H}~~\hat{\mathcal R}_h = sup_{\mu \in \mathcal{H}}[||\hat f_{h,\mu}-\hat f_\mu ||_s - m_s(h,\mu)]_+ + m^*_s(h),
+\]</span>
+où la fonction <span class="math inline">\(m_s\)</span> est appelé le majorant et <span class="math inline">\(m^*_s(h) = sup_{\mu \in \mathcal{H}}m_s(h,\mu) ~~ \forall h \in \mathcal{H}\)</span>
+
+
+<p>De tous ce qui précède <span class="math inline">\(\hat h\)</span> est définie par</p>
+<p><span class="math display">\[
+\hat h = arg~inf_{h \in \mathcal{H}} \mathcal{\hat R}_h.
+\]</span></p>
+<p>Et le critère de comparaison</p>
+<span class="math display">\[
+\hat{\Delta}(h)= sup_{\mu \in \mathcal{H}}[||\hat f_{h,\mu}-\hat f_\mu||_s - m_s(h,\mu)]_+,~~~~\forall h,\mu \in \mathcal H,~~\forall \hat f \in \mathbb F.
+\]</span>
+
+<p>Donc si l’inégalité suivante est vérifié</p>
+<p><span class="math display">\[
+sup_{h \in \mathcal{H}}(\mathbb{E}_f~sup_{\mu \in \mathcal H}[||\xi_{h,\mu}-\xi_\mu || - m_s(h,\mu)]_+^2)^{\frac{1}{2}} \leq \delta,~~\forall f \in \mathbb{F}, ~~\forall h,\mu \in \mathcal H.
+\]</span>
+Et si il existe <span class="math inline">\(\hat h \in \mathcal{H}\)</span> mesurable par rapport à l’observaion et vérifiant</p>
+<p><span class="math display" id="eq:cours-est" id="eq:est-ad" id="eq:oracle">\[
+\hat{\Delta}(\hat h)+sup_{\mu \in \mathcal H}m_s(\hat h, \mu) \leq inf_{h \in \mathcal H}(\hat \Delta(h) +sup_{\mu \in \mathcal H}m_s(h,\mu)).
+\]</span>
+Alors l’estimation selèctionné est <span class="math inline">\(\hat f_{\hat h}\)</span>.</p>
 
 </div>
 </div>
