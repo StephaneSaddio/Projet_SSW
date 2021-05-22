@@ -57,7 +57,7 @@ text-align: justify}
 knitr::opts_chunk$set(echo = T, warning = F, message = F, include = T)
 ```    
 
-### Choix de la fenêtre $h$ par validation croisée
+#### Choix de la fenêtre $h$ par validation croisée
  
  Le choix de la fenêtre dans la section précédente est critiquable: comme on l'a mentionné, il dépend de la régularité la fonction $f$ qui est inconnue dans notre cas. On peut donc essayer d'estimer cette fenêtre idéale par un estimateur $\hat{h}$. De façon à souligner la dépendance à la fonction, on va noter $\hat{f}_{n,h}$ l'estimateur associé à un choix de fenêtre $h$. L'estimateur final sera $\hat{f}_{n,\hat{h}}$, une fois le choix de $\hat{h}$ fait.\newline 
  On cherche à minimiser en $h$  le risque quadratique pour la distance $L_2$ :

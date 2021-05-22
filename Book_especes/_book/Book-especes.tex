@@ -123,23 +123,6 @@
 \author{Wiam Chaoui \and Sophie Manuel \and Stéphane Sadio}
 \date{2021}
 
-\usepackage{amsthm}
-\newtheorem{theorem}{Theorem}[chapter]
-\newtheorem{lemma}{Lemma}[chapter]
-\newtheorem{corollary}{Corollary}[chapter]
-\newtheorem{proposition}{Proposition}[chapter]
-\newtheorem{conjecture}{Conjecture}[chapter]
-\theoremstyle{definition}
-\newtheorem{definition}{Definition}[chapter]
-\theoremstyle{definition}
-\newtheorem{example}{Example}[chapter]
-\theoremstyle{definition}
-\newtheorem{exercise}{Exercise}[chapter]
-\theoremstyle{definition}
-\newtheorem{hypothesis}{Hypothesis}[chapter]
-\theoremstyle{remark}
-\newtheorem*{remark}{Remark}
-\newtheorem*{solution}{Solution}
 \begin{document}
 \maketitle
 
@@ -167,7 +150,7 @@
 \hspace*{0.5cm}
 La classification du vivant est depuis longtemps un vrai casse-tête pour les biologistes, surtout en ce qui concerne la notion d'\emph{espèce}. De fait, il existe plusieurs définitions du mot espèce, ce qui rend encore plus compliqué un consensus. C'est pour cela que dans la suite nous ne nous étendrons pas sur cette notion et nous ne nous concentrerons que sur des espèces prédéfinies.
 
-Les \emph{arbres phylogénétiques} sont des outils permettant de représenter graphiquement certaines données de classification. En effet, ils présentent les relations de parenté entre \emph{espèces}. On retrouve dessous différentes espèces actuelles, mais aussi leurs ancêtres communs (les \emph{branchements évolutifs} qui correspondent à l'apparition d'une nouvelle homologie), ou encore la durée avant l'apparition d'une nouvelle espèce qui est donnée par la longeur des branches.
+Les \emph{arbres phylogénétiques} sont des outils permettant de représenter graphiquement certaines données de classification. En effet, ils présentent les relations de parenté entre \emph{espèces}. On retrouve dessous différentes espèces actuelles, mais aussi leurs ancêtres communs (les \emph{branchements évolutifs} qui correspondent à l'apparition d'une nouvelle homologie), ou encore la durée avant l'apparition d'une nouvelle espèce qui est donnée par la longueur des branches.
 
 \includegraphics{Images/arbre_intro.jpg}
 Dans la suite, nous nous intéresserons aux \emph{branchements évolutifs}.
@@ -182,7 +165,7 @@ veut estimer la fonction de densité \(f\) qui donne la probabilité
 qu'un nouveau branchement évolutif apparaisse après un certain temps.
 
 Formellement on a le modèle densité suivant, soient les vecteurs aléatoires \(X_1,\dots,X_n\) tel que \(n \in \mathbb{N^*}\) à valeur dans \(\mathbb{R}\), indépendants et identiquement distribués de longueurs de branche observées qui ont pour
-une fonction de densité \(f\) par rapport à la mesure de Lebesgue sur \(\mathbb{R}\) supposée inconnue. notre objectif est d'estimer cette fonction densité f sur laquelle on fait le moins d'hypothèses possibles. On fera seulement les hypothèses d'existence, de continuité et de positivité de la fonction,en servant une observation \((X_1,...X_n)\), ce qui nous mène en statistique non-paramétrique, où le paramètre cherché est une densité de probabilité qui appartient à un espace fonctionnel infini, d'où la problématique de notre sujet.
+une fonction de densité \(f\) par rapport à la mesure de Lebesgue sur \(\mathbb{R}\) supposée inconnue. Notre objectif est d'estimer cette fonction densité f sur laquelle on fait le moins d'hypothèses possibles. On fera seulement les hypothèses d'existence, de continuité et de positivité de la fonction,en servant une observation \((X_1,...X_n)\), ce qui nous mène en statistique non-paramétrique, où le paramètre cherché est une densité de probabilité qui appartient à un espace fonctionnel infini, d'où la problématique de notre sujet.
 
 \hypertarget{probluxe9matique}{%
 \section{Problématique}\label{probluxe9matique}}
@@ -197,17 +180,17 @@ Enfin, pour répondre à la problématique, nous implémenterons un estimateur �
 \hypertarget{muxe9thodes-non-paramuxe9triques}{%
 \chapter{Méthodes non-paramétriques}\label{muxe9thodes-non-paramuxe9triques}}
 
-\hspace*{0.5cm} En statistique, on parle d'estimation quand on cherche à trouver certains paramètres inconnus caractérisant une distribution à partir d'un échantillon de données observées en se basant sur différentes méthodes.
-On se tourne vers l'estimation non-paramétrique lorsqu'on traite des paramètres à dimension infini. Dans notre sujet ce paramètre est la fonction densité appartenant à un espace fonctionnel.\\
-\hspace*{0.5cm} nous présenterons dans la suite une courte introduction
-à l'estimation non paramétrique et nous introduirons les deux classes
+\hspace*{0.5cm} En statistique, on parle d'estimation quand on cherche à trouver certains paramètres inconnus caractérisant une distribution à partir d'un échantillon de données observées, en se basant sur différentes méthodes.
+On se tourne vers l'estimation non-paramétrique lorsque l'on traite des paramètres à dimension infinie. Dans notre cas, ce paramètre est la fonction densité appartenant à un espace fonctionnel.\\
+\hspace*{0.5cm} Nous présenterons dans la suite une courte introduction
+à l'estimation non-paramétrique et nous introduirons les deux classes
 principales de l'estimation fonctionnelle (l'estimation par projection
 et l'estimation à noyau).
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-L'estimation non-paramétrique vise à résoudre des problèmes d'estimation dans le cadre statistique où le modèle auquel on s'intéresse n'est pas décrit par un nombre fini de paramètres et dont chacun de ces paramètres ne permet pas de décrire la structure générale de la distribution des variables aléatoires.\newline Cela signifie qu'on utilise des modèles statistiques à dimension infini.
+L'estimation non-paramétrique vise à résoudre des problèmes d'estimation dans le cadre statistique où le modèle auquel on s'intéresse n'est pas décrit par un nombre fini de paramètres et dont chacun de ces paramètres ne permet pas de décrire la structure générale de la distribution des variables aléatoires.\newline Cela signifie qu'on utilise des modèles statistiques à dimension infinie.
 
 Dans le cadre de notre problématique on s'intéresse à l'estimation de densité.\newline
 Un des principes de base de l'estimation de la densité selon une méthode d'estimation non-paramétrique est le suivant \newline
@@ -215,7 +198,7 @@ Un des principes de base de l'estimation de la densité selon une méthode d'est
 Soit un échantillon d'observations \(X=\{X_1, \dots,X_n\}\) de variables aléatoires i.i.d admettant une densité \(f= F'\). Supposons que \(f \in \mathcal F\) où \(\mathcal{F}\) est un espace fonctionnel. On cherche à estimer la fonction de densité inconnue \(f\) à partir de ces observations.\newline
 On notera \(\hat f\) l'estimateur de f.\newline
 On se trouve donc avec le modèle suivant \(\{\mathbb P=\mathbb P_f,~f \in \mathcal F\}\)
-oû \(\mathbb P_f\) est la mesure probabilité de la densité \(f\).
+où \(\mathbb P_f\) est la mesure probabilité de la densité \(f\).
 
 L'estimation ici concerne donc la fonction elle même plutôt que les paramètres, ce qui explique le nom d'estimation non-paramétrique.\newline
 
@@ -227,8 +210,7 @@ L'estimation ici concerne donc la fonction elle même plutôt que les paramètre
 \hypertarget{estimation-par-histogramme}{%
 \section{Estimation par histogramme}\label{estimation-par-histogramme}}
 
-Une des premières approches possibles d'estimations non-paramétriques de la fonction de densité est l'estimation par l'histogramme. C'est une méthode qui consiste à obtenir un graphique de type histogramme pour la répartition des observations et à considèrer cet histogramme comme une approximation de la fonction densité f.(ref : \url{https://cedric.cnam.fr/vertigo/Cours/ml/coursEstimationDensite.html})
-
+Une des premières approches possibles d'estimations non-paramétriques de la fonction de densité est l'estimation par l'histogramme. C'est une méthode qui consiste à obtenir un graphique de type histogramme pour la répartition des observations et à considèrer cet histogramme comme une approximation de la fonction densité f.\label{eq:cours-est}
 (ajout formule graphique)
 
 \hspace*{0.5cm}
@@ -242,7 +224,7 @@ Nous traiterons dans la suite deux grandes familles de méthodes linéaires pour
 
 \begin{dfn}
 Soient $X= (X_1,...,X_n)$ considérer dans le modèle de densité présenté précédemment et $T_j : \mathbb{R}^d$x$\mathbb{R}^d \rightarrow \mathbb{R}$ des fonctions mesurables.  
-Un estimateur $x \rightarrow \hat{f}(x) = \hat{f}(x,X)$ et dit linéaire si il peut s'écrire sous la forme
+Un estimateur $x \rightarrow \hat{f}(x) = \hat{f}(x,X)$ est dit linéaire si il peut s'écrire sous la forme
 
 $$
 \hat{f}(x) = \sum^N_{j=1}T_j(x,X_j), \forall x \in \mathbb{R}^d.
@@ -251,7 +233,7 @@ $$
 \end{dfn}
 
 \begin{dfn}
-Estimateur par projection : \newline
+(Estimateur par projection) \newline
 Soit $f \in \mathcal F = (L^2 , \parallel\,.\parallel, <\,.,~.>_)$ oû $\mathcal{F} $ un espace de Hilbert muni d'une base orthonormée $(\Phi_j)_{j \in \mathbb{N^*}}$ de $L^2$.Si $\mathbb E _N$  un sous-espace fini de $\mathcal F$ et $a_j = <f,\Phi_j> = \int_{\mathbb R}f(x)\Phi_j(x) dx$ avec $1 \leq |N| < \infty$.\newline
 On appelle un estimateur par projection de la fonction $f$ sur $\mathbb E_N$, la fonction $\Pi_N~f$ définit comme suit 
 
@@ -264,14 +246,14 @@ $$
 -Cette méthode nous ramène au cas paramétrique.\newline
 \end{rem}
 
-Dans la suite on procèdera à la méthode la plus fréquemment utilisée pour l'estimation d'une densité : L'estimation à noyau.\newline 
+Dans la suite on procédera à la méthode la plus fréquemment utilisée pour l'estimation d'une densité : L'estimation à noyau.\newline 
 
 (Argument pour le choix de la méthode à voir)
 
 \hypertarget{estimateurs-uxe0-noyau-de-densituxe9}{%
 \section{Estimateurs à noyau de densité}\label{estimateurs-uxe0-noyau-de-densituxe9}}
 
-Notre but est d'estimer la densité \(f\). Pour cela, on s'appuiera sur un échantillon iid \(X= (X_1,...,X_n)\) où chacune des variables \(X_i\) admet la densité \(f\) (par rapport à la mesure de Lebesgue).
+Notre but est d'estimer la densité \(f\). Pour cela, on s'appuiera sur un échantillon \(i.i.d.\) \(X= (X_1,...,X_n)\) où chacune des variables \(X_i\) admet la densité \(f\) (par rapport à la mesure de Lebesgue).
 
 Pour estimer une densité on peut utiliser une méthode à noyau.
 Les méthodes à noyau sont des méthodes non-paramétriques qui permettent de proposer une estimation de la densité plus lisse que celle obtenue par un histogramme.
@@ -283,7 +265,7 @@ L'idée pour la construction de cet estimateur est d'utiliser l'approximation su
 \[
 f(x) = F'(x)\approx \frac{F(x+h)-F(x-h)}{2h}
 \]
-Pour estimer la densité \(f\) on peut passer par un estimateur \(\hat F_n\) de la fonction de répartion \(F\). \(\hat F_n\) est la fonction de répartition empirique ( \(\hat F_n(x)= \frac1n \sum\limits_{i=1}^n\frac{1}{2h} \mathds1_{X_i \in ]x-h, x+h[}\) ).
+Pour estimer la densité \(f\) on peut passer par un estimateur \(\hat F_n\) de la fonction de répartition \(F\). \(\hat F_n\) est la fonction de répartition empirique ( \(\hat F_n(x)= \frac1n \sum\limits_{i=1}^n\frac{1}{2h} \mathds1_{X_i \in ]x-h, x+h[}\) ).
 \[
 \hat f_n(x)= \frac{\hat F_n(x+h)-\hat F_n(x-h)}{2h} = \frac 1n \sum\limits_{i=1}^n \frac1{2h} \mathds1_{X_i \in ]x-h;x+h]}
 \]
@@ -297,8 +279,8 @@ Cette formule n'est valable que si \(h\) est petit et positif.
 
 ici \(K(u)= \frac12 \mathds{1}_{u \in ]-1;1]}\), il s'agit du noyau de Rosenblatt, mais il existe d'autres noyaux.
 
-\hypertarget{explication-ce-quest-un-noyau}{%
-\subsection{Explication ce qu'est un noyau ?}\label{explication-ce-quest-un-noyau}}
+\hypertarget{quest-un-noyau}{%
+\subsection{Qu'est un noyau ?}\label{quest-un-noyau}}
 
 \begin{dfn} (Noyau)  
 
@@ -409,7 +391,7 @@ $$
 $\int u^jK(u)du =  0,\   \ j = {1,...,\ell}$
 
 \end{dfn}
-\begin{prop}: Si $f \in \Sigma(\beta,L)$ avec $\beta > 0$ et $L > 0$ et si $K$ est un noyau d'ordre $\ell = \left\lfloor{\beta}\right\rfloor$ tel que $\int |{u}^{\beta}|\,.|{K(u)}|~du < \infty$ alors pour tout $x_0 \in \mathbb{R}$, et pour tout $h>0$ le biais peut être borné comme suit:
+\begin{prop}: Si $f \in \Sigma(\beta,L)$ avec $\beta > 0$ et $L > 0$ et si $K$ est un noyau d'ordre $\ell = \left\lfloor{\beta}\right\rfloor$ tel que $\int |{u}^{\beta}|\,.|{K(u)}|~du < \infty$ alors pour tout $x_0 \in \mathbb{R}$, et pour tout $h>0$ le biais peut être borné comme suit :
 
 $$
 |\mathbb{E}[\hat{f}_n(x_0)] - f(x_0)|\leqslant \frac{h^{\beta}L}{\ell!}\int|u|^{\beta}|K(u)|du
@@ -462,8 +444,8 @@ $$
 |\mathbb E \lgroup\hat f_n(x_0)-f(x_0)| \leq \frac{L|h|^{\beta}}{\ell !}\int |K(v)||v|^{\beta}dv
 $$
 \end{demo}
-\begin{corollary}   Le biais au carré tend vers zéro à la vitesse $h^{2\beta}$. En particulier le biais tend vers zéro quand $h$ tend vers zéro. Plus la fonction $f$ est régulière, plus le biais tend vite vers zéro quand $h$ tend vers zéro (à condition bien sûr que l'ordre du noyau soit suffisamment grand). Nous en déduisons la convergence de l'espérance de l'estimateur à noyau $\hat {f}_n$ vers la fonction $f$. Et donc, l'estimateur à noyau est asymptotiquement sans biais, $\hat {f}_n$ est donc consistant.\newline
- \end{corollary}
+\begin{corol}   Le biais au carré tend vers zéro à la vitesse $h^{2\beta}$. En particulier, le biais tend vers zéro quand $h$ tend vers zéro. Plus la fonction $f$ est régulière, plus le biais tend vite vers zéro quand $h$ tend vers zéro (à condition bien sûr que l'ordre du noyau soit suffisamment grand). Nous en déduisons la convergence de l'espérance de l'estimateur à noyau $\hat {f}_n$ vers la fonction $f$. Et donc, l'estimateur à noyau est asymptotiquement sans biais, $\hat {f}_n$ est donc consistant.\newline
+ \end{corol}
 \begin{prop}: Si $f$ est bornée et si $K$ est de carré intégrable alors 
 
 $$
@@ -496,8 +478,8 @@ $$
 $$ 
  \end{demo}
 
-\begin{corollary} Pour que la variance tende vers zéro, il faut que $nh$ tende vers l'infini. En particulier, à $n$ fixé, la variance est une fonction décroissante de $h$. Il y a donc une valeur optimale de $h$ qui doit réaliser l'équilibre entre le biais au carré et la variance. On peut à présent donner un contrôle du risque quadratique par le théorème suivant.
-\end{corollary}
+\begin{corol} Pour que la variance tende vers zéro, il faut que $nh$ tende vers l'infini. En particulier, à $n$ fixé, la variance est une fonction décroissante de $h$. Il y a donc une valeur optimale de $h$ qui doit réaliser l'équilibre entre le biais au carré et la variance. On peut à présent donner un contrôle du risque quadratique par le théorème suivant.
+\end{corol}
 
 \begin{thm} Soit $\beta>0$ et $L>0$ et $K$ un noyau de carré intégrable et d'ordre $\left\lfloor{\beta}\right\rfloor$ tel que $\int |u^{\beta}|\,.|K(u)|du<\infty$. Alors, en choisissant une fenêtre de la forme $h=cn^{-\frac{1}{2\beta+1}}$ avec une constante $c>0$, on obtient pour tout $x_0 \in \mathbb{R}$,
 
@@ -506,10 +488,10 @@ R(\hat {f}_n(x_0)),\Sigma_d(\beta, L)):= \underset{f\in\Sigma_d(\beta,L)}{sup}\m
 $$ 
  où $C$ est une constante dépendant de $L,~\beta,~ c$ et $K$.
  \end{thm}
-\begin{demo}: 
+\begin{demo}
   On a :
 $$
- R(\hat {f}_n(x_0),f(x_0))= \text{Biais au carré + Variance}
+ R(\hat {f}_n(x_0),f(x_0))= \text{Biais}^2 + \text{Variance}
 $$ 
 
 Si nous nous référons aux deux propositions précédentes, nous pouvons écrire :
@@ -553,12 +535,13 @@ $$
 \begin{cmtr}: L'estimateur dépend de $\beta$ à travers la fenêtre $h$. Or, sans   connaissance a priori sur les propriétés de la fonction $f$, on ne peut donc pas utiliser cet estimateur. On essaie alors de trouver un choix de fenêtre ne dépendant que des données et qui soit aussi performant (ou presque) que l'estimateur utilisant cette fenêtre optimale. A ce sujet, on introduira plus loin un choix de fenêtre ne dépendant que des données et qui est basé sur ce qu'on appelle la validation croisée (ou "cross validation" en Anglais).  \newline
 \end{cmtr}
 
-\textbackslash begin\{exemple\} (Simulation numérique)
+\textbackslash begin\{exem\} (Simulation numérique)
 Nous estimons la fonction densité d'une somme de deux variables gaussiennes ci-contre avec la méthode à noyau avec différentes fenêtres.
 \[
 f(x)=\frac{1}{2}\frac{1}{\sqrt{2\pi}}(exp(-\frac{(x-2)^2}{2})+exp(-\frac{(x-6)^2}{2}))
 \]
 On va en fait utiliser \texttt{ggplot} pour représenter l'estimateur à noyau. La fonction qui permet de dessiner l'estimateur à noyau est \texttt{geom\_density}. Le paramètre représentant le fenêtre h rappelle \texttt{bw} (comme bandwidth en Anglais).
+\textbackslash end\{exem\}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -589,19 +572,19 @@ On va en fait utiliser \texttt{ggplot} pour représenter l'estimateur à noyau. 
 \includegraphics{Book-especes_files/figure-latex/unnamed-chunk-2-1.pdf}
 
 \hypertarget{muxe9thodes-adaptatives}{%
-\chapter{Méthodes adaptatives :}\label{muxe9thodes-adaptatives}}
+\section{Méthodes adaptatives}\label{muxe9thodes-adaptatives}}
 
-\hspace*{0.5cm} On introduit précédemment la notion de l'estimation de la densité qui dépend d'un paramètre de lissage h. Soit \((\hat{f_h})_{h\in \mathcal H}\) une famille des estimateurs de le fonction densité \(f\) que que l'on cherchons cherche à estimer.\newline
-Une question s'impose : comment peut on construire un estimateur à risque optimal à partir de cette famille en tenant en considération les observations ? \newline
+\hspace*{0.5cm} On introduit précédemment la notion de l'estimation de la densité qui dépend d'un paramètre de lissage \(h\). Soit \((\hat{f_h})_{h\in \mathcal H}\) une famille des estimateurs de la fonction densité \(f\) que que l'on cherchons cherche à estimer.\newline
+Une question s'impose : comment peut-on construire un estimateur à risque optimal à partir de cette famille en tenant en considération les observations ? \newline
 Dans la théorie adaptative f est toujours supposée appartenir à une classe fonctionnelle. Cette classe n'est pas connu à priori mais supposé appartenir à une famille de classes fonctionnelles\{\(\mathcal{F_{\alpha}},\alpha \in\mathcal{A}\)\} où \(\mathcal{A}\) est un ensemble des paramètres de nuisance. ( ref : Sur l'estimation adaptative d'une densité multivariée sous l'hypothèse de la structure d'indépendance-Approche minimax adaptative).\newline
 
-\hspace*{0.5cm} Dans cette partie et afin de répondre a la question qu'on à posé auparavant, on va discuter en premier lieu du choix du noyau, ensuite on introduira deux méthodes pour le choix du paramètre de lissage h.
+\hspace*{0.5cm} Dans cette partie, afin de répondre à la question posée auparavant, nous allons discuter du choix du noyau en premier lieu. Ensuite, nous introduirons deux méthodes pour le choix du paramètre de lissage \(h\).
 
 \hypertarget{choix-du-noyau}{%
-\section{Choix du noyau}\label{choix-du-noyau}}
+\subsection{Choix du noyau}\label{choix-du-noyau}}
 
 \hspace*{0.5cm} Avant de présenter le critère de choix du noyau nous allons introduire quelques outils mathématiques qui simplifient l'écriture du critère.\\
-Tout d'abord, nous avons besoin du risque quadratique \(\mathcal R\) aussi appelé l'erreur quadratique moyenne (\textbf{M}ean \textbf{S}quared \textbf{E}rror en anglais). Dans cette partie nous allons noté \(MSE\) le risque quadratique pour des questions pratiques.
+Tout d'abord, nous avons besoin du risque quadratique \(\mathcal R\) aussi appelé l'erreur quadratique moyenne (\textbf{M}ean \textbf{S}quared \textbf{E}rror en anglais). Dans cette partie nous allons noter \(MSE\) le risque quadratique pour des questions pratiques.
 
 \[
 \begin{aligned}
@@ -666,7 +649,7 @@ $$
 &= \frac1{nh^2} \int_{\mathbb R}  K^2\left(\frac{x_1-x}h\right) f(x_1)dx_1 - \frac1{nh^2} \left[\int_{\mathbb R}  K\left(\frac{x_1-x}h\right) f(x_1)dx_1\right]^2.
 \end{aligned}
 $$
-On effectue encore un fois le même changement de variables.
+On effectue encore une fois le même changement de variables.
 $$t=\frac{x_1-x}h ~~~~\hbox{et}~~~~dt =\frac{dx_1}h.$$
 Nous trouvons désormais,
 $$
@@ -707,11 +690,11 @@ AMISE(x)&= \frac1{nh} \int_{\mathbb R}f(x)dx \int_{\mathbb R}K(t)^2 dt + \frac14
 \end{aligned}
 \]
 
-\hspace*{0.5cm} à présent que nous avons défini les outils nécessaires au choix du noyaux, nous allons pouvoir présenter un critère de choix pour les noyaux continus symétriques. Afin de mesurer l'efficacité des noyaux, nous utilisons une mesure qui calcule le rapport du critère \(AMISE\) de deux noyaux.
+\hspace*{0.5cm} à présent que nous avons défini les outils nécessaires au choix du noyau, nous allons pouvoir présenter un critère de choix pour les noyaux continus symétriques. Afin de mesurer l'efficacité des noyaux, nous utilisons une mesure qui calcule le rapport du critère \(AMISE\) de deux noyaux.
 \[
 eff(K_1,K_2) = \frac{AMISE(K_1)}{AMISE(K_2)}.
 \]
-Supposons que \(K_1\) est le noyau d'Epanechnikov, il est souvent utilisé comme référence par rapport aux autres noyaux continus. Après quelques calculs, on obtient que l'efficacité d'un noyau K par rapport à celui d'Epanachnikov est donnée par
+Supposons que \(K_1\) est le noyau d'Epanechnikov, il est souvent utilisé comme référence par rapport aux autres noyaux continus. Après quelques calculs, on obtient que l'efficacité d'un noyau K par rapport à celui d'Epanechnikov est donnée par
 \[
 eff(K) = \frac{3}{5\times \int_{\mathbb R}K(t)^2 dt\sqrt{5 \times\int_{\mathbb R}t^2K(t) dt} } \leq1.
 \]
@@ -748,28 +731,28 @@ Les valeurs d'efficacité des noyaux sont très proches les unes des autres dans
 \subsection{Comment choisir les paramètres de la méthode ?}\label{comment-choisir-les-paramuxe8tres-de-la-muxe9thode}}
 
 Dans la méthode d'estimation à noyau le choix du noyau n'est pas le plus important, le vrai enjeu de cette méthode est le choix de la fenêtre \(h\) (\emph{bandwidth}).
-En effet, la fenêtre détermine l'influence des données dans l'estimation. Si \(h\) est petit, l'effet local est important donc on aura beaucoup de bruit. Si \(h\) est grand on aura une estimation plus douce, plus lisse.
+En effet, la fenêtre détermine l'influence des données dans l'estimation. Si \(h\) est petit, l'effet local est important donc on aura beaucoup de bruit. Si \(h\) est grand, on aura une estimation plus douce, plus lisse.
 
 Nous pouvons constater l'influence du paramètre \(h\) sur l'exemple suivant :
 
 Nous avons simulé 500 variables suivant une loi de Weibull de paramètres (\(\alpha = 1.7\), \(\lambda=2\)) représentées dans l'histogramme. La courbe en rouge est la fonction de densité de la loi de Weibull et la bleue est l'estimation avec la méthode des noyaux sur les variables simulées.
 
 \includegraphics{Book-especes_files/figure-latex/unnamed-chunk-3-1.pdf}
-La fenêtre \(h\) du second graphique est calculé automatiquement par la fonction \texttt{density}de R.
+La fenêtre \(h\) du second graphique est calculée automatiquement par la fonction \texttt{density}de R.
 
 \hypertarget{choix-de-la-fenuxeatre}{%
-\section{Choix de la fenêtre}\label{choix-de-la-fenuxeatre}}
+\subsection{Choix de la fenêtre}\label{choix-de-la-fenuxeatre}}
 
-L'estimation de densité nécessite le choix de la fentêtre qu'on note h.\newline En statistique non-paramétrique, ils éxistent plusieurs méthodes et critéres de qualité pour le choix de la fêntere.\newline
+L'estimation de densité nécessite le choix de la fenêtre qu'on note h.\newline En statistique non-paramétrique, ils existent plusieurs méthodes et critères de qualité pour le choix de la fenêtre.\newline
 
 On présente dans la suite deux méthodes:\newline
 \hspace*{0.5cm} Méthode de validation croisée.\newline
 \hspace*{0.5cm} Méthode de Goldenshluger-Lepski.\newline
 
 \hypertarget{choix-de-la-fenuxeatre-h-par-validation-croisuxe9e}{%
-\subsection{\texorpdfstring{Choix de la fenêtre \(h\) par validation croisée}{Choix de la fenêtre h par validation croisée}}\label{choix-de-la-fenuxeatre-h-par-validation-croisuxe9e}}
+\subsubsection{\texorpdfstring{Choix de la fenêtre \(h\) par validation croisée}{Choix de la fenêtre h par validation croisée}}\label{choix-de-la-fenuxeatre-h-par-validation-croisuxe9e}}
 
-Le choix de la fenêtre dans la section précédnte est criticable: comme on l'a mentionné, il dépend de la régularité la fonction \(f\) qui est inconnue dans notre cas. On peut donc essayer d'estimer cette fenêtre idéale par un estimateur \(\hat{h}\). De façon à souligner la dépendance à la fonction, on va noter \(\hat{f}_{n,h}\) l'estimateur associé à un choix de fenêtre \(h\). L'estimateur final sera \(\hat{f}_{n,\hat{h}}\), une fois le choix de \(\hat{h}\) fait.\newline       **on fait un choix sur h ?**
+Le choix de la fenêtre dans la section précédente est critiquable: comme on l'a mentionné, il dépend de la régularité la fonction \(f\) qui est inconnue dans notre cas. On peut donc essayer d'estimer cette fenêtre idéale par un estimateur \(\hat{h}\). De façon à souligner la dépendance à la fonction, on va noter \(\hat{f}_{n,h}\) l'estimateur associé à un choix de fenêtre \(h\). L'estimateur final sera \(\hat{f}_{n,\hat{h}}\), une fois le choix de \(\hat{h}\) fait.\newline       **on fait un choix sur h ?**
 On cherche à minimiser en \(h\) le risque quadratique pour la distance \(L_2\) :
 
 \[
@@ -832,37 +815,33 @@ On définit alors
 \]
 
 Si ce minimum est atteint. On cherche une fenêtre parmi une grille finie de valeurs, grille qu'on a notée \(H\) dans la formule ci-dessus.\\
-L'estimateur \(\hat{f}_{n,\hat{h}}\) a de bonnes propriétés pratiques et de consistence.
+L'estimateur \(\hat{f}_{n,\hat{h}}\) a de bonnes propriétés pratiques et de consistance.
 La validation croisée est une méthode très générale mais nous l'utilisons ici pour le choix la fenêtre \(h\) optimale.
 
 \hypertarget{muxe9thode-de-goldenshluger-lepski}{%
-\subsection{Méthode de Goldenshluger-Lepski}\label{muxe9thode-de-goldenshluger-lepski}}
+\subsubsection{Méthode de Goldenshluger-Lepski}\label{muxe9thode-de-goldenshluger-lepski}}
 
 La méthode de Goldenshluger-Lepski donne principalement des critères de sélection dans une famille d'estimateurs linéaires à noyau, afin d'obtenir un estimateur vérifiant une inégalité d'oracle.\\
-Avant de présenter ces critéres de sélection on commence d'abord par une introduction aux inégalités d'oracle dans l'estimation adaptative.
+Avant de présenter ces critères de sélection, commençons d'abord par une introduction aux inégalités d'oracle dans l'estimation adaptative.
 
 \hypertarget{inuxe9galituxe9s-doracle}{%
-\subsubsection{Inégalités d'oracle}\label{inuxe9galituxe9s-doracle}}
+\paragraph{Inégalités d'oracle}\label{inuxe9galituxe9s-doracle}}
 
-(ref de cette partie sont : \url{https://hal.inria.fr/tel-01109103/document} \newline
-Sur l'estimation adaptative d'une densit´e
-multivari´ee sous l'hypoth\texttt{ese\ de\ la\ structure\ d’ind´ependance\ \ :\ l’estimation\ adaptative\ d’une\ densit´e\ multivari´ee\ sous\ l’hypoth}ese de la structure
-d'ind´ependance
-)\newline
+References pour cette partie.\label{eq:oracle} et \label{eq:est-ad} \newline
 Supposons que la fonction estimée appartient à une classe fonctionnelle \(\mathcal{F}\) et qu'on a un nombre d'observations n fixé.\\
 On a pour objectif de choisir, dans une famille d'estimateurs \(\mathbb{F} =\)\{\(\hat{f}_h ; h\in \mathcal{H}\)\} indexée par le paramètre \(h \in \mathcal{H}\), un estimateur \(\hat{f}_{h^*}\) qui soit le meilleur possible.\\
 Cela revient à résoudre le problème de minimisation
 \[
 h^*=arg~inf_{h \in \mathcal{H}} R(\hat{f}_h,f)
 \]
-L'estimateur \(\hat{f}_{h^*}\) n'est pas possible à trouver puisqu'il dépend de la fonction inconnue f et c'est aussi pourquoi il est souvent appelé oracle. Le but est donc de s'en servir de son risque pour trouver un estimateur qui fonctionne presque comme cet oracle. Pour cela nous utilisons l'échantillon des observations pour sélectionner un paramètre \(\hat{h} \in \mathcal{H}\) tel que \(\hat{f}_{\hat{h}}\) vérifie une égalité d'oracle
+L'estimateur \(\hat{f}_{h^*}\) n'est pas calculable en pratique puisqu'il dépend de la fonction inconnue \(f\). C'est aussi pourquoi il est souvent appelé oracle. Le but est donc de se servir de son risque pour trouver un estimateur qui fonctionne presque comme cet oracle. Pour cela nous utilisons l'échantillon des observations pour sélectionner un paramètre \(\hat{h} \in \mathcal{H}\) tel que \(\hat{f}_{\hat{h}}\) vérifie une égalité d'oracle
 \[
 \mathcal{R}(\hat{f}_{\hat{h}},f) \leq C~inf_{h\in \mathcal{H}}~\mathcal{R}(\hat{f}_{h},f)+\delta,~~~~\forall~~f \in \mathcal{F}.
 \]
 où \(C \geq 1\) est une constante indépendante de n et de f, \(inf_{h\in \mathcal{H}}R(\hat{f}_h,f)\) est le risque d'oracle et \(\delta\) un terme résiduel indépendant de f, souvent négligeable devant le risque d'oracle.\\
 
 \begin{rem}
-Lorsque C vaut 1, l'inégalité est dite éxacte et $\hat{f}_{\hat{h}}$ imite l'oracle sur $\mathcal{H}$. \newline
+Lorsque C vaut 1, l'inégalité est dite exacte et $\hat{f}_{\hat{h}}$ imite l'oracle sur $\mathcal{H}$. \newline
 Lorsque C > 1, l'estimateur imite seulement la vitesse de convergence de l'oracle.\newline
 Parfois quand il est difficile de comparer le risque de l'estimateur sélectionné avec celui de l'oracle. on cherche à obtenir une inégalité d'oracle
 $$
@@ -873,7 +852,7 @@ $$
 
 La question qui se pose dans la suite est \newline
 Soit \(\mathcal{F}\) une collection d'estimateurs construits à partir des données et \(\hat{f}_h \rightarrow \mathcal{R}(\hat{f}_h,f)\) un risque pour l'estimation de f, comment construire un estimateur \(\hat{f}_{\hat h}\) tel que \(\mathcal{R}(\hat{f}_{\hat h},f) \approx~~inf_{h \in \mathcal{H}} \mathcal{R}(\hat{f}_h,f)\) où \(\mathbb{E}[\mathcal{R}(\hat{f}_{\hat{h}},f)] \approx inf_{h \in \mathcal {H}} \mathbb{E}[\mathcal{R}(\hat{f}_h,f)]\)?
-C'est là où s'applique la méthode de Goldenshluger et Lepski. C'est une des méthodes usuelles qui imite la décomposition biais-variance du risque de l'estimateur. \newline
+C'est là que s'applique la méthode de Goldenshluger et Lepski. Il s'agit une des méthodes usuelles qui imite la décomposition biais-variance du risque de l'estimateur. \newline
 Cette méthode se base sur l'observation. Elle consiste à choisir un estimateur dans une famille d'estimateurs linéaires \(\mathbb{F} =\)\{\(\hat{f}_h,h \in \mathcal{H}\)\}. Pour cela on doit imposer d'abord quelques suppositions. \newline
 \emph{Suppositions} \newline
 -1) Le noyau K est lipschitzienne\newline
@@ -911,7 +890,7 @@ OPTIMALITY By ALEXANDER GOLDENSHLUGER1 AND OLEG LEPSKI
 La fonction majorante $m_s$ ne dépend pas de la fonction densité f.
 \end{rem}
 
-De tous ce qui précède \(\hat h\) est définie par\newline
+De tout ce qui précède \(\hat h\) est définie par\newline
 
 \[
 \hat h = arg~inf_{h \in \mathcal{H}} \mathcal{\hat R}_h.
@@ -928,22 +907,22 @@ Soient h et$\mu \in \mathcal H$, $m_s$ la fonction majorante définie auparavant
 $m_s$ est de l'ordre de l'écart type de $|\hat f_{h,\mu}(x)-\hat f_\mu(x)|$ pour tout x dans $\mathbb R$.
 \end{rem}
 
-Donc si l'inégalité suivante est vérifié
+Donc si l'inégalité suivante est vérifiée
 
 \[
 sup_{h \in \mathcal{H}}(\mathbb{E}_f~sup_{\mu \in \mathcal H}[||\xi_{h,\mu}-\xi_\mu || - m_s(h,\mu)]_+^2)^{\frac{1}{2}} \leq \delta,~~\forall f \in \mathbb{F}, ~~\forall h,\mu \in \mathcal H.
 \]
-Et si il existe \(\hat h \in \mathcal{H}\) mesurable par rapport à l'observaion et vérifiant
+Et si il existe \(\hat h \in \mathcal{H}\) mesurable par rapport à l'observation et vérifiant
 
 \[
 \hat{\Delta}(\hat h)+sup_{\mu \in \mathcal H}m_s(\hat h, \mu) \leq inf_{h \in \mathcal H}(\hat \Delta(h) +sup_{\mu \in \mathcal H}m_s(h,\mu)).
 \]
-Alors l'estimation selèctionné est \(\hat f_{\hat h}\).
+Alors l'estimation sectionnée est \(\hat f_{\hat h}\).
 
 \hypertarget{applications}{%
 \chapter{Applications}\label{applications}}
 
-Rappelons que nous cherchons à estimer la fonction de densité \(f\) de la durée avant la création d'une nouvelle espèce. Dans ce cadre nous allons faire nos estimations à noyau de la densité sur R en applicant la théorie que nous avons vue jusque là.
+Rappelons que nous cherchons à estimer la fonction de densité \(f\) de la durée avant la création d'une nouvelle espèce. Dans ce cadre nous allons faire nos estimations à noyau de la densité sur R en appliquant la théorie que nous avons vue jusque là.
 
 \hypertarget{fonction-dens}{%
 \section{Fonction dens}\label{fonction-dens}}
@@ -956,7 +935,7 @@ Insérer le script de fonc\_dens.R
 \hypertarget{applications-aux-donnuxe9es-du-vivant}{%
 \section{Applications aux données du vivant}\label{applications-aux-donnuxe9es-du-vivant}}
 
-Maintenant que nous avons notre fonction \texttt{dens} nous allons pouvoir la comparer à la fonction \texttt{density} de R. Pour les comparer nous allons en profiter pour en même temps les appliquer aux données qu'on veux étudier.
+Maintenant que nous avons notre fonction \texttt{dens} nous allons pouvoir la comparer à la fonction \texttt{density} de R. Pour les comparer nous allons en profiter pour en même temps les appliquer aux données qu'on veut étudier.
 
 Insérer test noyau.R
 
