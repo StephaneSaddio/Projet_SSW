@@ -21,7 +21,7 @@ h^*=arg~inf_{h \in \mathcal{H}} R(\hat{f}_h,f)
 $$
 L'estimateur $\hat{f}_{h^*}$ n'est pas possible à trouver puisqu'il dépend de la fonction inconnue f et c'est aussi pourquoi il est souvent appelé oracle. Le but est donc de s'en servir de son risque pour trouver un estimateur qui fonctionne presque comme cet oracle. Pour cela nous utilisons l'échantillon des observations pour sélectionner un  paramètre $\hat{h} \in \mathcal{H}$ tel que $\hat{f}_{\hat{h}}$ vérifie une égalité d'oracle
 $$
-\mathcal{R}(\hat{f}_{\hat{h}},f) \leq C~inf_{h\in \mathcal{H}}~\mathcal{R}(\hat{f}_{h},f)+\delta~~~~\forall~~f \in \mathcal{F}
+\mathcal{R}(\hat{f}_{\hat{h}},f) \leq C~inf_{h\in \mathcal{H}}~\mathcal{R}(\hat{f}_{h},f)+\delta,~~~~\forall~~f \in \mathcal{F}.
 $$
 où $C \geq 1$ est une constante indépendante de n et de f, $inf_{h\in \mathcal{H}}R(\hat{f}_h,f)$ est le risque d'oracle et $\delta$ un terme résiduel indépendant de f, souvent négligeable devant le risque d'oracle.  
 \begin{rem}
@@ -42,7 +42,7 @@ Cette méthode se base sur l'observation. Elle consiste à choisir un estimateur
 -1) Le noyau K est lipschitzienne\newline
 
 $$
-|K(x)~-~K(y)| \leq c|x-y|~~~~\forall(x,y)\in \mathbb{R}
+|K(x)~-~K(y)| \leq c|x-y|,~~~~\forall(x,y)\in \mathbb{R}.
 $$
 OÙ |.| est la distance euclidienne.\newline
 -2)Il existe un réel $k_{\infty}<\infty$ tel que $||K||_{\infty} \leq k_{\infty}$
@@ -51,12 +51,12 @@ Passons ensuite au critère de sélection.\newline
 *Critère de sélection* \newline
 Ce critère comme abordé au dessus se base sur la comparaisons des estimateurs deux à deux en faisant intervenir des estimateurs auxiliaires {$\hat f_{h,\mu},h~~ et~~ \mu \in \mathcal{H}$} définies comme suit
 $$
-\hat f_{h,\mu}(x)=\frac{1}{n}\sum^n_{i=1}[K_h * K_{\mu}](x-X_i)
+\hat f_{h,\mu}(x)=\frac{1}{n}\sum^n_{i=1}[K_h * K_{\mu}](x-X_i),
 $$
 où * est le produit de convolution sur $\mathbb{R}$.\newline
 On définit aussi\newline
 $$
-\forall h \in \mathcal{H}~~\hat{\mathcal R}_h = sup_{\mu \in \mathcal{H}}[||\hat f_{h,\mu}-\hat f_\mu ||_s - m_s(h,\mu)]_+ + m^*_s(h)
+\forall h \in \mathcal{H}~~\hat{\mathcal R}_h = sup_{\mu \in \mathcal{H}}[||\hat f_{h,\mu}-\hat f_\mu ||_s - m_s(h,\mu)]_+ + m^*_s(h),
 $$
 où la fonction $m_s$ est appelé le majorant et $m^*_s(h) = sup_{\mu \in \mathcal{H}}m_s(h,\mu) ~~ \forall h \in \mathcal{H}$\newline
 \begin{prop}
@@ -90,12 +90,12 @@ $m_s$ est de l'ordre de l'écart type de $|\hat f_{h,\mu}(x)-\hat f_\mu(x)|$ pou
 Donc si l'inégalité suivante est vérifié
 
 $$
-sup_{h \in \mathcal{H}}(\mathbb{E}_f~sup_{\mu \in \mathcal H}[||\xi_{h,\mu}-\xi_\mu || - m_s(h,\mu)]_+^2)^{\frac{1}{2}} \leq \delta,~~\forall f \in \mathbb{F}, ~~\forall h,\mu \in \mathcal H
+sup_{h \in \mathcal{H}}(\mathbb{E}_f~sup_{\mu \in \mathcal H}[||\xi_{h,\mu}-\xi_\mu || - m_s(h,\mu)]_+^2)^{\frac{1}{2}} \leq \delta,~~\forall f \in \mathbb{F}, ~~\forall h,\mu \in \mathcal H.
 $$
  Et si il existe $\hat h \in \mathcal{H}$ mesurable par rapport à l'observaion et vérifiant
  
 $$
-\hat{\Delta}(\hat h)+sup_{\mu \in \mathcal H}m_s(\hat h, \mu) \leq inf_{h \in \mathcal H}(\hat \Delta(h) +sup_{\mu \in \mathcal H}m_s(h,\mu))
+\hat{\Delta}(\hat h)+sup_{\mu \in \mathcal H}m_s(\hat h, \mu) \leq inf_{h \in \mathcal H}(\hat \Delta(h) +sup_{\mu \in \mathcal H}m_s(h,\mu)).
 $$
-Alors l'estimation seléctionné est $\hat f_{\hat h}$.
+Alors l'estimation selèctionné est $\hat f_{\hat h}$.
  
