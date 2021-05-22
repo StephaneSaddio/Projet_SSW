@@ -1,9 +1,3 @@
----
-output:
-    html_document:
-    toc_depth: '3'
-    df_print: paged
----
 # Méthodes adaptatives :
 
   \hspace*{0.5cm} On introduit précédemment la notion de l'estimation de la densité qui dépend d'un paramètre de lissage h. Soit  $(\hat{f_h})_{h\in \mathcal H}$ une famille des estimateurs de le fonction densité $f$ que que l'on cherchons cherche à estimer.\newline
@@ -111,17 +105,47 @@ MISE(n,h,K,f) &= \int_{\mathbb R}MSE(x;n,h,K,f)dx\\
 \end{aligned}
 $$
 
-\begin{demo} 
+De la même façon que nous l'avons fait avec l'erreur quadratique moyenne, nous allons calculer l'expression approchée de l'erreur quadratique moyenne (**A**verage of **M**ean **I**ntegrated **S**quared **E**rror en anglais).
 
-\end{demo}
+$$
+\begin{aligned}
+AMISE(x)&= \frac1{nh} \int_{\mathbb R}f(x)dx \int_{\mathbb R}K(t)^2 dt + \frac14h^4 \int_{\mathbb R}f''(x)dx ~~\left(\int_{\mathbb R} t^2K(t) dt \right)^2\\
+&= \frac1{nh} \int_{\mathbb R}K(t)^2 dt 
++ \frac14h^4 \int_{\mathbb R}f''(x)dx ~~\left(\int_{\mathbb R} t^2K(t) dt \right)^2\\
+&= \frac1{nh} \int_{\mathbb R}K(t)^2 dt 
++ \frac14h^4 ~ \mathbb V (K)^2 \int_{\mathbb R}f''(x)dx 
+\end{aligned}
+$$
 
+ \hspace*{0.5cm}  à présent que nous avons défini les outils nécessaires au choix du noyaux, nous allons pouvoir présenter un critère de choix pour les noyaux continus symétriques. Afin de mesurer l'efficacité des noyaux, nous utilisons une mesure qui calcule le rapport du critère $AMISE$ de deux noyaux.
+$$
+eff(K_1,K_2) = \frac{AMISE(K_1)}{AMISE(K_2)}.
+$$
+Supposons que $K_1$ est le noyau d'Epanechnikov, il est souvent utilisé comme référence par rapport aux autres noyaux continus. Après quelques calculs, on obtient que l'efficacité d'un noyau K par rapport à celui d'Epanachnikov est donnée par 
+$$
+eff(K) = \frac{3}{5\times \int_{\mathbb R}K(t)^2 dt\sqrt{5 \times\int_{\mathbb R}t^2K(t) dt} } \leq1.
+$$
+Voici un tableau récapitulatif de l'efficacité  de plusieurs noyaux continus symétriques.
 
+```{r ker_tab}
+dt <- data.frame(Noyau = c("Epanechnikov", "Bigweight", "Triangular",
+"Gaussien", "Rectangulaire"), Efficacité = c(1.000, 0.994, 0.986, 0.951, 0.930))
+knitr::kable(dt, caption = "Efficacité des noyaux continus symétriques")
+```
 
+==================
+Noyau|Efficacité
+------------------
+Epanechnikov|1.000
+Bigweight|0.994
+Triangular|0.986
+Gaussien|0.951
+Rectangulaire|0.930
+===================
 
-
-
-
-
+\begin{rem}
+Les valeurs d'efficacité des noyaux sont très proches les unes des autres dans le cas étudié, surtout pour les trois premiers noyaux du tableau. c'est pour cela que le choix du noyau n'a au final que peu d'importance dans l'estimation de la densité. 
+\end{rem}
 
 ### Comment choisir les paramètres de la méthode ?
 

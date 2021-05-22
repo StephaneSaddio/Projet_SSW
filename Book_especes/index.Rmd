@@ -30,6 +30,7 @@ description: ""
 \newtheorem{rem}{Remarque}
 \newtheorem{propri}{Propriété}
 \newtheorem{thm}{Théorème}
+\newtheorem{cmtr}{Commentaire}
 
 
 ```{r setup, include=FALSE}

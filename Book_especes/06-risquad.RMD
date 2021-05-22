@@ -1,9 +1,3 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
-
 ### Risque quadratique des estimateurs à noyau sur les classe des espaces de Hölder
    
   Nous nous intéressons au risque quadratique de $\hat{f}_n$, définit par :   
@@ -198,7 +192,7 @@ Nous estimons la fonction densité d'une somme de deux variables gaussiennes ci-
 $$
 f(x)=\frac{1}{2}\frac{1}{\sqrt{2\pi}}(exp(-\frac{(x-2)^2}{2})+exp(-\frac{(x-6)^2}{2}))
 $$
-On va en fait utiliser $\texttt{ggplot}$ pour représenter l'estimateur à noyau. La fonction qui permet de dessiner l'estimateur à noyau est $\texttt{geom_density}$.Le paramètre représentant le fenêtre h rappelle $\texttt{bw}$ (comme bandwidth en Anglais).
+On va en fait utiliser `ggplot` pour représenter l'estimateur à noyau. La fonction qui permet de dessiner l'estimateur à noyau est `geom_density`. Le paramètre représentant le fenêtre h rappelle `bw` (comme bandwidth en Anglais).
 ```{r}
 library(ggplot2)
 library(gridExtra)
