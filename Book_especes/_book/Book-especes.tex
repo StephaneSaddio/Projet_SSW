@@ -41,46 +41,6 @@
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -543,32 +503,6 @@ f(x)=\frac{1}{2}\frac{1}{\sqrt{2\pi}}(exp(-\frac{(x-2)^2}{2})+exp(-\frac{(x-6)^2
 On va en fait utiliser \texttt{ggplot} pour représenter l'estimateur à noyau. La fonction qui permet de dessiner l'estimateur à noyau est \texttt{geom\_density}. Le paramètre représentant le fenêtre h rappelle \texttt{bw} (comme bandwidth en Anglais).
 \textbackslash end\{exem\}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(ggplot2)}
-\KeywordTok{library}\NormalTok{(gridExtra)}
-
-\NormalTok{f=}\ControlFlowTok{function}\NormalTok{(x)\{}\FloatTok{0.5}\OperatorTok{*}\KeywordTok{dnorm}\NormalTok{(x,}\DataTypeTok{mean=}\DecValTok{2}\NormalTok{)}\OperatorTok{+}\FloatTok{0.5}\OperatorTok{*}\KeywordTok{dnorm}\NormalTok{(x,}\DataTypeTok{mean=}\DecValTok{6}\NormalTok{)\}}
-\NormalTok{sim=}\ControlFlowTok{function}\NormalTok{(n)\{}
-\NormalTok{X=}\KeywordTok{rnorm}\NormalTok{(n,}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{)}
-\NormalTok{Y=}\KeywordTok{rnorm}\NormalTok{(n,}\DecValTok{6}\NormalTok{,}\DecValTok{1}\NormalTok{)}
-\NormalTok{ber=}\KeywordTok{rbinom}\NormalTok{(}\DataTypeTok{n=}\NormalTok{n,}\DataTypeTok{size=}\DecValTok{1}\NormalTok{,}\DataTypeTok{prob=}\FloatTok{0.5}\NormalTok{)}
-\KeywordTok{return}\NormalTok{(ber}\OperatorTok{*}\NormalTok{X}\OperatorTok{+}\NormalTok{(}\DecValTok{1}\OperatorTok{-}\NormalTok{ber)}\OperatorTok{*}\NormalTok{Y)\}}
-\NormalTok{Z=}\KeywordTok{sim}\NormalTok{(}\DecValTok{1000}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{p<-}\KeywordTok{ggplot}\NormalTok{(}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Z),}\KeywordTok{aes}\NormalTok{(x))}\OperatorTok{+}\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x=}\StringTok{""}\NormalTok{,}\DataTypeTok{y=}\StringTok{""}\NormalTok{)}
-\NormalTok{p1<-p}\OperatorTok{+}\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{bw=}\FloatTok{0.1}\NormalTok{)}\OperatorTok{+}\KeywordTok{stat_function}\NormalTok{(}\DataTypeTok{fun=}\NormalTok{f,}\DataTypeTok{col=}\StringTok{'red'}\NormalTok{,}\DataTypeTok{alpha=}\FloatTok{0.4}\NormalTok{)}\OperatorTok{+}\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"h=0.1"}\NormalTok{)}
-\NormalTok{p2<-p}\OperatorTok{+}\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{bw=}\FloatTok{0.5}\NormalTok{)}\OperatorTok{+}\KeywordTok{stat_function}\NormalTok{(}\DataTypeTok{fun=}\NormalTok{f,}\DataTypeTok{col=}\StringTok{'red'}\NormalTok{,}\DataTypeTok{alpha=}\FloatTok{0.4}\NormalTok{)}\OperatorTok{+}\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"h=0.5"}\NormalTok{)}
-\NormalTok{p3<-p}\OperatorTok{+}\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{bw=}\FloatTok{0.8}\NormalTok{)}\OperatorTok{+}\KeywordTok{stat_function}\NormalTok{(}\DataTypeTok{fun=}\NormalTok{f,}\DataTypeTok{col=}\StringTok{'red'}\NormalTok{,}\DataTypeTok{alpha=}\FloatTok{0.4}\NormalTok{)}\OperatorTok{+}\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"h=0.8"}\NormalTok{)}
-\NormalTok{p4<-p}\OperatorTok{+}\KeywordTok{geom_density}\NormalTok{(}\DataTypeTok{bw=}\FloatTok{1.2}\NormalTok{)}\OperatorTok{+}\KeywordTok{stat_function}\NormalTok{(}\DataTypeTok{fun=}\NormalTok{f,}\DataTypeTok{col=}\StringTok{'red'}\NormalTok{,}\DataTypeTok{alpha=}\FloatTok{0.4}\NormalTok{)}\OperatorTok{+}\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"h=1.3"}\NormalTok{)}
-\KeywordTok{grid.arrange}\NormalTok{(p1,p2,p3,p4,}\DataTypeTok{nrow=}\DecValTok{2}\NormalTok{,}\DataTypeTok{ncol=}\DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \includegraphics{Book-especes_files/figure-latex/unnamed-chunk-2-1.pdf}
 
 \hypertarget{muxe9thodes-adaptatives}{%
@@ -728,7 +662,7 @@ Les valeurs d'efficacité des noyaux sont très proches les unes des autres dans
 \end{rem}
 
 \hypertarget{comment-choisir-les-paramuxe8tres-de-la-muxe9thode}{%
-\subsection{Comment choisir les paramètres de la méthode ?}\label{comment-choisir-les-paramuxe8tres-de-la-muxe9thode}}
+\subsubsection{Comment choisir les paramètres de la méthode ?}\label{comment-choisir-les-paramuxe8tres-de-la-muxe9thode}}
 
 Dans la méthode d'estimation à noyau le choix du noyau n'est pas le plus important, le vrai enjeu de cette méthode est le choix de la fenêtre \(h\) (\emph{bandwidth}).
 En effet, la fenêtre détermine l'influence des données dans l'estimation. Si \(h\) est petit, l'effet local est important donc on aura beaucoup de bruit. Si \(h\) est grand, on aura une estimation plus douce, plus lisse.
@@ -740,21 +674,22 @@ Nous avons simulé 500 variables suivant une loi de Weibull de paramètres (\(\a
 \includegraphics{Book-especes_files/figure-latex/unnamed-chunk-3-1.pdf}
 La fenêtre \(h\) du second graphique est calculée automatiquement par la fonction \texttt{density}de R.
 
+\newpage
+
 \hypertarget{choix-de-la-fenuxeatre}{%
 \subsection{Choix de la fenêtre}\label{choix-de-la-fenuxeatre}}
 
-L'estimation de densité nécessite le choix de la fenêtre qu'on note h.\newline En statistique non-paramétrique, ils existent plusieurs méthodes et critères de qualité pour le choix de la fenêtre.\newline
+L'estimation de densité nécessite de faire le choix de la taille de la fenêtre qu'on note \(h\).\newline En statistique non-paramétrique, ils existent plusieurs méthodes et critères de qualité pour le choix de la fenêtre.\newline
 
-On présente dans la suite deux méthodes:\newline
-\hspace*{0.5cm} Méthode de validation croisée.\newline
-\hspace*{0.5cm} Méthode de Goldenshluger-Lepski.\newline
+On présente dans la suite deux méthodes :
+* Méthode de validation croisée \newline
+* Méthode de Goldenshluger-Lepski.\newline
 
 \hypertarget{choix-de-la-fenuxeatre-h-par-validation-croisuxe9e}{%
 \subsubsection{\texorpdfstring{Choix de la fenêtre \(h\) par validation croisée}{Choix de la fenêtre h par validation croisée}}\label{choix-de-la-fenuxeatre-h-par-validation-croisuxe9e}}
 
-Le choix de la fenêtre dans la section précédente est critiquable: comme on l'a mentionné, il dépend de la régularité la fonction \(f\) qui est inconnue dans notre cas. On peut donc essayer d'estimer cette fenêtre idéale par un estimateur \(\hat{h}\). De façon à souligner la dépendance à la fonction, on va noter \(\hat{f}_{n,h}\) l'estimateur associé à un choix de fenêtre \(h\). L'estimateur final sera \(\hat{f}_{n,\hat{h}}\), une fois le choix de \(\hat{h}\) fait.\newline       **on fait un choix sur h ?**
+Le choix de la fenêtre dans la section précédente est critiquable: comme on l'a mentionné, il dépend de la régularité de la fonction \(f\) qui est inconnue dans notre cas. On peut donc essayer d'estimer cette fenêtre idéale par un estimateur \(\hat{h}\). De façon à souligner la dépendance à la fonction, on va noter \(\hat{f}_{n,h}\) l'estimateur associé à un choix de fenêtre \(h\). L'estimateur final sera \(\hat{f}_{n,\hat{h}}\), une fois le choix de \(\hat{h}\) fait.\newline 
 On cherche à minimiser en \(h\) le risque quadratique pour la distance \(L_2\) :
-
 \[
 \begin{aligned}
 R(\hat {f}_{n,h})&=\mathbb{E}[\begin{Vmatrix}\hat {f}_{n,h}-f\end{Vmatrix}_2^2]\\        
@@ -762,14 +697,14 @@ R(\hat {f}_{n,h})&=\mathbb{E}[\begin{Vmatrix}\hat {f}_{n,h}-f\end{Vmatrix}_2^2]\
 \end{aligned}
 \]
 
-Or la fonction \(f\) étant inconnue, ce risque n'est pas calculable à partir des données. On cherche donc à estimer ce risque en utilisant uniquement les données. Remarquons tout de suite que minimiser en \(h\) la quantité \(R(\hat {f}_{n,h}, f)\) est équivalent à minimiser en \(h\) la quantité \(R(\hat {f}_{n,h}, f)-\begin{Vmatrix}f\end{Vmatrix}_2^2\). On va en fait remplacer la minimisation de la quantité inconnue \(R(\hat {f}_{n,h}, f)-\begin{Vmatrix}f\end{Vmatrix}_2^2\) par la minimisation d'un estimateur \(\hat {R}(h)\) de cette quantité. Plus précisément on va chercher un estimateur sans biais de cette expression:
+Or la fonction \(f\) étant inconnue, ce risque n'est pas calculable à partir des données. On cherche donc à estimer ce risque en utilisant uniquement les données. Remarquons que minimiser en \(h\) la quantité \(R(\hat {f}_{n,h}, f)\) est équivalent à minimiser en \(h\) la quantité \(R(\hat {f}_{n,h}, f)-\begin{Vmatrix}f\end{Vmatrix}_2^2\). On va en fait remplacer la minimisation de la quantité inconnue \(R(\hat {f}_{n,h}, f)-\begin{Vmatrix}f\end{Vmatrix}_2^2\) par la minimisation d'un estimateur \(\hat {R}(h)\) de cette quantité. Plus précisément on va chercher un estimateur sans biais de cette expression:
 
 \[
 \mathbb{E}[\begin{Vmatrix}\hat {f}_{n,h}\end{Vmatrix}_2^2] -2~\mathbb{E}[\int \hat {f}_{n,h}(x)f(x)dx]
 \]
 
 Le premier terme admet \(\begin{Vmatrix}\hat {f}_{n,h}\end{Vmatrix}_2^2\) comme estimateur trivial (d'après la propriété des estimateurs sans biais : \(\mathbb{E}[\hat {\beta}]=\beta\)).\newline
-Il reste à trouver un estimateur sans biais du second terme. Pour cela, nous admettons par construction l'estimateur sans biais \(\hat {G}\) défini en tout points sauf en \(X_i\) (c'est le principe du Leave-one-out):
+Il reste à trouver un estimateur sans biais du second terme. Pour cela, nous admettons par construction l'estimateur sans biais \(\hat {G}\) définit en tout points sauf en \(X_i\) (c'est le principe du Leave-one-out):
 
 \[
 \hat{G} = \frac{1}{n}\sum_{i=1}^n\hat {f}_{n,h}^{(-i)}(X_i)
@@ -789,13 +724,12 @@ Comme les \(X_i\) sont i.i.d., d'une part nous avons :
 &=\frac{1}{h}\int f(x)\int K(\frac {x-X_1}{h})f(x_1)dx_1dx
 \end{aligned}
 \]
-
 D'autre part, nous avons :
 \[ 
 \begin{aligned}
-\mathbb{E}[\hat{G}]&=\mathbb{E}[\frac{1}{n}\sum_{i=1}^n\hat{f}_{n,h}^{(-i)}(X_i)]\\
-&=\mathbb{E}[\hat{f}_{n,h}^{(-1)}(X_1)]\\
-&=\mathbb{E}[\frac{1}{n(n-1)h}\sum_{j\ne 1}K(\frac{X_j-X_1}{h})]\\
+\mathbb{E}[\hat{G}]&=\mathbb{E}[\frac{1}{n}\sum_{i=1}^n\hat{f}_{n,h}^{(-i)}(X_i)]
+=\mathbb{E}[\hat{f}_{n,h}^{(-1)}(X_1)]\\
+&=\mathbb{E}[\frac{1}{(n-1)h}\sum_{j\ne 1}K(\frac{X_j-X_1}{h})]\\
 &=\mathbb{E}[\frac{1}{h}K(\frac{X-X_1}{h})]\\
 &=\frac{1}{h}\int f(x)\int K(\frac{x-x_1}{h})f(x_1)dx_1dx\\
 &=\mathbb{E}[\int \hat{f}_{n,h}(x)f(x)dx] 
@@ -816,7 +750,7 @@ On définit alors
 
 Si ce minimum est atteint. On cherche une fenêtre parmi une grille finie de valeurs, grille qu'on a notée \(H\) dans la formule ci-dessus.\\
 L'estimateur \(\hat{f}_{n,\hat{h}}\) a de bonnes propriétés pratiques et de consistance.
-La validation croisée est une méthode très générale mais nous l'utilisons ici pour le choix la fenêtre \(h\) optimale.
+La validation croisée est une méthode très générale mais nous l'utilisons ici pour le choix de la fenêtre \(h\) optimale.
 
 \hypertarget{muxe9thode-de-goldenshluger-lepski}{%
 \subsubsection{Méthode de Goldenshluger-Lepski}\label{muxe9thode-de-goldenshluger-lepski}}

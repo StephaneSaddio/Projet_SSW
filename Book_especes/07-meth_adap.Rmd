@@ -137,7 +137,7 @@ knitr::kable(dt, caption = "Efficacité des noyaux continus symétriques")
 Les valeurs d'efficacité des noyaux sont très proches les unes des autres dans le cas étudié, surtout pour les trois premiers noyaux du tableau. c'est pour cela que le choix du noyau n'a au final que peu d'importance dans l'estimation de la densité. 
 \end{rem}
 
-### Comment choisir les paramètres de la méthode ?
+#### Comment choisir les paramètres de la méthode ?
 
   Dans la méthode d'estimation à noyau le choix du noyau n'est pas le plus important, le vrai enjeu de cette méthode est le choix de la fenêtre $h$ (*bandwidth*).
   En effet, la fenêtre détermine l'influence des données dans l'estimation. Si $h$ est petit, l'effet local est important donc on aura beaucoup de bruit. Si $h$ est grand, on aura une estimation plus douce, plus lisse.
