@@ -3,6 +3,7 @@ output:
   html_document: default
   pdf_document: default
 ---
+
 ### Risque quadratique des estimateurs à noyau sur les classe des espaces de Hölder
    
   Nous nous intéressons au risque quadratique de $\hat{f}_n$, définit par :   
@@ -32,8 +33,9 @@ $$
 On notera $\Sigma_d(\beta,L)$ l'intersection de $\Sigma(\beta,L)$ et l'ensemble des densités.
 
 \end{dfn}
-\begin{rem} _ Si $\beta = 1$ on obtient l'ensemble des fonctions $L$-lipschitziennes.\newline
-_ Si $\beta > 1$ alors $f'\in \Sigma(\beta-1,L)$.
+\begin{rem} 
+- Si $\beta = 1$ on obtient l'ensemble des fonctions L-lipschitziennes.\newline
+- Si $\beta > 1$ alors $f'\in \Sigma(\beta-1,L)$.
 \end{rem}
 \begin{prop} (admise) Soit $\beta > 0$ et $L > 0$, il existe une constante $M(\beta, L)$ telle que
 
@@ -66,11 +68,12 @@ De plus
 $$
 f(x_0)=f(x_0)\times 1 = f(x_0) \int K(v)dv.
 $$
-Comme $f \in \Sigma(\beta, L)$, $f$ admet $\left\lfloor{\beta}\right\rfloor}$ dérivées et par un développement de Taylor-Lagrange on a, pour tout $x \in \mathbb R$,
+Comme $f \in \Sigma(\beta, L)$, f admet $\left\lfloor{\beta} \right \rfloor$ dérivées et par un développement de Taylor-Lagrange on a, pour tout $x \in \mathbb R$,
 
 $$
 f(x)= \sum_{i=1}^{\ell-1}\frac{(x-x_0)^k}{k!}f^{(k)}(x_0)+\frac{(x-x_0)^\ell}{\ell!}f^{(\ell)}(x_0+\zeta (x-x_0))
 $$  
+
 avec $\zeta \in ]0,1[$. Autrement dit on a, avec $x= x_0+hv$,
 $$
 f(x_0+hv)-f(x_0)=\sum_{i=1}^{\ell-1}\frac{(hv)^k}{k!}f^{(k)}(x_0)+f^{(\ell)}(x_0+hv\zeta)\frac{(hv)}{\ell !}
@@ -84,7 +87,7 @@ $$
 \end{aligned}
 $$
 
-Comme $K$ est d'ordre $\ell$, on a aussi $\int K(v)v^{\ell}f'^(\ell)}(x_0)dv=0$. Donc on a
+Comme $K$ est d'ordre $\ell$, on a aussi $\int K(v)v^{\ell}f'^(\ell)(x_0)dv=0$. Donc on a
 $$
 \int K(v)\lgroup f(x_0+hv)-f(x_0)\rgroup dv = \frac{h^{\ell}}{\ell !}\int K(v)v^{(\ell)}\lgroup f^{(\ell)}(x_0 + hv\zeta)-f^{(\ell)}(x_0)\rgroup dv
 $$

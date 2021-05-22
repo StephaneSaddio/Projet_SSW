@@ -11,6 +11,7 @@ Une question s'impose : comment peut on construire un estimateur à risque optim
 Dans la théorie adaptative f est toujours supposée appartenir à une classe fonctionnelle. Cette classe n'est pas connu à priori mais supposé appartenir à une famille de classes fonctionnelles{$\mathcal{F_{\alpha}},\alpha \in\mathcal{A}$} où $\mathcal{A}$ est un ensemble des paramètres de nuisance. ( ref : Sur l’estimation adaptative d’une densité multivariée sous l’hypothèse de la structure d’indépendance-Approche minimax adaptative).\newline
 
   \hspace*{0.5cm}  Dans cette partie et afin de répondre a la question qu'on à posé auparavant, on va discuter en premier lieu du choix du noyau, ensuite on introduira deux méthodes pour le choix du paramètre de lissage h.
+
  
 ## Choix du noyau
 
@@ -122,13 +123,13 @@ $$
 
 
 
-
 ### Comment choisir les paramètres de la méthode ?
 
   Dans la méthode d'estimation à noyau le choix du noyau n'est pas le plus important, le vrai enjeu de cette méthode est le choix de la fenêtre $h$ (*bandwidth*).
   En effet, la fenêtre détermine l'influence des données dans l'estimation. Si $h$ est petit, l'effet local est important donc on aura beaucoup de bruit. Si $h$ est grand on aura une estimation plus douce, plus lisse.
   
   Nous pouvons constater l'influence du paramètre $h$ sur l'exemple suivant :
+
   Nous avons simulé 500 variables suivant une loi de Weibull de paramètres ($\alpha = 1.7$, $\lambda=2$) représentées dans l'histogramme. La courbe en rouge est la fonction de densité de la loi de Weibull et la bleue est l'estimation avec la méthode des noyaux sur les variables simulées.
 ```{r func_Risk, echo =F}
 # Fonction calculant le risque quadratique (MSE)
@@ -180,28 +181,22 @@ seq <- seq(0,6, length.out = 40)
 yweib <- dweibull(seq,1.7,2)
 rand <-rweibull(500,1.7,2)
 
-hist(rand, breaks = 12, freq = F, xlab = "valeurs de l'échatillon", ylim = c(0,0.5), main = "")
+hist(rand, breaks = 12, freq = F, main = "")
 lines(density(rand, bw = 0.1), col ="blue")
-lines(seq, yweib, col="red")
-title("Fenêtre trop petite \nh = 0.1")
-
-hist(rand, breaks = 12, freq = F, xlab = "valeurs de l'échatillon", ylim = c(0,0.5), main = "")
 lines(density(rand), col ="blue")
-lines(seq, yweib, col="red")
-title("Fenêtre raisonnable \nh = 0.372")
-
-hist(rand, breaks = 12, freq = F, xlab = "valeurs de l'échatillon", ylim = c(0,0.5), main = "")
 lines(density(rand, bw = 2), col ="blue")
 lines(seq, yweib, col="red")
-title("Fenêtre trop grande \nh = 2")
+title("Fenêtre trop petite,\n h = 0.1")
 
-x <- seq(0.03, 1, by = 0.01)
-risvec <- NULL
-j=1
-for (i in x){risvec[j]=Risk(rand,i); j=j+1}
-plot(x, risvec, type = "l", xlab = "taille de la fenêtre h",
-     ylab = "Risque (MSE)", main= "")
-title("Risque estimé en fonction de h \npar validation croisée")
+hist(rand, breaks = 12, freq = F, main = "")
+lines(density(rand), col ="blue")
+lines(seq, yweib, col="red")
+title("Fenêtre raisonnable,\n h = 0.372")
+
+hist(rand, breaks = 12, freq = F, main = "")
+lines(density(rand, bw = 2), col ="blue")
+lines(seq, yweib, col="red")
+title("Fenêtre trop petite,\n h = 2")
 ```
 La fenêtre $h$ du second graphique est calculé automatiquement par la fonction `density`de R. 
  
