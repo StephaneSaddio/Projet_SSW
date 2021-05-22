@@ -1,10 +1,118 @@
+---
+output:
+    html_document:
+    toc_depth: '3'
+    df_print: paged
+---
 # Méthodes adaptatives :
 
- \hspace*{0.5cm} On a introduit précédemment la notion de l'estimation de la densité qui dépend d'un paramètre de lissage h. Soit  $(\hat{f_h})_{h\in \mathcal H}$ une famille des estimateurs de la vrai fonction densité $f$ .\newline
- La question qui se pose   est donc la suivante : comment peut on construire un estimateur à risque optimal à partir de cette famille (en prenant en considération les observations) ? \newline
-  \hspace*{0.5cm}  Dans cette partie et afin de repondre a la question qu'on a poser on va discuter au premier temps du choix du noyau. Ensuite, on va introduire deux méthodes pour le choix du paramètre de lissage h .
+  \hspace*{0.5cm} On introduit précédemment la notion de l'estimation de la densité qui dépend d'un paramètre de lissage h. Soit  $(\hat{f_h})_{h\in \mathcal H}$ une famille des estimateurs de le fonction densité $f$ que que l'on cherchons cherche à estimer.\newline
+Une question s'impose : comment peut on construire un estimateur à risque optimal à partir de cette famille en tenant en considération les observations ? \newline
+Dans la théorie adaptative f est toujours supposée appartenir à une classe fonctionnelle. Cette classe n'est pas connu à priori mais supposé appartenir à une famille de classes fonctionnelles{$\mathcal{F_{\alpha}},\alpha \in\mathcal{A}$} où $\mathcal{A}$ est un ensemble des paramètres de nuisance. ( ref : Sur l’estimation adaptative d’une densité multivariée sous l’hypothèse de la structure d’indépendance-Approche minimax adaptative).\newline
+
+  \hspace*{0.5cm}  Dans cette partie et afin de répondre a la question qu'on à posé auparavant, on va discuter en premier lieu du choix du noyau, ensuite on introduira deux méthodes pour le choix du paramètre de lissage h.
  
 ## Choix du noyau
+
+  \hspace*{0.5cm} Avant de présenter le critère de choix du noyau nous allons introduire quelques outils mathématiques qui simplifient l'écriture du critère.  
+  Tout d'abord, nous avons besoin du risque quadratique $\mathcal R$ aussi appelé l'erreur quadratique moyenne (**M**ean **S**quared **E**rror en anglais). Dans cette partie nous allons noté $MSE$ le risque quadratique pour des questions pratiques.  
+  
+$$
+\begin{aligned}
+MSE &= \mathcal R = \mathbb E \left[ \{  \hat f_n(x)-f(x) \} \right] \\
+&=\mathbb V \left[ \hat f_n(x) \right] + Biais^2 \left[ \hat f_n(x) \right] \\
+&= MSE(x ; n, h, K, f).
+\end{aligned}
+$$
+comme nous l'avons montré précédemment. \@ref{#holder}  
+
+\begin{propri} (Biais ponctuel)
+Pour tout $x$ fixé dans $\mathbb R$, le biais de l'estimateur $\hat f_n$ est donnée par l'équation suivante : 
+$$Biais \left[ \hat f_n(x) \right] \approx \frac12h^2f''(x)\int_{\mathbb R} t^2K(t) dt.$$
+\end{propri}
+
+\begin{demo}
+Démontrons la propriété du biais.
+Rappelons que les variables aléatoires $\{ X_1,~\dots, ~X_n\}$ sont $i.i.d.$, alors
+$$
+\begin{aligned}
+Biais  \left[ \hat f_n(x) \right] &= \mathbb E \left[ \hat f_n(x) \right] - f(x) \\
+&= \mathbb E \left[ \frac1{nh} \sum\limits_{i=1}^n K\left(\frac{X_i-x}h\right) - f(x) \right] \\
+&= \frac1{nh} \sum\limits_{i=1}^n \mathbb E \left[  K\left(\frac{X_i-x}h\right) \right] - f(x) ~\text{par linéarité de l'espérance} \\
+&= \frac1{h} \mathbb E \left[  K\left(\frac{X_1-x}h\right) \right] - f(x) ~~~~~\text{car les } X_i \text{ sont }i.i.d.\\
+&= \frac1{h} \int_{\mathbb R}  K\left(\frac{x_1-x}h\right) f(x_1)dx_1 - f(x).
+\end{aligned}
+$$
+
+Procédons à un changement de variables.
+$$t=\frac{x_1-x}h ~~~~\hbox{et}~~~~dt =\frac{dx_1}h.$$
+On obtient alors, 
+$$
+Biais  \left[ \hat f_n(x) \right]
+= \int_{\mathbb R}  K(t)  f(x+ht)dt - f(x).
+$$
+
+Après avoir transformé l'écriture du biais, nous pouvons donner une approximation de celui-ci en utilisant la formule de Taylor-Young à l'ordre 2.
+$$f(x+ht)=f(x)+htf'(x)+\frac{h^2t^2}2 f''(x)+o(h^2t^2).$$
+Ce qui nous donne en remplaçant dans la formule
+$$
+Biais \left[ \hat f_n(x) \right] \approx \frac12h^2f''(x)\int_{\mathbb R} t^2K(t) dt - f(x) + o(h^2t^2).
+$$
+
+et puisque le noyau est centré et son intégrale sur $\mathbb R$ est égale à $1$, on a bien que 
+$$Biais \left[ \hat f_n(x) \right] \approx \frac12h^2f''(x)\int_{\mathbb R} t^2K(t) dt.$$
+
+\end{demo}
+
+\begin{propri} (Variance ponctuelle)
+Pour tout $x$ fixé dans $\mathbb R$, la variance de l'estimateur $\hat f_n$ est donnée par l'équation suivante : 
+$$\mathbb V \left[ \hat f_n(x) \right] \approx \frac1{nh} f(x) \int_{\mathbb R}K(t)^2 dt.$$
+\end{propri}
+
+\begin{demo}
+Démontrons la propriété de la variance.
+Rappelons que les variables aléatoires $\{ X_1,~\dots, ~X_n\}$ sont $i.i.d.$, alors
+$$
+\begin{aligned}
+\mathbb V  \left[ \hat f_n(x) \right] &= \mathbb V \left[ \frac1{nh} \sum\limits_{i=1}^n K\left(\frac{X_i-x}h\right) \right] \\
+&= \frac1{nh^2} \mathbb V \left[  K\left(\frac{X_1-x}h\right) \right] ~~~~~\text{car les } X_i \text{ sont }i.i.d.\\
+&= \frac1{nh^2} \mathbb E \left[  K\left(\frac{X_1-x}h\right)^2 \right] - \frac1{nh^2} \mathbb E \left[  K\left(\frac{X_1-x}h\right) \right]^2\\
+&= \frac1{nh^2} \int_{\mathbb R}  K^2\left(\frac{x_1-x}h\right) f(x_1)dx_1 - \frac1{nh^2} \left[\int_{\mathbb R}  K\left(\frac{x_1-x}h\right) f(x_1)dx_1\right]^2.
+\end{aligned}
+$$
+On effectue encore un fois le même changement de variables.
+$$t=\frac{x_1-x}h ~~~~\hbox{et}~~~~dt =\frac{dx_1}h.$$
+Nous trouvons désormais,
+$$
+\begin{aligned}
+\mathbb V  \left[ \hat f_n(x) \right] &= \frac1{nh} \int_{\mathbb R}  K^2\left(t\right) f(x+ht)dt - \frac1{n} \left[\int_{\mathbb R}  K\left(t\right) f(x+ht)dt\right]^2\\
+&= \frac1{nh} \int_{\mathbb R}  K^2\left(t\right) f(x+ht)dt - \frac1{n} \left[Biais \left( \hat f_n(x) \right) +f(x)\right]^2\\
+&= \frac1{nh} \int_{\mathbb R}  K^2\left(t\right) f(x+ht)dt - \frac1{n} \left[O \left( h^2 \right) +f(x)\right]^2.
+\end{aligned}
+$$
+Donc si la condition $\int_{mathbb R}K(u)^2du<+\infty$ est vérifiée et que la taille de l'échantillon est importante, l'équation suivante est avérée : 
+$$\mathbb V \left[ \hat f_n(x) \right] \approx \frac1{nh} f(x) \int_{\mathbb R}K(t)^2 dt.$$
+
+\end{demo}
+
+L'approximation de l'erreur quadratique (**A**verage of **M**ean **S**quared **E**rror en anglais) est donnée par l'équation suivante :  
+$$
+AMSE(x)= \frac1{nh} f(x) \int_{\mathbb R}K(t)^2 dt + \left(\frac12h^2f''(x)\int_{\mathbb R} t^2K(t) dt \right)^2.
+$$
+Elle a été calculée à partir de la variance approchée et du biais approché.
+
+
+L'erreur quadratique moyenne intégrée (**M**ean **I**ntregrated **S**quared **E**rror en anglais) est une mesure théorique communément utilisée pour évaluer la différence entre $f$ et $\hat f_n$. Pour l'évaluer on utilise l'erreur quadratique moyenne qu'on intègre sur le support $\mathbb R$ de l'estimateur.
+$$
+\begin{aligned}
+MISE(n,h,K,f) &= \int_{\mathbb R}MSE(x;n,h,K,f)dx\\
+&= \int_{\mathbb R} \mathbb V\left[ \hat f_n(x) \right]  dx+ \int_{\mathbb R} Biais^2 \left[ \hat f_n(x) \right]dx
+\end{aligned}
+$$
+
+\begin{demo} 
+
+\end{demo}
 
 
 
@@ -21,7 +129,7 @@
   En effet, la fenêtre détermine l'influence des données dans l'estimation. Si $h$ est petit, l'effet local est important donc on aura beaucoup de bruit. Si $h$ est grand on aura une estimation plus douce, plus lisse.
   
   Nous pouvons constater l'influence du paramètre $h$ sur l'exemple suivant :
-  Nous avons simulé 500 variables suivant une loi de Weibull de paramètres ($\alpha = 1.7$, $\lambda=2$) représentées dans l'histogramme. La courbe en rouge est la vraie fonction de densité et la bleue est l'estimation avec la méthode des noyaux sur les variables simulées.
+  Nous avons simulé 500 variables suivant une loi de Weibull de paramètres ($\alpha = 1.7$, $\lambda=2$) représentées dans l'histogramme. La courbe en rouge est la fonction de densité de la loi de Weibull et la bleue est l'estimation avec la méthode des noyaux sur les variables simulées.
 ```{r func_Risk, echo =F}
 # Fonction calculant le risque quadratique (MSE)
 Risk<- function(sample, bandwith, kernel){

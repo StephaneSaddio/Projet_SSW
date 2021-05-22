@@ -18,7 +18,7 @@ $$
 
 Notons $\hat f(x)$ l'estimateur à noyau de la densité $f$, alors celui-ci s'écrit :
 $$
-\hat f(x) = \frac1{nh} \sum\limits_{i=1}^n K\left(\frac{X_i-x}h\right)
+\hat f_n(x) = \frac1{nh} \sum\limits_{i=1}^n K\left(\frac{X_i-x}h\right)
 $$
  où $h$ est la fenêtre (ou paramètre de lissage), $n$ le nombre d'observations, et $K$ le noyau.
  Cette formule n'est valable que si $h$ est petit et positif.

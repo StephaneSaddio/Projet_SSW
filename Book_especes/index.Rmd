@@ -18,7 +18,7 @@ output:
     keep_tex: yes
     extra_dependencies: 
     - dsfont
-description: "This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook."
+description: ""
 ---
 
 \newtheorem{dfn}{Définition}
