@@ -41,6 +41,46 @@
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs}
 % Correct order of tables after \paragraph or \subparagraph
 \usepackage{etoolbox}
@@ -235,7 +275,7 @@ Notons \(\hat f(x)\) l'estimateur à noyau de la densité \(f\), alors celui-ci 
 \hat f_n(x) = \frac1{nh} \sum\limits_{i=1}^n K\left(\frac{X_i-x}h\right)
 \]
 où \(h\) est la fenêtre (ou paramètre de lissage), \(n\) le nombre d'observations, et \(K\) le noyau.
-Cette formule n'est valable que si \(h\) est petit et positif.
+Cette formule n'est valable que si \(h\) est petit et strictement positif.
 
 ici \(K(u)= \frac12 \mathds{1}_{u \in ]-1;1]}\), il s'agit du noyau de Rosenblatt, mais il existe d'autres noyaux.
 
@@ -674,21 +714,20 @@ Nous avons simulé 500 variables suivant une loi de Weibull de paramètres (\(\a
 \includegraphics{Book-especes_files/figure-latex/unnamed-chunk-3-1.pdf}
 La fenêtre \(h\) du second graphique est calculée automatiquement par la fonction \texttt{density}de R.
 
-\newpage
-
 \hypertarget{choix-de-la-fenuxeatre}{%
 \subsection{Choix de la fenêtre}\label{choix-de-la-fenuxeatre}}
 
-L'estimation de densité nécessite de faire le choix de la taille de la fenêtre qu'on note \(h\).\newline En statistique non-paramétrique, ils existent plusieurs méthodes et critères de qualité pour le choix de la fenêtre.\newline
+L'estimation de densité nécessite le choix de la fenêtre qu'on note h.\newline En statistique non-paramétrique, ils existent plusieurs méthodes et critères de qualité pour le choix de la fenêtre.\newline
 
-On présente dans la suite deux méthodes :
-* Méthode de validation croisée \newline
-* Méthode de Goldenshluger-Lepski.\newline
+On présente dans la suite deux méthodes:\newline
+\hspace*{0.5cm} Méthode de validation croisée.\newline
+\hspace*{0.5cm} Méthode de Goldenshluger-Lepski.\newline
 
 \hypertarget{choix-de-la-fenuxeatre-h-par-validation-croisuxe9e}{%
 \subsubsection{\texorpdfstring{Choix de la fenêtre \(h\) par validation croisée}{Choix de la fenêtre h par validation croisée}}\label{choix-de-la-fenuxeatre-h-par-validation-croisuxe9e}}
 
-Le choix de la fenêtre dans la section précédente est critiquable: comme on l'a mentionné, il dépend de la régularité de la fonction \(f\) qui est inconnue dans notre cas. On peut donc essayer d'estimer cette fenêtre idéale par un estimateur \(\hat{h}\). De façon à souligner la dépendance à la fonction, on va noter \(\hat{f}_{n,h}\) l'estimateur associé à un choix de fenêtre \(h\). L'estimateur final sera \(\hat{f}_{n,\hat{h}}\), une fois le choix de \(\hat{h}\) fait.\newline 
+Le choix de la fenêtre dans la section précédente est critiquable: comme on l'a mentionné, il dépend de la régularité la fonction \(f\) qui est inconnue dans notre cas. On peut donc essayer d'estimer cette fenêtre idéale par un estimateur \(\hat{h}\). De façon à souligner la dépendance à la fonction, on va noter \(\hat{f}_{n,h}\) l'estimateur associé à un choix de fenêtre \(h\). L'estimateur final sera \(\hat{f}_{n,\hat{h}}\), une fois le choix de \(\hat{h}\) fait.\newline 
+
 On cherche à minimiser en \(h\) le risque quadratique pour la distance \(L_2\) :
 \[
 \begin{aligned}
@@ -704,28 +743,32 @@ Or la fonction \(f\) étant inconnue, ce risque n'est pas calculable à partir d
 \]
 
 Le premier terme admet \(\begin{Vmatrix}\hat {f}_{n,h}\end{Vmatrix}_2^2\) comme estimateur trivial (d'après la propriété des estimateurs sans biais : \(\mathbb{E}[\hat {\beta}]=\beta\)).\newline
-Il reste à trouver un estimateur sans biais du second terme. Pour cela, nous admettons par construction l'estimateur sans biais \(\hat {G}\) définit en tout points sauf en \(X_i\) (c'est le principe du Leave-one-out):
+Il reste à trouver un estimateur sans biais du second terme.
 
-\[
+\begin{lem} Soit $\hat {G}$ définit en tout points sauf en $X_i$ (c'est le principe du Leave-one-out):
+
+$$
 \hat{G} = \frac{1}{n}\sum_{i=1}^n\hat {f}_{n,h}^{(-i)}(X_i)
-\]
+$$
 avec :
 
-\[
+$$
   \hat {f}_{n,h}^{(-i)}(x)= \frac{1}{n-1}\frac{1}{h}\sum_{j=1,j\ne i}^nK(\frac{x-X_j}{h})
-\]
-
-Montrons que \(\mathbb{E}(\hat{G})=\mathbb{E}[\int \hat{f}_{n,h}(x)f(x)dx]\).\newline
-Comme les \(X_i\) sont i.i.d., d'une part nous avons :
-\[
+$$
+Cette estimateur $\hat G$, par construction est l'estimateur sans biais de $\int \hat{f}_{n,h}(x)f(x)dx$.
+\end{lem}
+\begin{demo}
+Montrons que $\mathbb{E}(\hat{G})=\mathbb{E}[\int \hat{f}_{n,h}(x)f(x)dx]$.\newline
+Comme les $X_i$ sont i.i.d., d'une part nous avons :
+$$
 \begin{aligned}
 \mathbb{E}[\int \hat {f}_{n,h}(x)f(x)dx]&= \mathbb{E}[\int \frac {1}{nh}\sum_{i=1}^nK(\frac {x-X_i}{h})f(x)dx]\\
 &=\frac{1}{h}\mathbb{E}[\int K(\frac {x-x_1}{h})f(x)dx] \\
 &=\frac{1}{h}\int f(x)\int K(\frac {x-X_1}{h})f(x_1)dx_1dx
 \end{aligned}
-\]
-D'autre part, nous avons :
-\[ 
+$$
+D'autre part, nous avons : 
+$$ 
 \begin{aligned}
 \mathbb{E}[\hat{G}]&=\mathbb{E}[\frac{1}{n}\sum_{i=1}^n\hat{f}_{n,h}^{(-i)}(X_i)]
 =\mathbb{E}[\hat{f}_{n,h}^{(-1)}(X_1)]\\
@@ -734,9 +777,12 @@ D'autre part, nous avons :
 &=\frac{1}{h}\int f(x)\int K(\frac{x-x_1}{h})f(x_1)dx_1dx\\
 &=\mathbb{E}[\int \hat{f}_{n,h}(x)f(x)dx] 
 \end{aligned}
-\]
+$$
 
-Donc, \(\hat{G}\) est un estimateur sans biais de \(\int\hat{f}_{n,h}(x)f(x)dx\). Finalement, l'estimateur sans biais de \(R(\hat{f}_{n,h}, f)-\begin{Vmatrix}{f}\end{Vmatrix}_2^2\) est donné par:
+Donc, $\hat{G}$ est un estimateur sans biais de $\int\hat{f}_{n,h}(x)f(x)dx$.
+\end{demo}
+
+Finalement, l'estimateur sans biais de \(R(\hat{f}_{n,h}, f)-\begin{Vmatrix}{f}\end{Vmatrix}_2^2\) est donné par:
 
 \[
 \hat{R}(h)=\begin{Vmatrix}\hat{f}_{n,h}\end{Vmatrix}_2^2-\frac{2}{n(n-1)}\sum_{i=1}\sum_{j=1,j\ne i}\frac{1}{h}K(\frac{X_i-X_j}{h})
@@ -750,7 +796,8 @@ On définit alors
 
 Si ce minimum est atteint. On cherche une fenêtre parmi une grille finie de valeurs, grille qu'on a notée \(H\) dans la formule ci-dessus.\\
 L'estimateur \(\hat{f}_{n,\hat{h}}\) a de bonnes propriétés pratiques et de consistance.
-La validation croisée est une méthode très générale mais nous l'utilisons ici pour le choix de la fenêtre \(h\) optimale.
+
+La validation croisée est une méthode très générale mais nous l'utilisons ici pour le choix la fenêtre \(h\) optimale.
 
 \hypertarget{muxe9thode-de-goldenshluger-lepski}{%
 \subsubsection{Méthode de Goldenshluger-Lepski}\label{muxe9thode-de-goldenshluger-lepski}}
@@ -871,9 +918,185 @@ Insérer le script de fonc\_dens.R
 
 Maintenant que nous avons notre fonction \texttt{dens} nous allons pouvoir la comparer à la fonction \texttt{density} de R. Pour les comparer nous allons en profiter pour en même temps les appliquer aux données qu'on veut étudier.
 
-Insérer test noyau.R
+Pour commencer nous allons tester les fonctions avec un premier exemple fictif.
 
-Estimer loi espérance variance.
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Estimation de la densité par la méthode des noyaux (Test)}
+
+\CommentTok{## Chi 2 à 6 ddl}
+
+\NormalTok{seq <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{30}\NormalTok{, }\DataTypeTok{length.out =} \DecValTok{60}\NormalTok{)}
+\NormalTok{ychi2 <-}\StringTok{ }\KeywordTok{dchisq}\NormalTok{(seq,}\DecValTok{6}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(seq, ychi2, }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Book-especes_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rand <-}\KeywordTok{rchisq}\NormalTok{(}\DecValTok{100}\NormalTok{,}\DecValTok{6}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(rand, }\DataTypeTok{breaks =} \DecValTok{60}\NormalTok{, }\DataTypeTok{freq =}\NormalTok{ F, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\KeywordTok{max}\NormalTok{(rand)}\OperatorTok{+}\DecValTok{3}\NormalTok{))}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(rand, }\DataTypeTok{kernel =}  \StringTok{"epanechnikov"}\NormalTok{, }\DataTypeTok{bw =} \DecValTok{1}\NormalTok{), }\DataTypeTok{col =}\StringTok{"black"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(rand),}\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(rand, }\DataTypeTok{kernel =}  \StringTok{"rectangular"}\NormalTok{), }\DataTypeTok{col =}\StringTok{"purple"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(rand, }\DataTypeTok{kernel =}  \StringTok{"triangular"}\NormalTok{), }\DataTypeTok{col =}\StringTok{"green"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(seq, ychi2, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{)}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{,}\KeywordTok{c}\NormalTok{(}\StringTok{"gaussien"}\NormalTok{, }\StringTok{"epanechnikov"}\NormalTok{, }\StringTok{"rectangulaire"}\NormalTok{, }\StringTok{"triangulaire"}\NormalTok{, }\StringTok{"chi2"}\NormalTok{),}
+       \DataTypeTok{lty=}\DecValTok{1}\NormalTok{, }\DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\StringTok{"black"}\NormalTok{,}\StringTok{"purple"}\NormalTok{,}\StringTok{"green"}\NormalTok{,}\StringTok{"red"}\NormalTok{))}
+\KeywordTok{rug}\NormalTok{(rand,}\DataTypeTok{col=}\StringTok{"darkred"}\NormalTok{) }\CommentTok{# Visualisation 1d}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Book-especes_files/figure-latex/unnamed-chunk-4-2.pdf}
+Comme nous l'avons vu théoriquement, on voit relativement bien ici que la différence au niveau du choix du noyau n'est pas très impactante sur la qualité de l'estimation.
+
+Nous allons maintenant tester les fonctions d'estimation de la densité sur deux exemples.
+Commençons par les familles d'oiseaux (\texttt{bird.families}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Voici des librairies contenant des arbres phylogénétiques.}
+\KeywordTok{library}\NormalTok{(ape)}
+\KeywordTok{library}\NormalTok{(geiger)}
+
+\CommentTok{## test avec bird families}
+
+\CommentTok{### arbre}
+\KeywordTok{data}\NormalTok{(}\StringTok{"bird.families"}\NormalTok{)}
+\NormalTok{op <-}\StringTok{ }\KeywordTok{par}\NormalTok{()}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{cex =} \FloatTok{0.3}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(bird.families)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Book-especes_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{cex =}\NormalTok{ op}\OperatorTok{$}\NormalTok{cex)}
+
+\CommentTok{#### noyau gaussien}
+
+\NormalTok{d<-bird.families}\OperatorTok{$}\NormalTok{edge.length}
+\NormalTok{vec <-}\StringTok{ }\KeywordTok{pretty}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\NormalTok{(}\KeywordTok{max}\NormalTok{(d)}\OperatorTok{+}\DecValTok{3}\NormalTok{),((}\KeywordTok{max}\NormalTok{(d)}\OperatorTok{+}\DecValTok{3}\NormalTok{)}\OperatorTok{*}\DecValTok{2}\NormalTok{))}
+\KeywordTok{hist}\NormalTok{(d, }\DataTypeTok{breaks =}\NormalTok{ vec, }\DataTypeTok{freq =}\NormalTok{ F, }\DataTypeTok{xlab =} \StringTok{"Durée"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(d), }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{) }\CommentTok{# bw = 1.82}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Book-especes_files/figure-latex/unnamed-chunk-5-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(d, }\DataTypeTok{kernel=} \StringTok{"gaussian"}\NormalTok{, }\DataTypeTok{window =} \StringTok{"gaussian"}\NormalTok{),}
+     \DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{bty =} \StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"Durée"}\NormalTok{)}
+\KeywordTok{polygon}\NormalTok{(}\KeywordTok{density}\NormalTok{(d, }\DataTypeTok{kernel=} \StringTok{"gaussian"}\NormalTok{), }\DataTypeTok{col=}\DecValTok{2}\NormalTok{, }\DataTypeTok{border =} \StringTok{"blue"}\NormalTok{)}
+\KeywordTok{rug}\NormalTok{(d, }\DataTypeTok{col=} \StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Book-especes_files/figure-latex/unnamed-chunk-5-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cat}\NormalTok{(}\StringTok{"La moyenne de cet échantillon est de : "}\NormalTok{, }\KeywordTok{mean}\NormalTok{(d), }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## La moyenne de cet échantillon est de :  7.413653
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cat}\NormalTok{(}\StringTok{"La variance de cet échantillon est de : "}\NormalTok{, }\KeywordTok{var}\NormalTok{(d)}\OperatorTok{*}\StringTok{ }\NormalTok{(}\KeywordTok{length}\NormalTok{(d)}\OperatorTok{-}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(d))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## La variance de cet échantillon est de :  38.35033
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# estimateur biaisé}
+\CommentTok{# max(d) = 27}
+\end{Highlighting}
+\end{Shaded}
+
+Sur cette échantillon on remarque une répartition bimodale de l'effectif. Effectivement, on observe un mode autour de 1 et un autre autour de 10. On peut supposer en regardant ce tableau que cet échantillon contient des familles d'oiseaux distinctes, ayant suffisamment de différences pour ne pas avoir le même temps d'évolution. C'est pour cela que la moyenne de l'échantillon se trouve au final, là où il y a peu d'individus (moins de \(5\%\)). On remarque aussi que les durée sont relativement concentrées avec une variance de \(38\), elles ne dépassent pas 27.
+
+Maintenant, faisons une autre estimation de la densité sur un échantillon d'espèces de tortues (\texttt{chelonia}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{### test avec chelonia (turtules)}
+
+\CommentTok{#### arbre}
+\KeywordTok{data}\NormalTok{(chelonia)}
+\NormalTok{op <-}\StringTok{ }\KeywordTok{par}\NormalTok{()}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{cex =} \FloatTok{0.3}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(chelonia}\OperatorTok{$}\NormalTok{phy)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Book-especes_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{cex =}\NormalTok{ op}\OperatorTok{$}\NormalTok{cex)}
+
+\CommentTok{#### noyau gaussien}
+\NormalTok{d<-chelonia}\OperatorTok{$}\NormalTok{phy}\OperatorTok{$}\NormalTok{edge.length}
+\CommentTok{#d1<-chelonia$dat}
+\NormalTok{vec <-}\StringTok{ }\KeywordTok{pretty}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\NormalTok{(}\KeywordTok{max}\NormalTok{(d)}\OperatorTok{+}\DecValTok{3}\NormalTok{), ((}\KeywordTok{max}\NormalTok{(d)}\OperatorTok{+}\DecValTok{3}\NormalTok{)}\OperatorTok{*}\DecValTok{2}\NormalTok{))}
+\KeywordTok{hist}\NormalTok{(d, }\DataTypeTok{breaks=}\NormalTok{ vec, }\DataTypeTok{freq =}\NormalTok{ F, }\DataTypeTok{xlab =} \StringTok{"Durée"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(d), }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{) }\CommentTok{# bw = 0.201}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Book-especes_files/figure-latex/unnamed-chunk-6-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(d, }\DataTypeTok{kernel=} \StringTok{"gaussian"}\NormalTok{), }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{bty =} \StringTok{"n"}\NormalTok{)}
+\KeywordTok{polygon}\NormalTok{(}\KeywordTok{density}\NormalTok{(d, }\DataTypeTok{kernel=} \StringTok{"gaussian"}\NormalTok{),}\DataTypeTok{col=}\DecValTok{2}\NormalTok{,}\DataTypeTok{border =} \StringTok{"blue"}\NormalTok{)}
+\KeywordTok{rug}\NormalTok{(d, }\DataTypeTok{col=} \StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Book-especes_files/figure-latex/unnamed-chunk-6-3.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cat}\NormalTok{(}\StringTok{"La moyenne de cet échantillon est de : "}\NormalTok{, }\KeywordTok{mean}\NormalTok{(d), }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## La moyenne de cet échantillon est de :  12.93598
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cat}\NormalTok{(}\StringTok{"La variance de cet échantillon est de : "}\NormalTok{, }\KeywordTok{var}\NormalTok{(d)}\OperatorTok{*}\StringTok{ }\NormalTok{(}\KeywordTok{length}\NormalTok{(d)}\OperatorTok{-}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(d)) }\CommentTok{# estimateur biaisé}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## La variance de cet échantillon est de :  285.3433
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# max(d) = 150}
+\end{Highlighting}
+\end{Shaded}
+
+Si on compare cet échantillon avec le précédent, on remarque cette fois la distribution est plus étalée (avec une variance de \(258.3\)) et unimodale. Cependant la moyenne n'est pas énormément supérieure à celle des familles d'oiseaux. Cela s'explique par le fait que beaucoup d'espèces de tortue sont apparues en moins de 25 ans et qu'on observe le pic autour de \(1\).
+On en déduit qu'en moyenne on met plus de temps à obtenir une nouvelle espèce de tortue plutôt qu'une nouvelle espèce d'oiseau.
 
 \hypertarget{conclusion}{%
 \chapter{Conclusion}\label{conclusion}}

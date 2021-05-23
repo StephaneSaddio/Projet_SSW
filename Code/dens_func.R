@@ -30,25 +30,44 @@ dens <- function(sample, bandwith, kernel){
                   biweight = function(u){ 
                     return(ifelse(abs(u) < 1, 15/16*(1 - u^2)^2, 0)) }) # noyau caractère en fonction
       
-
       
     if (missing(bandwith)){
-        
+
       bandwith <- seq(0,5,0.1)
       s <- 0
       for (i in 1:n){ 
       s<- s + sum(kern( (X[i]-X[-i])/bandwith)) 
       }
       
-      #n2hat_f <- norm(hat_f,2)^2  # ne fonctionne pas, doit être un vecteur
-      #n2hat_f <- hat_f(x, X, bandwith)$norm22
+    
       n2hat_f <- integrate(hat_f^2)
       
       R <- n2hat_f - 2/(n(n-1))* s /bandwith
-      #gradient ?
       bandwith <- optim(bandwith, R)
       #bandwith <- bandwith[which.max(R)]
     }
+      
+      # La boucle ci-dessous provient de la fonction density,
+      # nous l'avons ajouté juste pour avoir une fonction un peu plus complète
+      # avec d'autres méthodes de calcul de la fenêtre que celle de Goldenshluger-Lepski.
+      ######
+      if (is.character(bandwith)) {
+      if(n < 2)
+          stop("need at least 2 points to select a bandwidth automatically")
+      bandwith <- switch(tolower(bandwith),
+                   nrd0 = bw.nrd0(x),
+                   nrd = bw.nrd(x),
+                   ucv = bw.ucv(x),
+                   bcv = bw.bcv(x),
+                   sj = , "sj-ste" = bw.SJ(x, method="ste"),
+                   "sj-dpi" = bw.SJ(x, method="dpi"),
+                    stop("unknown bandwidth rule"))
+      }
+      
+      if (!is.finite(bandwith)) stop("non-finite 'bandwith'")
+      if (bandwith <= 0) stop("'bandwith' is not positive.")
+      ########
+      
       hatfvect <- NULL
       for (i in 1:n){
         som = 0
@@ -64,7 +83,7 @@ dens <- function(sample, bandwith, kernel){
 plot(rand)
 rand[rand=a$y]
 
-test = dens(rand, bandwith = 1.1)
+test = dens(rand, bandwith = "ucv")
 plot(seq(min(rand), max(rand), length.out =  100), type="l", test)
 lines(dchisq(0:21, 6)) 
 lines(density(rand, kernel = "gaussian"), col = "red")
@@ -128,4 +147,9 @@ MSE <- function(m, o){
 }
 id <- function(x){x+1}
 id(2)
+
+
+
+
+exp(seq(log(from), log(to), length.out = ceiling(length.out)))
  

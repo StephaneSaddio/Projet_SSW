@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-### Choix de la fenêtre $h$ par validation croisée
- 
- Le choix de la fenêtre dans la section précédente est critiquable: comme on l'a mentionné, il dépend de la régularité la fonction $f$ qui est inconnue dans notre cas. On peut donc essayer d'estimer cette fenêtre idéale par un estimateur $\hat{h}$. De façon à souligner la dépendance à la fonction, on va noter $\hat{f}_{n,h}$ l'estimateur associé à un choix de fenêtre $h$. L'estimateur final sera $\hat{f}_{n,\hat{h}}$, une fois le choix de $\hat{h}$ fait.\newline 
-=======
 ### Choix de la fenêtre
   L'estimation de densité nécessite le choix de la fenêtre qu'on note h.\newline En statistique non-paramétrique, ils existent plusieurs méthodes et critères de qualité pour le choix de la fenêtre.\newline
   
@@ -12,8 +7,8 @@
     
 #### Choix de la fenêtre $h$ par validation croisée
  
- Le choix de la fenêtre dans la section précédente est critiquable: comme on l'a mentionné, il dépend de la régularité la fonction $f$ qui est inconnue dans notre cas. On peut donc essayer d'estimer cette fenêtre idéale par un estimateur $\hat{h}$. De façon à souligner la dépendance à la fonction, on va noter $\hat{f}_{n,h}$ l'estimateur associé à un choix de fenêtre $h$. L'estimateur final sera $\hat{f}_{n,\hat{h}}$, une fois le choix de $\hat{h}$ fait.\newline       **on fait un choix sur h ?**
->>>>>>> ba031c5db4d96b8328f51610e88b0c6a9116d671
+ Le choix de la fenêtre dans la section précédente est critiquable: comme on l'a mentionné, il dépend de la régularité la fonction $f$ qui est inconnue dans notre cas. On peut donc essayer d'estimer cette fenêtre idéale par un estimateur $\hat{h}$. De façon à souligner la dépendance à la fonction, on va noter $\hat{f}_{n,h}$ l'estimateur associé à un choix de fenêtre $h$. L'estimateur final sera $\hat{f}_{n,\hat{h}}$, une fois le choix de $\hat{h}$ fait.\newline 
+ 
  On cherche à minimiser en $h$  le risque quadratique pour la distance $L_2$ :
 $$
 \begin{aligned}
@@ -30,7 +25,7 @@ $$
 
 Le premier terme admet $\begin{Vmatrix}\hat {f}_{n,h}\end{Vmatrix}_2^2$ comme estimateur trivial (d'après la propriété des estimateurs sans biais : $\mathbb{E}[\hat {\beta}]=\beta$).\newline
 Il reste à trouver un estimateur sans biais du second terme.
-\begin{lemme} Soit $\hat {G}$ définit en tout points sauf en $X_i$ (c'est le principe du Leave-one-out):
+\begin{lem} Soit $\hat {G}$ définit en tout points sauf en $X_i$ (c'est le principe du Leave-one-out):
 
 $$
 \hat{G} = \frac{1}{n}\sum_{i=1}^n\hat {f}_{n,h}^{(-i)}(X_i)
@@ -41,8 +36,8 @@ $$
   \hat {f}_{n,h}^{(-i)}(x)= \frac{1}{n-1}\frac{1}{h}\sum_{j=1,j\ne i}^nK(\frac{x-X_j}{h})
 $$
 Cette estimateur $\hat G$, par construction est l'estimateur sans biais de $\int \hat{f}_{n,h}(x)f(x)dx$.
-\end{lemme}
-\begin{demonstration}
+\end{lem}
+\begin{demo}
 Montrons que $\mathbb{E}(\hat{G})=\mathbb{E}[\int \hat{f}_{n,h}(x)f(x)dx]$.\newline
 Comme les $X_i$ sont i.i.d., d'une part nous avons :
 $$
@@ -65,7 +60,7 @@ $$
 $$
 
 Donc, $\hat{G}$ est un estimateur sans biais de $\int\hat{f}_{n,h}(x)f(x)dx$.
-\end{demonstrantion}
+\end{demo}
 
 Finalement, l'estimateur sans biais de $R(\hat{f}_{n,h}, f)-\begin{Vmatrix}{f}\end{Vmatrix}_2^2$ est donné par:
 
@@ -83,8 +78,6 @@ $$
 
 Si ce minimum est atteint. On cherche une fenêtre parmi une grille finie de valeurs, grille qu'on a notée $H$ dans la formule ci-dessus.  
 L'estimateur $\hat{f}_{n,\hat{h}}$ a de bonnes propriétés pratiques et de consistance.
-<<<<<<< HEAD
+
 La validation croisée est une méthode très générale mais nous l'utilisons ici pour le choix la fenêtre $h$ optimale.
-=======
-La validation croisée est une méthode très générale mais nous l'utilisons ici pour le choix la fenêtre $h$ optimale.
->>>>>>> ba031c5db4d96b8328f51610e88b0c6a9116d671
+

@@ -1,4 +1,3 @@
-library(sm)
 library(ape)
 library(geiger)
 
