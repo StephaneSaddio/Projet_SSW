@@ -1,10 +1,10 @@
 # Conclusion
 
+L'objectif était d'introduire les méthodes d'estimation non paramétrique et plus précisément d'estimer une fonction densité avec la méthode de densité à noyau pour estimer une loi de la durée aléatoire de l'apparition d'un branchement évolutif. Nous avons choisir d'utiliser la validation croisé pour le choix de la fenêtre.\newline 
 
+Les avantages de la méthode d'estimation à noyau sont qu'elle est applicable à des données issues de n'importe quelle distribution $f(x)$ ; et qu'il y a une convergence asymptotique de $\hat f_n(x)$ vers $f(x)$ pour $N \longrightarrow +\infty$.  
+Cependant, cette méthode nécessite de disposer d'un grand nombre de données. De plus, le choix de la largeur de bande $h$ de la fenêtre non trivial et nécessite de disposer de moyens de calcul performants.  
 
-# References
+En ce qui concerne la durée avant l'apparition d'une nouvelle espèce on en conclu qu'elle est difficile à déterminer puisque qu'elle dépend de l'ordre, de la famille ou du genre auquel appartient l'espèce visiblement. Toutefois pour les exemples qu'on a vu on peut dire que c'est de l'ordre de plusieurs milliards d'années.
 
-Lucie Montuelle. Inégalités d’oracle et mélanges. Statistiques [math.ST]. Université Paris-Sud, 2014.
-Français.\newline
-Gilles Rebelles. Sur l'estimation adaptative d'une densité multivariée sous l'hypothèse de la structure d'indépendance.\newline
-Cours-Estimation de densité.https://cedric.cnam.fr/vertigo/Cours/ml/coursEstimationDensite.html \newline
+Nous avons également consacré largement du temps à la méthode d'estimation non paramétrique de densité à noyau de Goldenshluger & Lepski mais nous ne sommes pas réussi à l'implémenter. Nous trouvons qu'il serait intéressant de comparer numériquement les résultats de l'application de ces deux méthodes.

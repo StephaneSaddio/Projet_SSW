@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 4 Applications | Rapport du projet de M1</title>
+  <meta name="description" content="Chapitre 4 Applications | Rapport du projet de M1" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 4 Applications | Rapport du projet de M1" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 4 Applications | Rapport du projet de M1" />
+  
+  
+  
+
+<meta name="author" content="Wiam Chaoui" />
+<meta name="author" content="Sophie Manuel" />
+<meta name="author" content="Stéphane Sadio" />
+
+
+<meta name="date" content="2021-01-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="estimateur-de-densité-à-noyau.html"/>
+<link rel="next" href="conclusion.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#problématique"><i class="fa fa-check"></i><b>1.2</b> Problématique</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html"><i class="fa fa-check"></i><b>2</b> Méthodes non-paramétriques</a><ul>
+<li class="chapter" data-level="2.1" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#estimateurs-par-projection"><i class="fa fa-check"></i><b>2.2</b> Estimateurs par projection</a></li>
+<li class="chapter" data-level="2.3" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#estimateurs-à-noyau-de-densité"><i class="fa fa-check"></i><b>2.3</b> Estimateurs à noyau de densité</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html"><i class="fa fa-check"></i><b>3</b> Estimateur de densité à noyau</a><ul>
+<li class="chapter" data-level="3.1" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#risque-quadratique-ponctuel-des-estimateurs-à-noyau-sur-les-classe-des-espaces-de-hölder"><i class="fa fa-check"></i><b>3.1</b> Risque quadratique ponctuel des estimateurs à noyau sur les classe des espaces de Hölder</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#majoration-du-biais-et-de-la-variance"><i class="fa fa-check"></i><b>3.1.1</b> Majoration du biais et de la variance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#méthodes-adaptatives"><i class="fa fa-check"></i><b>3.2</b> Méthodes adaptatives</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#choix-du-noyau"><i class="fa fa-check"></i><b>3.2.1</b> Choix du noyau</a></li>
+<li class="chapter" data-level="3.2.2" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#choix-de-la-fenêtre"><i class="fa fa-check"></i><b>3.2.2</b> Choix de la fenêtre</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
+<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#fonction-dens"><i class="fa fa-check"></i><b>4.1</b> Fonction dens</a></li>
+<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#applications-aux-données-du-vivant"><i class="fa fa-check"></i><b>4.2</b> Applications aux données du vivant</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Rapport du projet de M1</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="applications" class="section level1">
+<h1><span class="header-section-number">Chapitre 4</span> Applications</h1>
+<p>Rappelons que nous cherchons à estimer la fonction de densité <span class="math inline">\(f\)</span> de la durée avant la création d’une nouvelle espèce. Dans ce cadre nous allons faire nos estimations à noyau de la densité sur R en appliquant la théorie que nous avons vue jusque là.</p>
+<div id="fonction-dens" class="section level2">
+<h2><span class="header-section-number">4.1</span> Fonction dens</h2>
+<p>Dans cette partie nous présenterons la fonction <code>dens</code> que nous avons créée en voulant reproduire ce que fait la fonction <code>density</code> de R.
+Voici son code :</p>
+<p>Cette fonction prend en argument l’échantillon des observations (<code>sample</code>), le type de noyau en caractère (<code>kernel</code>) et enfin le dernier paramètre est le choix de la fenêtre.
+Le choix par défaut du noyau est le noyau gaussien et celui de la fenêtre se fait par validation croisée (que nous n’avons pas codé personnellement).</p>
+
+</div>
+<div id="applications-aux-données-du-vivant" class="section level2">
+<h2><span class="header-section-number">4.2</span> Applications aux données du vivant</h2>
+<p>Maintenant que nous avons notre fonction <code>dens</code> nous allons pouvoir la comparer à la fonction <code>density</code> de R. Pour les comparer nous allons en profiter pour en même temps les appliquer aux données qu’on veut étudier.</p>
+<p>Pour commencer nous allons tester les fonctions avec un premier exemple fictif.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="applications.html#cb1-1"></a><span class="co"># Estimation de la densité par la méthode des noyaux (Test)</span></span>
+<span id="cb1-2"><a href="applications.html#cb1-2"></a></span>
+<span id="cb1-3"><a href="applications.html#cb1-3"></a><span class="co">## Chi 2 à 6 ddl</span></span>
+<span id="cb1-4"><a href="applications.html#cb1-4"></a></span>
+<span id="cb1-5"><a href="applications.html#cb1-5"></a>seq &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">30</span>, <span class="dt">length.out =</span> <span class="dv">60</span>)</span>
+<span id="cb1-6"><a href="applications.html#cb1-6"></a>ychi2 &lt;-<span class="st"> </span><span class="kw">dchisq</span>(seq,<span class="dv">6</span>)</span>
+<span id="cb1-7"><a href="applications.html#cb1-7"></a><span class="co">#plot(seq, ychi2, type = &quot;l&quot;, col = &quot;red&quot;)</span></span>
+<span id="cb1-8"><a href="applications.html#cb1-8"></a></span>
+<span id="cb1-9"><a href="applications.html#cb1-9"></a>rand &lt;-<span class="kw">rchisq</span>(<span class="dv">100</span>,<span class="dv">6</span>)</span>
+<span id="cb1-10"><a href="applications.html#cb1-10"></a><span class="kw">hist</span>(rand, <span class="dt">breaks =</span> <span class="dv">60</span>, <span class="dt">freq =</span> F, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(rand)<span class="op">+</span><span class="dv">3</span>))</span>
+<span id="cb1-11"><a href="applications.html#cb1-11"></a><span class="kw">lines</span>(<span class="kw">density</span>(rand, <span class="dt">kernel =</span>  <span class="st">&quot;epanechnikov&quot;</span>, <span class="dt">bw=</span><span class="st">&quot;ucv&quot;</span>), <span class="dt">col =</span><span class="st">&quot;black&quot;</span>)</span>
+<span id="cb1-12"><a href="applications.html#cb1-12"></a><span class="kw">lines</span>(<span class="kw">density</span>(rand, <span class="dt">bw=</span><span class="st">&quot;ucv&quot;</span>),<span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb1-13"><a href="applications.html#cb1-13"></a><span class="kw">lines</span>(<span class="kw">density</span>(rand, <span class="dt">bw=</span><span class="st">&quot;ucv&quot;</span>, <span class="dt">kernel =</span>  <span class="st">&quot;rectangular&quot;</span>), <span class="dt">col =</span><span class="st">&quot;purple&quot;</span>)</span>
+<span id="cb1-14"><a href="applications.html#cb1-14"></a><span class="kw">lines</span>(<span class="kw">density</span>(rand, <span class="dt">bw=</span><span class="st">&quot;ucv&quot;</span>, <span class="dt">kernel =</span>  <span class="st">&quot;triangular&quot;</span>), <span class="dt">col =</span><span class="st">&quot;green&quot;</span>)</span>
+<span id="cb1-15"><a href="applications.html#cb1-15"></a><span class="kw">lines</span>(seq, ychi2, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb1-16"><a href="applications.html#cb1-16"></a><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;gaussien&quot;</span>, <span class="st">&quot;epanechnikov&quot;</span>, <span class="st">&quot;rectangulaire&quot;</span>, <span class="st">&quot;triangulaire&quot;</span>, <span class="st">&quot;chi2&quot;</span>),</span>
+<span id="cb1-17"><a href="applications.html#cb1-17"></a>       <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>, <span class="st">&quot;black&quot;</span>,<span class="st">&quot;purple&quot;</span>,<span class="st">&quot;green&quot;</span>,<span class="st">&quot;red&quot;</span>))</span>
+<span id="cb1-18"><a href="applications.html#cb1-18"></a><span class="kw">rug</span>(rand,<span class="dt">col=</span><span class="st">&quot;darkred&quot;</span>) <span class="co"># Visualisation 1d</span></span></code></pre></div>
+<p><img src="Projet_M1_Chaoui_Manuel_Sadio_files/figure-html/chi2-1.png" width="672" />
+Comme nous l’avons vu théoriquement, on voit relativement bien ici que la différence au niveau du choix du noyau n’est pas très impactante sur la qualité de l’estimation.</p>
+<p>Nous allons maintenant tester les fonctions d’estimation de la densité sur deux exemples.
+Commençons par les familles d’oiseaux (<code>bird.families</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="applications.html#cb2-1"></a><span class="co"># Voici des librairies contenant des arbres phylogénétiques.</span></span>
+<span id="cb2-2"><a href="applications.html#cb2-2"></a><span class="kw">library</span>(ape)</span>
+<span id="cb2-3"><a href="applications.html#cb2-3"></a><span class="kw">library</span>(geiger)</span>
+<span id="cb2-4"><a href="applications.html#cb2-4"></a></span>
+<span id="cb2-5"><a href="applications.html#cb2-5"></a><span class="co">## test avec bird families</span></span>
+<span id="cb2-6"><a href="applications.html#cb2-6"></a></span>
+<span id="cb2-7"><a href="applications.html#cb2-7"></a><span class="co">### arbre</span></span>
+<span id="cb2-8"><a href="applications.html#cb2-8"></a><span class="kw">data</span>(<span class="st">&quot;bird.families&quot;</span>)</span>
+<span id="cb2-9"><a href="applications.html#cb2-9"></a>op &lt;-<span class="st"> </span><span class="kw">par</span>()</span>
+<span id="cb2-10"><a href="applications.html#cb2-10"></a><span class="kw">par</span>(<span class="dt">cex =</span> <span class="fl">0.3</span>)</span>
+<span id="cb2-11"><a href="applications.html#cb2-11"></a><span class="kw">plot</span>(bird.families)</span></code></pre></div>
+<p><img src="Projet_M1_Chaoui_Manuel_Sadio_files/figure-html/birds-1.png" width="672" /></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="applications.html#cb3-1"></a><span class="kw">par</span>(<span class="dt">cex =</span> op<span class="op">$</span>cex)</span>
+<span id="cb3-2"><a href="applications.html#cb3-2"></a></span>
+<span id="cb3-3"><a href="applications.html#cb3-3"></a><span class="co">#### noyau gaussien</span></span>
+<span id="cb3-4"><a href="applications.html#cb3-4"></a></span>
+<span id="cb3-5"><a href="applications.html#cb3-5"></a>d&lt;-bird.families<span class="op">$</span>edge.length</span>
+<span id="cb3-6"><a href="applications.html#cb3-6"></a>vec &lt;-<span class="st"> </span><span class="kw">pretty</span>(<span class="dv">0</span><span class="op">:</span>(<span class="kw">max</span>(d)<span class="op">+</span><span class="dv">3</span>),((<span class="kw">max</span>(d)<span class="op">+</span><span class="dv">3</span>)<span class="op">*</span><span class="dv">2</span>))</span>
+<span id="cb3-7"><a href="applications.html#cb3-7"></a><span class="kw">hist</span>(d, <span class="dt">breaks =</span> vec, <span class="dt">freq =</span> F, <span class="dt">xlab =</span> <span class="st">&quot;Durée&quot;</span>)</span>
+<span id="cb3-8"><a href="applications.html#cb3-8"></a><span class="kw">lines</span>(<span class="kw">density</span>(d), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="Projet_M1_Chaoui_Manuel_Sadio_files/figure-html/birds-2.png" width="672" /></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="applications.html#cb4-1"></a><span class="kw">plot</span>(<span class="kw">seq</span>(<span class="kw">min</span>(d),<span class="kw">max</span>(d), <span class="dt">length.out =</span>  <span class="kw">length</span>(d)), <span class="kw">dens</span>(d, <span class="dt">kernel=</span> <span class="st">&quot;gaussian&quot;</span>),</span>
+<span id="cb4-2"><a href="applications.html#cb4-2"></a>     <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Durée&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.085</span>))</span>
+<span id="cb4-3"><a href="applications.html#cb4-3"></a><span class="kw">lines</span>(<span class="kw">density</span>(d), <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb4-4"><a href="applications.html#cb4-4"></a><span class="kw">rug</span>(d, <span class="dt">col=</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb4-5"><a href="applications.html#cb4-5"></a><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;density&quot;</span>, <span class="st">&quot;dens&quot;</span>),</span>
+<span id="cb4-6"><a href="applications.html#cb4-6"></a>       <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>))</span></code></pre></div>
+<p><img src="Projet_M1_Chaoui_Manuel_Sadio_files/figure-html/birds-3.png" width="672" /></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="applications.html#cb5-1"></a><span class="kw">cat</span>(<span class="st">&quot;La moyenne de cet échantillon est de : &quot;</span>, <span class="kw">mean</span>(d), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## La moyenne de cet échantillon est de :  7.413653</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="applications.html#cb7-1"></a><span class="kw">cat</span>(<span class="st">&quot;La variance de cet échantillon est de : &quot;</span>, <span class="kw">var</span>(d)<span class="op">*</span><span class="st"> </span>(<span class="kw">length</span>(d)<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="kw">length</span>(d))</span></code></pre></div>
+<pre><code>## La variance de cet échantillon est de :  38.35033</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="applications.html#cb9-1"></a><span class="co"># estimateur biaisé</span></span>
+<span id="cb9-2"><a href="applications.html#cb9-2"></a><span class="co"># max(d) = 27</span></span></code></pre></div>
+<p>Sur cette échantillon on remarque une répartition bimodale de l’effectif. Effectivement, on observe un mode autour de 1 et un autre autour de 10. On peut supposer en regardant ce tableau que cet échantillon contient des familles d’oiseaux distinctes, ayant suffisamment de différences pour ne pas avoir le même temps d’évolution. C’est pour cela que la moyenne de l’échantillon se trouve au final, là où il y a peu d’individus (moins de <span class="math inline">\(5\%\)</span>). On remarque aussi que les durée sont relativement concentrées avec une variance de <span class="math inline">\(38\)</span>, elles ne dépassent pas 27.</p>
+<p>Maintenant, faisons une autre estimation de la densité sur un échantillon d’espèces de tortues (<code>chelonia</code>).</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="applications.html#cb10-1"></a><span class="co">### test avec chelonia (turtules)</span></span>
+<span id="cb10-2"><a href="applications.html#cb10-2"></a></span>
+<span id="cb10-3"><a href="applications.html#cb10-3"></a><span class="co">#### arbre</span></span>
+<span id="cb10-4"><a href="applications.html#cb10-4"></a><span class="kw">data</span>(chelonia)</span>
+<span id="cb10-5"><a href="applications.html#cb10-5"></a>op &lt;-<span class="st"> </span><span class="kw">par</span>()</span>
+<span id="cb10-6"><a href="applications.html#cb10-6"></a><span class="kw">par</span>(<span class="dt">cex =</span> <span class="fl">0.3</span>)</span>
+<span id="cb10-7"><a href="applications.html#cb10-7"></a><span class="kw">plot</span>(chelonia<span class="op">$</span>phy)</span></code></pre></div>
+<p><img src="Projet_M1_Chaoui_Manuel_Sadio_files/figure-html/turtules-1.png" width="672" /></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="applications.html#cb11-1"></a><span class="kw">par</span>(<span class="dt">cex =</span> op<span class="op">$</span>cex)</span>
+<span id="cb11-2"><a href="applications.html#cb11-2"></a></span>
+<span id="cb11-3"><a href="applications.html#cb11-3"></a><span class="co">#### noyau gaussien</span></span>
+<span id="cb11-4"><a href="applications.html#cb11-4"></a>d&lt;-chelonia<span class="op">$</span>phy<span class="op">$</span>edge.length</span>
+<span id="cb11-5"><a href="applications.html#cb11-5"></a>vec &lt;-<span class="st"> </span><span class="kw">pretty</span>(<span class="dv">0</span><span class="op">:</span>(<span class="kw">max</span>(d)<span class="op">+</span><span class="dv">3</span>), ((<span class="kw">max</span>(d)<span class="op">+</span><span class="dv">3</span>)<span class="op">*</span><span class="dv">2</span>))</span>
+<span id="cb11-6"><a href="applications.html#cb11-6"></a><span class="kw">hist</span>(d, <span class="dt">breaks=</span> vec, <span class="dt">freq =</span> F, <span class="dt">xlab =</span> <span class="st">&quot;Durée&quot;</span>)</span>
+<span id="cb11-7"><a href="applications.html#cb11-7"></a><span class="kw">lines</span>(<span class="kw">density</span>(d), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) </span></code></pre></div>
+<p><img src="Projet_M1_Chaoui_Manuel_Sadio_files/figure-html/turtules-2.png" width="672" /></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="applications.html#cb12-1"></a><span class="kw">plot</span>(<span class="kw">seq</span>(<span class="kw">min</span>(d),<span class="kw">max</span>(d), <span class="dt">length.out =</span>  <span class="kw">length</span>(d)), <span class="kw">dens</span>(d),</span>
+<span id="cb12-2"><a href="applications.html#cb12-2"></a>     <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">bty =</span> <span class="st">&quot;n&quot;</span>, <span class="dt">xlab =</span> <span class="st">&quot;Durée&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.06</span>))</span>
+<span id="cb12-3"><a href="applications.html#cb12-3"></a><span class="kw">lines</span>(<span class="kw">density</span>(d), <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb12-4"><a href="applications.html#cb12-4"></a><span class="kw">rug</span>(d, <span class="dt">col=</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb12-5"><a href="applications.html#cb12-5"></a><span class="kw">legend</span>(<span class="st">&quot;topright&quot;</span>,<span class="kw">c</span>(<span class="st">&quot;density&quot;</span>, <span class="st">&quot;dens&quot;</span>),</span>
+<span id="cb12-6"><a href="applications.html#cb12-6"></a>       <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>))</span></code></pre></div>
+<p><img src="Projet_M1_Chaoui_Manuel_Sadio_files/figure-html/turtules-3.png" width="672" /></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="applications.html#cb13-1"></a><span class="kw">cat</span>(<span class="st">&quot;La moyenne de cet échantillon est de : &quot;</span>, <span class="kw">mean</span>(d), <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## La moyenne de cet échantillon est de :  12.93598</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="applications.html#cb15-1"></a><span class="kw">cat</span>(<span class="st">&quot;La variance de cet échantillon est de : &quot;</span>, <span class="kw">var</span>(d)<span class="op">*</span><span class="st"> </span>(<span class="kw">length</span>(d)<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="kw">length</span>(d)) <span class="co"># estimateur biaisé</span></span></code></pre></div>
+<pre><code>## La variance de cet échantillon est de :  285.3433</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="applications.html#cb17-1"></a><span class="co"># max(d) = 150</span></span></code></pre></div>
+<p>Si on compare cet échantillon avec le précédent, on remarque cette fois la distribution est plus étalée (avec une variance de <span class="math inline">\(258.3\)</span>) et unimodale. Cependant la moyenne n’est pas énormément supérieure à celle des familles d’oiseaux. Cela s’explique par le fait que beaucoup d’espèces de tortue sont apparues en moins de 25 et qu’on observe le pic autour de <span class="math inline">\(1\)</span>.
+On en déduit qu’en moyenne on met plus de temps à obtenir une nouvelle espèce de tortue plutôt qu’une nouvelle espèce d’oiseau.</p>
+<p>La fonction codée se rapproche de <code>density</code> cependant elle est moins performante est définie seulement sur le plus petit intervalle continu contenant toutes les observations.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="estimateur-de-densité-à-noyau.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Projet_M1_Chaoui_Manuel_Sadio.pdf", "Projet_M1_Chaoui_Manuel_Sadio.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

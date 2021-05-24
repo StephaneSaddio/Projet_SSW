@@ -1,4 +1,6 @@
 ## Méthodes adaptatives 
+Cette partie a été inspirée de *Estimation Non-paramétrique par Noyaux Associés
+et Données de Panel en Marketing* de Imen Ben Khalifa.
 
   \hspace*{0.5cm} On introduit précédemment la notion de l'estimation de la densité qui dépend d'un paramètre de lissage $h$. Soit  $(\hat{f_h})_{h\in \mathcal H}$ une famille des estimateurs de la fonction densité $f$ que que l'on cherchons cherche à estimer.\newline
 Une question s'impose : comment peut-on construire un estimateur à risque optimal à partir de cette famille en tenant en considération les observations ? \newline
@@ -127,26 +129,17 @@ eff(K) = \frac{3}{5\times \int_{\mathbb R}K(t)^2 dt\sqrt{5 \times\int_{\mathbb R
 $$
 Voici un tableau récapitulatif de l'efficacité  de plusieurs noyaux continus symétriques.
 
-```{r ker_tab, echo = F, tidy = F}
-dt <- data.frame(Noyau = c("Epanechnikov", "Bigweight", "Triangular",
-"Gaussien", "Rectangulaire"), Efficacite = c(1.000, 0.994, 0.986, 0.951, 0.930))
-knitr::kable(dt, caption = "Efficacité des noyaux continus symétriques", booktabs = TRUE)
+```{r ker_tab}
+dt <- data.frame(Noyau = c("Epanechnikov", "Bigweight", "Triangular","Gaussien", "Rectangulaire"), Efficacité = c(1.000, 0.994, 0.986, 0.951, 0.930))
 ```
 
 ```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
+knitr::kable(dt, caption = "Efficacité des noyaux continus symétriques", booktabs = TRUE)
 ```
 
 \begin{rem}
 Les valeurs d'efficacité des noyaux sont très proches les unes des autres dans le cas étudié, surtout pour les trois premiers noyaux du tableau. c'est pour cela que le choix du noyau n'a au final que peu d'importance dans l'estimation de la densité. 
 \end{rem}
-
-
-
-
 
 #### Comment choisir les paramètres de la méthode ?
 
@@ -232,3 +225,4 @@ title("Variation du risque en fonction de la taille de la fenêtre")
 ```
 La fenêtre $h$ du second graphique est calculée automatiquement par la fonction `density`de R. 
  
+ Maintenant nous allons développer le choix de la fenêtre par validation croisée.

@@ -230,9 +230,13 @@ Nous traiterons dans la suite deux grandes familles de méthodes linéaires pour
 \hypertarget{estimateurs-par-projection}{%
 \section{Estimateurs par projection}\label{estimateurs-par-projection}}
 
+La méthode d'estimation par projection se base sur la supposition que la fonction de densité f appartient à l'espace de Hilber \(\mathcal F=(L^2,||.||,<.,.>)\). L'idée est qu'on approxime la fonction de densité f par sa projection orthogonal sur un sous-espace vectoriel de dimension fini.\newline
+On va décrire dans cette partie la méthodologie de l'estimation par projection développer par Birgé et Massart (1993,1998).\newline
+D'abord on définit ce qu'est un estimateur linéaire et la projection orthogonale d'une fonction f sur un sous-espace vectoriel de dimension fini.
+
 \begin{dfn}
 Soient $X= (X_1,...,X_n)$ un échantillon de densité $f$ et $T_j : \mathbb{R}^d \times \mathbb{R}^d \rightarrow \mathbb{R}$ des fonctions mesurables.  
-Un estimateur $x \mapsto \hat{f}(x) = \hat{f}(x,X)$ est dit linéaire si il peut s'écrire sous la forme
+Un estimateur $x \mapsto \hat{f}(x) = \hat{f}(x,X)$ est dit linéaire s'il peut s'écrire sous la forme
 
 $$
 \hat{f}(x) = \sum^N_{j=1}T_j(x,X_j), \forall x \in \mathbb{R}^d.
@@ -241,26 +245,48 @@ $$
 \end{dfn}
 
 \begin{dfn}
-(Estimateur par projection) \newline
-Soit $f \in \mathcal F = (L^2 , \parallel\,.\parallel, <\,.,~.>)$ où $\mathcal{F} $ un espace de Hilbert muni d'une base orthonormée $(\Phi_j)_{j \in \mathbb{N^*}}$ de $L^2$.Si $\mathbb E _N$  un sous-espace vectoriel de dimension finie de $\mathcal F$ et $a_j = <f,\Phi_j> = \int_{\mathbb R}f(x)\Phi_j(x) dx$ avec $1 \leq |N| < \infty$.\newline
-On appelle estimateur par projection de la fonction $f$ sur $\mathbb E_N$, la fonction $\Pi_N~f$ définit comme suit 
+(Projection orthogonale de la fonction f) \newline
+Soit $f \in \mathcal F = (L^2 , \parallel\,.\parallel, <\,.,~.>)$ où $\mathcal{F} $ un espace de Hilbert muni d'une base orthonormée $(\Phi_j)_{j \in \mathbb{N^*}}$ de $L^2$.Si $\mathbb E _N$  un sous-espace vectoriel de dimension finie de $\mathcal F$ et $a_j = <f,\Phi_j> = \int_{\mathbb R}f(x)\Phi_j(x) dx$ pour tout $j \in \{1,...N\}$ avec $1 \leq |N| < \infty$.\newline
+On appelle la projection orthogonal de la fonction $f$ sur $\mathbb E_N$, la fonction $\Pi_N~f$ définit comme suit 
 
-à modifier
+
 $$
-\Pi_{vect(1,..N)}~f = \sum_{j=1}^N a_j \Phi_j
+\Pi_{\mathbb E_N}~f = \sum_{j=1}^N a_j \Phi_j \\
+\Pi_{\mathbb E_N}~f = arg~min_{t \in \mathbb E_N}||f-t||^2=arg~min_{t \in \mathbb E_N} ||t||^2 -2<t,f>.
 $$
 \end{dfn}
 
 \begin{rem}
-Cette méthode nous ramène au cas paramétrique.\newline
+Cette méthode nous ramène au cas paramétrique, puisque ça revient a estimer les coefficients de la famille $(a_j)_{j \in \{1,..,N\}}$.\newline
 \end{rem}
+
+Soit \(t \in \mathbb E_N\) on a d'après ce qui précède que\newline
+pour tout \(j \in \{1,..,N\}\)
+
+\[
+a_j=\int f ~\Phi_j = \mathbb E_f[t(X_1)]
+\]
+où \(X_1\) est une observation.\newline
+On peut estimer l'espérance \(\mathbb E_f[t(X_1)]\) par \(\frac{1}{n} \sum_{i=1}^n t(X_1)\) et on obtient donc le résultat suivant.
+
+\[
+||t||^2 -2<t,s> = ||t||^2-\frac{2}{n}\sum_{i=1}^nt(X_1),
+\]
+où \(t \in \mathbb E_N\) et f la fonction de densité.
+De plus,
+
+\[
+\mathbb E_f[||t||^2 -2<t,s>] = ||t-s||^2-||s||^2
+\]
+Notons par \(\phi_n\) la fonction suivante : Pour tout \(t\in \mathbb E_N\), \(\Theta_n(t)=||t||^2-\frac{2}{n}\sum_{i=1}^nt(X_1)\). On peut estimer \(\Pi_{\mathbb E_N}f\) par la fonction suivante : \newline
+
+\[
+\hat f = arg~min_{t \in \mathbb E_N} \Theta_n(t)
+\]
 
 \textbf{Exemple : l'estimation par histogramme}
 
-\begin{exem}
-  Une des premières approches possibles d'estimations non-paramétriques par projection de la fonction de densité est l'estimation par l'histogramme. C'est une méthode qui consiste à obtenir une segmentation de la répartition des observations par une projection sur une base constante par morceaux. L'histogramme est considéré comme une approximation discontinue de la fonction densité f.
-
-\end{exem}
+Une des premières approches possibles d'estimations non-paramétriques par projection de la fonction de densité est l'estimation par l'histogramme. C'est une méthode qui consiste à obtenir une segmentation de la répartition des observations par une projection sur une base constante par morceaux. L'histogramme est considéré comme une approximation discontinue de la fonction densité f.
 
 Dans la suite on procédera à la méthode la plus fréquemment utilisée pour l'estimation d'une densité : L'estimation à noyau.\newline 
 
@@ -320,10 +346,6 @@ Les propriétés du noyau (continuité, différentiabilité\ldots) se transmette
 Soient :\newline 
 $h>0$ le paramètre de lissage et $K_h : u\in \mathbb{R} \rightarrow K(\frac{u}{h})/h$.On peut approximer la famille $(K_h)_{h>0}$ par l'identité du produit de convolution.
 \end{lem}
-
-\begin{demo}
-A Faire
-\end{demo}
 
 \begin{corol}
 $K_h * f : x \rightarrow \int_{\mathbb R} K_h(y-x) f(x) dx$ tend vers la fonction f quand h tend vers 0 pour la distance $L^2$.
@@ -549,6 +571,9 @@ On va en fait utiliser \texttt{ggplot} pour représenter l'estimateur à noyau. 
 \hypertarget{muxe9thodes-adaptatives}{%
 \section{Méthodes adaptatives}\label{muxe9thodes-adaptatives}}
 
+Cette partie a été inspirée de \emph{Estimation Non-paramétrique par Noyaux Associés
+et Données de Panel en Marketing} de Imen Ben Khalifa.
+
 \hspace*{0.5cm} On introduit précédemment la notion de l'estimation de la densité qui dépend d'un paramètre de lissage \(h\). Soit \((\hat{f_h})_{h\in \mathcal H}\) une famille des estimateurs de la fonction densité \(f\) que que l'on cherchons cherche à estimer.\newline
 Une question s'impose : comment peut-on construire un estimateur à risque optimal à partir de cette famille en tenant en considération les observations ? \newline
 Dans la théorie adaptative f est toujours supposée appartenir à une classe fonctionnelle. Cette classe n'est pas connu à priori mais supposé appartenir à une famille de classes fonctionnelles\{\(\mathcal{F_{\alpha}},\alpha \in\mathcal{A}\)\} où \(\mathcal{A}\) est un ensemble des paramètres de nuisance. ( ref : Sur l'estimation adaptative d'une densité multivariée sous l'hypothèse de la structure d'indépendance-Approche minimax adaptative).\newline
@@ -675,56 +700,19 @@ eff(K) = \frac{3}{5\times \int_{\mathbb R}K(t)^2 dt\sqrt{5 \times\int_{\mathbb R
 \]
 Voici un tableau récapitulatif de l'efficacité de plusieurs noyaux continus symétriques.
 
-\textbackslash begin\{table\}
+\begin{table}
 
-\textbackslash caption\{(\#tab:ker\_tab)Efficacité des noyaux continus symétriques\}
+\caption{\label{tab:nice-tab}Efficacité des noyaux continus symétriques}
 \centering
-
 \begin{tabular}[t]{lr}
 \toprule
-Noyau & Efficacite\\
+Noyau & Efficacité\\
 \midrule
 Epanechnikov & 1.000\\
 Bigweight & 0.994\\
 Triangular & 0.986\\
 Gaussien & 0.951\\
 Rectangulaire & 0.930\\
-\bottomrule
-\end{tabular}
-
-\textbackslash end\{table\}
-
-\begin{table}
-
-\caption{\label{tab:nice-tab}Here is a nice table!}
-\centering
-\begin{tabular}[t]{rrrrl}
-\toprule
-Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
-\midrule
-5.1 & 3.5 & 1.4 & 0.2 & setosa\\
-4.9 & 3.0 & 1.4 & 0.2 & setosa\\
-4.7 & 3.2 & 1.3 & 0.2 & setosa\\
-4.6 & 3.1 & 1.5 & 0.2 & setosa\\
-5.0 & 3.6 & 1.4 & 0.2 & setosa\\
-\addlinespace
-5.4 & 3.9 & 1.7 & 0.4 & setosa\\
-4.6 & 3.4 & 1.4 & 0.3 & setosa\\
-5.0 & 3.4 & 1.5 & 0.2 & setosa\\
-4.4 & 2.9 & 1.4 & 0.2 & setosa\\
-4.9 & 3.1 & 1.5 & 0.1 & setosa\\
-\addlinespace
-5.4 & 3.7 & 1.5 & 0.2 & setosa\\
-4.8 & 3.4 & 1.6 & 0.2 & setosa\\
-4.8 & 3.0 & 1.4 & 0.1 & setosa\\
-4.3 & 3.0 & 1.1 & 0.1 & setosa\\
-5.8 & 4.0 & 1.2 & 0.2 & setosa\\
-\addlinespace
-5.7 & 4.4 & 1.5 & 0.4 & setosa\\
-5.4 & 3.9 & 1.3 & 0.4 & setosa\\
-5.1 & 3.5 & 1.4 & 0.3 & setosa\\
-5.7 & 3.8 & 1.7 & 0.3 & setosa\\
-5.1 & 3.8 & 1.5 & 0.3 & setosa\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -745,6 +733,8 @@ Nous avons simulé 500 variables suivant une loi de Weibull de paramètres (\(\a
 
 \includegraphics{Projet_M1_Chaoui_Manuel_Sadio_files/figure-latex/unnamed-chunk-3-1.pdf}
 La fenêtre \(h\) du second graphique est calculée automatiquement par la fonction \texttt{density}de R.
+
+Maintenant nous allons développer le choix de la fenêtre par validation croisée.
 
 \hypertarget{choix-de-la-fenuxeatre}{%
 \subsection{Choix de la fenêtre}\label{choix-de-la-fenuxeatre}}
@@ -845,7 +835,8 @@ Rappelons que nous cherchons à estimer la fonction de densité \(f\) de la dur�
 Dans cette partie nous présenterons la fonction \texttt{dens} que nous avons créée en voulant reproduire ce que fait la fonction \texttt{density} de R.
 Voici son code :
 
-Insérer le script de fonc\_dens.R
+Cette fonction prend en argument l'échantillon des observations (\texttt{sample}), le type de noyau en caractère (\texttt{kernel}) et enfin le dernier paramètre est le choix de la fenêtre.
+Le choix par défaut du noyau est le noyau gaussien et celui de la fenêtre se fait par validation croisée (que nous n'avons pas codé personnellement).
 
 \hypertarget{applications-aux-donnuxe9es-du-vivant}{%
 \section{Applications aux données du vivant}\label{applications-aux-donnuxe9es-du-vivant}}
@@ -866,10 +857,10 @@ Pour commencer nous allons tester les fonctions avec un premier exemple fictif.
 
 \NormalTok{rand <-}\KeywordTok{rchisq}\NormalTok{(}\DecValTok{100}\NormalTok{,}\DecValTok{6}\NormalTok{)}
 \KeywordTok{hist}\NormalTok{(rand, }\DataTypeTok{breaks =} \DecValTok{60}\NormalTok{, }\DataTypeTok{freq =}\NormalTok{ F, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\KeywordTok{max}\NormalTok{(rand)}\OperatorTok{+}\DecValTok{3}\NormalTok{))}
-\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(rand, }\DataTypeTok{kernel =}  \StringTok{"epanechnikov"}\NormalTok{, }\DataTypeTok{bw =} \DecValTok{1}\NormalTok{), }\DataTypeTok{col =}\StringTok{"black"}\NormalTok{)}
-\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(rand),}\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{)}
-\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(rand, }\DataTypeTok{kernel =}  \StringTok{"rectangular"}\NormalTok{), }\DataTypeTok{col =}\StringTok{"purple"}\NormalTok{)}
-\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(rand, }\DataTypeTok{kernel =}  \StringTok{"triangular"}\NormalTok{), }\DataTypeTok{col =}\StringTok{"green"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(rand, }\DataTypeTok{kernel =}  \StringTok{"epanechnikov"}\NormalTok{, }\DataTypeTok{bw=}\StringTok{"ucv"}\NormalTok{), }\DataTypeTok{col =}\StringTok{"black"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(rand, }\DataTypeTok{bw=}\StringTok{"ucv"}\NormalTok{),}\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(rand, }\DataTypeTok{bw=}\StringTok{"ucv"}\NormalTok{, }\DataTypeTok{kernel =}  \StringTok{"rectangular"}\NormalTok{), }\DataTypeTok{col =}\StringTok{"purple"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(rand, }\DataTypeTok{bw=}\StringTok{"ucv"}\NormalTok{, }\DataTypeTok{kernel =}  \StringTok{"triangular"}\NormalTok{), }\DataTypeTok{col =}\StringTok{"green"}\NormalTok{)}
 \KeywordTok{lines}\NormalTok{(seq, ychi2, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{)}
 \KeywordTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{,}\KeywordTok{c}\NormalTok{(}\StringTok{"gaussien"}\NormalTok{, }\StringTok{"epanechnikov"}\NormalTok{, }\StringTok{"rectangulaire"}\NormalTok{, }\StringTok{"triangulaire"}\NormalTok{, }\StringTok{"chi2"}\NormalTok{),}
        \DataTypeTok{lty=}\DecValTok{1}\NormalTok{, }\DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"blue"}\NormalTok{, }\StringTok{"black"}\NormalTok{,}\StringTok{"purple"}\NormalTok{,}\StringTok{"green"}\NormalTok{,}\StringTok{"red"}\NormalTok{))}
@@ -881,7 +872,8 @@ Pour commencer nous allons tester les fonctions avec un premier exemple fictif.
 Comme nous l'avons vu théoriquement, on voit relativement bien ici que la différence au niveau du choix du noyau n'est pas très impactante sur la qualité de l'estimation.
 
 Nous allons maintenant tester les fonctions d'estimation de la densité sur deux exemples.
-Commençons par les familles d'oiseaux (\texttt{bird.families}.
+Malheureusement nous n'avons pas réussi à trouver à quoi correspondait exactement l'échelle de temps mais on sait qu'elle est de l'ordre de milliard d'année.
+Commençons par les familles d'oiseaux (\texttt{bird.families}).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -909,8 +901,8 @@ Commençons par les familles d'oiseaux (\texttt{bird.families}.
 
 \NormalTok{d<-bird.families}\OperatorTok{$}\NormalTok{edge.length}
 \NormalTok{vec <-}\StringTok{ }\KeywordTok{pretty}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\NormalTok{(}\KeywordTok{max}\NormalTok{(d)}\OperatorTok{+}\DecValTok{3}\NormalTok{),((}\KeywordTok{max}\NormalTok{(d)}\OperatorTok{+}\DecValTok{3}\NormalTok{)}\OperatorTok{*}\DecValTok{2}\NormalTok{))}
-\KeywordTok{hist}\NormalTok{(d, }\DataTypeTok{breaks =}\NormalTok{ vec, }\DataTypeTok{freq =}\NormalTok{ F, }\DataTypeTok{xlab =} \StringTok{"Durée"}\NormalTok{)}
-\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(d), }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{) }\CommentTok{# bw = 1.82}
+\KeywordTok{hist}\NormalTok{(d, }\DataTypeTok{breaks =}\NormalTok{ vec, }\DataTypeTok{freq =}\NormalTok{ F, }\DataTypeTok{xlab =} \StringTok{"Année (en milliard)"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(d), }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -918,10 +910,12 @@ Commençons par les familles d'oiseaux (\texttt{bird.families}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(d, }\DataTypeTok{kernel=} \StringTok{"gaussian"}\NormalTok{, }\DataTypeTok{window =} \StringTok{"gaussian"}\NormalTok{),}
-     \DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{bty =} \StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"Durée"}\NormalTok{)}
-\KeywordTok{polygon}\NormalTok{(}\KeywordTok{density}\NormalTok{(d, }\DataTypeTok{kernel=} \StringTok{"gaussian"}\NormalTok{), }\DataTypeTok{col=}\DecValTok{2}\NormalTok{, }\DataTypeTok{border =} \StringTok{"blue"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\KeywordTok{min}\NormalTok{(d),}\KeywordTok{max}\NormalTok{(d), }\DataTypeTok{length.out =}  \KeywordTok{length}\NormalTok{(d)), }\KeywordTok{dens}\NormalTok{(d, }\DataTypeTok{kernel=} \StringTok{"gaussian"}\NormalTok{),}
+     \DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{bty =} \StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"Année (en milliard)"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{, }\DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{0.085}\NormalTok{))}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(d), }\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{)}
 \KeywordTok{rug}\NormalTok{(d, }\DataTypeTok{col=} \StringTok{"red"}\NormalTok{)}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{,}\KeywordTok{c}\NormalTok{(}\StringTok{"density"}\NormalTok{, }\StringTok{"dens"}\NormalTok{),}
+       \DataTypeTok{lty=}\DecValTok{1}\NormalTok{, }\DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"blue"}\NormalTok{,}\StringTok{"red"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -947,14 +941,7 @@ Commençons par les familles d'oiseaux (\texttt{bird.families}.
 ## La variance de cet échantillon est de :  38.35033
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# estimateur biaisé}
-\CommentTok{# max(d) = 27}
-\end{Highlighting}
-\end{Shaded}
-
-Sur cette échantillon on remarque une répartition bimodale de l'effectif. Effectivement, on observe un mode autour de 1 et un autre autour de 10. On peut supposer en regardant ce tableau que cet échantillon contient des familles d'oiseaux distinctes, ayant suffisamment de différences pour ne pas avoir le même temps d'évolution. C'est pour cela que la moyenne de l'échantillon se trouve au final, là où il y a peu d'individus (moins de \(5\%\)). On remarque aussi que les durée sont relativement concentrées avec une variance de \(38\), elles ne dépassent pas 27.
+Sur cette échantillon on remarque une répartition bimodale de l'effectif. Effectivement, on observe un mode autour de 1 milliard d'années et un autre autour de 10 milliards d'années. On peut supposer en regardant ce tableau que cet échantillon contient des familles d'oiseaux distinctes, ayant suffisamment de différences pour ne pas avoir le même temps d'évolution. C'est pour cela que la moyenne de l'échantillon se trouve au final, là où il y a peu d'individus (moins de \(5\%\)). On remarque aussi que les durée sont relativement concentrées avec une variance de \(38\) milliards d'années, elles ne dépassent pas 27 milliards d'année.
 
 Maintenant, faisons une autre estimation de la densité sur un échantillon d'espèces de tortues (\texttt{chelonia}).
 
@@ -978,10 +965,9 @@ Maintenant, faisons une autre estimation de la densité sur un échantillon d'es
 
 \CommentTok{#### noyau gaussien}
 \NormalTok{d<-chelonia}\OperatorTok{$}\NormalTok{phy}\OperatorTok{$}\NormalTok{edge.length}
-\CommentTok{#d1<-chelonia$dat}
 \NormalTok{vec <-}\StringTok{ }\KeywordTok{pretty}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\NormalTok{(}\KeywordTok{max}\NormalTok{(d)}\OperatorTok{+}\DecValTok{3}\NormalTok{), ((}\KeywordTok{max}\NormalTok{(d)}\OperatorTok{+}\DecValTok{3}\NormalTok{)}\OperatorTok{*}\DecValTok{2}\NormalTok{))}
-\KeywordTok{hist}\NormalTok{(d, }\DataTypeTok{breaks=}\NormalTok{ vec, }\DataTypeTok{freq =}\NormalTok{ F, }\DataTypeTok{xlab =} \StringTok{"Durée"}\NormalTok{)}
-\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(d), }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{) }\CommentTok{# bw = 0.201}
+\KeywordTok{hist}\NormalTok{(d, }\DataTypeTok{breaks=}\NormalTok{ vec, }\DataTypeTok{freq =}\NormalTok{ F, }\DataTypeTok{xlab =} \StringTok{"Année (en milliard)"}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(d), }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{) }
 \end{Highlighting}
 \end{Shaded}
 
@@ -989,9 +975,12 @@ Maintenant, faisons une autre estimation de la densité sur un échantillon d'es
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(d, }\DataTypeTok{kernel=} \StringTok{"gaussian"}\NormalTok{), }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{bty =} \StringTok{"n"}\NormalTok{)}
-\KeywordTok{polygon}\NormalTok{(}\KeywordTok{density}\NormalTok{(d, }\DataTypeTok{kernel=} \StringTok{"gaussian"}\NormalTok{),}\DataTypeTok{col=}\DecValTok{2}\NormalTok{,}\DataTypeTok{border =} \StringTok{"blue"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{seq}\NormalTok{(}\KeywordTok{min}\NormalTok{(d),}\KeywordTok{max}\NormalTok{(d), }\DataTypeTok{length.out =}  \KeywordTok{length}\NormalTok{(d)), }\KeywordTok{dens}\NormalTok{(d),}
+     \DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{bty =} \StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{"Année (en milliard)"}\NormalTok{, }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{, }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{0.06}\NormalTok{))}
+\KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(d), }\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{)}
 \KeywordTok{rug}\NormalTok{(d, }\DataTypeTok{col=} \StringTok{"red"}\NormalTok{)}
+\KeywordTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{,}\KeywordTok{c}\NormalTok{(}\StringTok{"density"}\NormalTok{, }\StringTok{"dens"}\NormalTok{),}
+       \DataTypeTok{lty=}\DecValTok{1}\NormalTok{, }\DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"blue"}\NormalTok{,}\StringTok{"red"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1009,7 +998,7 @@ Maintenant, faisons une autre estimation de la densité sur un échantillon d'es
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{cat}\NormalTok{(}\StringTok{"La variance de cet échantillon est de : "}\NormalTok{, }\KeywordTok{var}\NormalTok{(d)}\OperatorTok{*}\StringTok{ }\NormalTok{(}\KeywordTok{length}\NormalTok{(d)}\OperatorTok{-}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(d)) }\CommentTok{# estimateur biaisé}
+\KeywordTok{cat}\NormalTok{(}\StringTok{"La variance de cet échantillon est de : "}\NormalTok{, }\KeywordTok{var}\NormalTok{(d)}\OperatorTok{*}\StringTok{ }\NormalTok{(}\KeywordTok{length}\NormalTok{(d)}\OperatorTok{-}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\KeywordTok{length}\NormalTok{(d))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1017,29 +1006,54 @@ Maintenant, faisons une autre estimation de la densité sur un échantillon d'es
 ## La variance de cet échantillon est de :  285.3433
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# max(d) = 150}
-\end{Highlighting}
-\end{Shaded}
-
-Si on compare cet échantillon avec le précédent, on remarque cette fois la distribution est plus étalée (avec une variance de \(258.3\)) et unimodale. Cependant la moyenne n'est pas énormément supérieure à celle des familles d'oiseaux. Cela s'explique par le fait que beaucoup d'espèces de tortue sont apparues en moins de 25 et qu'on observe le pic autour de \(1\).
+Si on compare cet échantillon avec le précédent, on remarque cette fois la distribution est plus étalée (avec une variance de \(258.3\) milliards d'années) et unimodale. Cependant la moyenne n'est pas énormément supérieure à celle des familles d'oiseaux. Cela s'explique par le fait que beaucoup d'espèces de tortue sont apparues en moins de 25 milliards d'années et qu'on observe le pic autour de \(1\) milliard d'années.
 On en déduit qu'en moyenne on met plus de temps à obtenir une nouvelle espèce de tortue plutôt qu'une nouvelle espèce d'oiseau.
+
+La fonction codée se rapproche de \texttt{density} cependant elle est moins performante est définie seulement sur le plus petit intervalle continu contenant toutes les observations.
 
 \hypertarget{conclusion}{%
 \chapter{Conclusion}\label{conclusion}}
 
-\hypertarget{references}{%
-\chapter{References}\label{references}}
+L'objectif était d'introduire les méthodes d'estimation non paramétrique et plus précisément d'estimer une fonction densité avec la méthode de densité à noyau pour estimer une loi de la durée aléatoire de l'apparition d'un branchement évolutif. Nous avons choisir d'utiliser la validation croisé pour le choix de la fenêtre.\newline 
 
-Lucie Montuelle. Inégalités d'oracle et mélanges. Statistiques {[}math.ST{]}. Université Paris-Sud, 2014.
-Français.\newline
-Gilles Rebelles. Sur l'estimation adaptative d'une densité multivariée sous l'hypothèse de la structure d'indépendance.\newline
-Cours-Estimation de densité.https://cedric.cnam.fr/vertigo/Cours/ml/coursEstimationDensite.html \newline
+Les avantages de la méthode d'estimation à noyau sont qu'elle est applicable à des données issues de n'importe quelle distribution \(f(x)\) ; et qu'il y a une convergence asymptotique de \(\hat f_n(x)\) vers \(f(x)\) pour \(N \longrightarrow +\infty\).\\
+Cependant, cette méthode nécessite de disposer d'un grand nombre de données. De plus, le choix de la largeur de bande \(h\) de la fenêtre non trivial et nécessite de disposer de moyens de calcul performants.
 
-\begin{thebibliography}{99}
-  
+En ce qui concerne la durée avant l'apparition d'une nouvelle espèce on en conclu qu'elle est difficile à déterminer puisque qu'elle dépend de l'ordre, de la famille ou du genre auquel appartient l'espèce visiblement. Toutefois pour les exemples qu'on a vu on peut dire que c'est de l'ordre de plusieurs milliards d'années.
 
-\end{thebibliography}
+Nous avons également consacré largement du temps à la méthode d'estimation non paramétrique de densité à noyau de Goldenshluger \& Lepski mais nous ne sommes pas réussi à l'implémenter. Nous trouvons qu'il serait intéressant de comparer numériquement les résultats de l'application de ces deux méthodes.
+
+\hypertarget{bibliographie-et-webographie}{%
+\chapter{Bibliographie et Webographie}\label{bibliographie-et-webographie}}
+
+Gilles Rebelles. Sur l'estimation adaptative d'une densité multivariée sous l'hypothèse de la structure d'indépendance.
+
+Laëtitia Comminges, Gabriel Turinici, Introduction à la statistique non paramétrique,
+M1 Math Université Paris Dauphine - PSL, 2019/20, \url{https://www.ceremade.dauphine.fr/~turinici/images/stories/work/cours/M1_stat_nonparamP20/stat_nonp_P20_annotations.pdf}
+
+Catherine MATIAS, Introduction à la statistique non paramétriqueCNRS, Laboratoire Statistique \& Génome, Evry, ENSIIE - 2013/2014,\\
+\url{http://cmatias.perso.math.cnrs.fr/}
+
+Larry Wasserman, All of Nonparametric Statistics, Editeur : Springer-Verlag New York, 2006.
+
+Imen Ben Khalifa,Projet de Fin d'Etude,
+Estimation Non-paramétrique par Noyaux Associés
+et Données de Panel en Marketing,
+Sous la direction de :
+Célestin C. Kokonendji, HDR,
+Université de Pau et des Pays de l'Adour,
+Laboratoire de Mathématiques Appliquées - UMR 5142 CNRS,
+Dhafer Malouche, MA,
+Ecole Spérieure de la Statistique et de l'Ananlyse de l'Information, 2007 - 2008.
+
+Gaëlle Chagny. AN INTRODUCTION TO NONPARAMETRIC ADAPTIVE ESTIMATION. The
+Graduate Journal of Mathematics, Mediterranean Institute for the Mathematical Sciences (MIMS),
+2016, 2016
+
+Cours-Estimation de densité.\\
+\url{https://cedric.cnam.fr/vertigo/Cours/ml/coursEstimationDensite.html}
+
+Noyau-Wikipédia\\
+\url{https://fr.wikipedia.org/wiki/Noyau_(statistiques)}
 
 \end{document}

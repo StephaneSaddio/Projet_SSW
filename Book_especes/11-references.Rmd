@@ -1,23 +1,34 @@
-`r if (knitr::is_html_output()) '
-# References {-}
-'`
-\begin{thebibliography}{99}
-  \bibitem{Ref1}
-   Gilles Rebelles. \emph{Sur l'estimation adaptative d'une densité multivariée sous l'hypothèse de la structure d'indépendance}.
-   
-  \bibitem{Ref2}
-    \emph{Cours-Estimation de densité}.
-    <https://cedric.cnam.fr/vertigo/Cours/ml/coursEstimationDensite.html>
+# Bibliographie et Webographie
+  
+   Gilles Rebelles. Sur l'estimation adaptative d'une densité multivariée sous l'hypothèse de la structure d'indépendance.   
+  
+  Laëtitia Comminges, Gabriel Turinici, Introduction à la statistique non paramétrique,
+M1 Math Université Paris Dauphine - PSL, 2019/20,   https://www.ceremade.dauphine.fr/~turinici/images/stories/work/cours/M1_stat_nonparamP20/stat_nonp_P20_annotations.pdf  
+      
+  Catherine MATIAS, Introduction à la statistique non paramétriqueCNRS, Laboratoire Statistique & Génome, Evry, ENSIIE - 2013/2014,  
+  http://cmatias.perso.math.cnrs.fr/
     
-  \bibitem{Ref3}
-    
-    <https://www.ceremade.dauphine.fr/~turinici/images/stories/work/cours/M1_stat_nonparamP20/stat_nonp_P20_annotations.pdf>
-    
-  \bibitem{Ref4}
-    http://cmatias.perso.math.cnrs.fr/
-    
-  \bibitem{Ref5}
-  Larry Wasserman, \emph{ All of Nonparametric Statistics}, Editeur : Springer-Verlag New York,2006.
+  
+  Larry Wasserman,  All of Nonparametric Statistics, Editeur : Springer-Verlag New York, 2006.  
+  
+Imen Ben Khalifa,Projet de Fin d'Etude,
+Estimation Non-paramétrique par Noyaux Associés
+et Données de Panel en Marketing,
+Sous la direction de :
+Célestin C. Kokonendji, HDR,
+Université de Pau et des Pays de l'Adour,
+Laboratoire de Mathématiques Appliquées - UMR 5142 CNRS,
+Dhafer Malouche, MA,
+Ecole Spérieure de la Statistique et de l'Ananlyse de l'Information, 2007 - 2008.    
+  
+Gaëlle Chagny. AN INTRODUCTION TO NONPARAMETRIC ADAPTIVE ESTIMATION. The
+Graduate Journal of Mathematics, Mediterranean Institute for the Mathematical Sciences (MIMS),
+2016, 2016  
 
-
-\end{thebibliography}
+  Cours-Estimation de densité.  
+  https://cedric.cnam.fr/vertigo/Cours/ml/coursEstimationDensite.html  
+    
+  Noyau-Wikipédia  
+  https://fr.wikipedia.org/wiki/Noyau_(statistiques)
+    
+ 

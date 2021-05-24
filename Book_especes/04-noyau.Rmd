@@ -52,10 +52,6 @@ Soient :\newline
 $h>0$ le paramètre de lissage et $K_h : u\in \mathbb{R} \rightarrow K(\frac{u}{h})/h$.On peut approximer la famille $(K_h)_{h>0}$ par l'identité du produit de convolution.
 \end{lem}
 
-\begin{demo}
-A Faire
-\end{demo}
-
 \begin{corol}
 $K_h * f : x \rightarrow \int_{\mathbb R} K_h(y-x) f(x) dx$ tend vers la fonction f quand h tend vers 0 pour la distance $L^2$.
 \end{corol}

@@ -3,11 +3,11 @@
 
 La méthode d'estimation par projection se base sur la supposition que la fonction de densité f appartient à l'espace de Hilber $\mathcal F=(L^2,||.||,<.,.>)$. L'idée est qu'on approxime la fonction de densité f par sa projection orthogonal sur un sous-espace vectoriel de dimension fini.\newline
 On va décrire dans cette partie la méthodologie de l'estimation par projection développer par Birgé et Massart (1993,1998).\newline
-D'abord on définie ce que c'est un estimateur linéaire et la projection orthogonale d'une fonction f sur un sous-espace vectoriel de dimension fini.
+D'abord on définit ce qu'est un estimateur linéaire et la projection orthogonale d'une fonction f sur un sous-espace vectoriel de dimension fini.
 
 \begin{dfn}
 Soient $X= (X_1,...,X_n)$ un échantillon de densité $f$ et $T_j : \mathbb{R}^d \times \mathbb{R}^d \rightarrow \mathbb{R}$ des fonctions mesurables.  
-Un estimateur $x \mapsto \hat{f}(x) = \hat{f}(x,X)$ est dit linéaire si il peut s'écrire sous la forme
+Un estimateur $x \mapsto \hat{f}(x) = \hat{f}(x,X)$ est dit linéaire s'il peut s'écrire sous la forme
 
 $$
 \hat{f}(x) = \sum^N_{j=1}T_j(x,X_j), \forall x \in \mathbb{R}^d.
@@ -49,22 +49,17 @@ De plus,
 $$
 \mathbb E_f[||t||^2 -2<t,s>] = ||t-s||^2-||s||^2
 $$
-Ntons par $\phi_n$ la fonction suivante : Pour tout $t\in \mathbb E_N$, $\Theta_n(t)=||t||^2-\frac{2}{n}\sum_{i=1}^nt(X_1)$. On peut estimer  $\Pi_{\mathbb E_N}fpar la fonction suivante : \newline
+Notons par $\phi_n$ la fonction suivante : Pour tout $t\in \mathbb E_N$, $\Theta_n(t)=||t||^2-\frac{2}{n}\sum_{i=1}^nt(X_1)$. On peut estimer  $\Pi_{\mathbb E_N}f$ par la fonction suivante : \newline
 
 $$
 \hat f = arg~min_{t \in \mathbb E_N} \Theta_n(t)
 $$
 
 **Exemple : l'estimation par histogramme**
-\begin{exem}
-  Une des premières approches possibles d'estimations non-paramétriques par projection de la fonction de densité est l'estimation par l'histogramme. C'est une méthode qui consiste à obtenir une segmentation de la répartition des observations par une projection sur une base constante par morceaux. L'histogramme est considéré comme une approximation discontinue de la fonction densité f.
-  (\#eq:cours-est)
 
-  
-  (ajout formule graphique)
-\end{exem}
+  Une des premières approches possibles d'estimations non-paramétriques par projection de la fonction de densité est l'estimation par l'histogramme. C'est une méthode qui consiste à obtenir une segmentation de la répartition des observations par une projection sur une base constante par morceaux. L'histogramme est considéré comme une approximation discontinue de la fonction densité f.
+
 
  Dans la suite on procédera à la méthode la plus fréquemment utilisée pour l'estimation d'une densité :     L'estimation à noyau.\newline 
- 
- (Argument pour le choix de la méthode à voir)
+
 

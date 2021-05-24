@@ -33,7 +33,7 @@ dens <- function(sample, bandwith, kernel){
       
       # La boucle ci-dessous provient de la fonction density,
       # nous l'avons ajouté juste pour avoir une fonction un peu plus complète
-      # avec d'autres méthodes de calcul de la fenêtre que celle de Goldenshluger-Lepski.
+      # avec d'autres méthodes de calcul de la fenêtre que celle de validation croisée.
       ######
       if (is.character(bandwith)) {
       if(n < 2)
@@ -64,4 +64,5 @@ dens <- function(sample, bandwith, kernel){
 }
 ```
 
-Cette fonction prend en argument l'écha,ti
+Cette fonction prend en argument l'échantillon des observations (`sample`), le type de noyau en caractère (`kernel`) et enfin le dernier paramètre est le choix de la fenêtre.
+Le choix par défaut du noyau est le noyau gaussien et celui de la fenêtre se fait par validation croisée (que nous n'avons pas codé personnellement).

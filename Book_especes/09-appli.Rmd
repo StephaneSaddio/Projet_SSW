@@ -14,10 +14,10 @@ ychi2 <- dchisq(seq,6)
 
 rand <-rchisq(100,6)
 hist(rand, breaks = 60, freq = F, xlim=c(0, max(rand)+3))
-lines(density(rand, kernel =  "epanechnikov", bw = 1), col ="black")
-lines(density(rand),col="blue")
-lines(density(rand, kernel =  "rectangular"), col ="purple")
-lines(density(rand, kernel =  "triangular"), col ="green")
+lines(density(rand, kernel =  "epanechnikov", bw="ucv"), col ="black")
+lines(density(rand, bw="ucv"),col="blue")
+lines(density(rand, bw="ucv", kernel =  "rectangular"), col ="purple")
+lines(density(rand, bw="ucv", kernel =  "triangular"), col ="green")
 lines(seq, ychi2, col = "red")
 legend("topright",c("gaussien", "epanechnikov", "rectangulaire", "triangulaire", "chi2"),
        lty=1, col = c("blue", "black","purple","green","red"))
@@ -26,7 +26,8 @@ rug(rand,col="darkred") # Visualisation 1d
 Comme nous l'avons vu théoriquement, on voit relativement bien ici que la différence au niveau du choix du noyau n'est pas très impactante sur la qualité de l'estimation.
 
 Nous allons maintenant tester les fonctions d'estimation de la densité sur deux exemples.
-Commençons par les familles d'oiseaux (`bird.families`.
+Malheureusement nous n'avons pas réussi à trouver à quoi correspondait exactement l'échelle de temps mais on sait qu'elle est de l'ordre de milliard d'année.
+Commençons par les familles d'oiseaux (`bird.families`).
 ```{r birds, echo = T}
 # Voici des librairies contenant des arbres phylogénétiques.
 library(ape)
@@ -45,20 +46,20 @@ par(cex = op$cex)
 
 d<-bird.families$edge.length
 vec <- pretty(0:(max(d)+3),((max(d)+3)*2))
-hist(d, breaks = vec, freq = F, xlab = "Durée")
-lines(density(d), col = "red") # bw = 1.82
+hist(d, breaks = vec, freq = F, xlab = "Année (en milliard)")
+lines(density(d), col = "red")
 
-plot(density(d, kernel= "gaussian", window = "gaussian"),
-     col = "red", bty = "n", xlab = "Durée")
-polygon(density(d, kernel= "gaussian"), col=2, border = "blue")
+plot(seq(min(d),max(d), length.out =  length(d)), dens(d, kernel= "gaussian"),
+     col = "red", bty = "n", xlab = "Année (en milliard)", type = "l", ylim = c(0,0.085))
+lines(density(d), col="blue")
 rug(d, col= "red")
+legend("topright",c("density", "dens"),
+       lty=1, col = c("blue","red"))
 
 cat("La moyenne de cet échantillon est de : ", mean(d), "\n")
 cat("La variance de cet échantillon est de : ", var(d)* (length(d)-1)/length(d))
-# estimateur biaisé
-# max(d) = 27
 ```
-Sur cette échantillon on remarque une répartition bimodale de l'effectif. Effectivement, on observe un mode autour de 1 et un autre autour de 10. On peut supposer en regardant ce tableau que cet échantillon contient des familles d'oiseaux distinctes, ayant suffisamment de différences pour ne pas avoir le même temps d'évolution. C'est pour cela que la moyenne de l'échantillon se trouve au final, là où il y a peu d'individus (moins de $5\%$). On remarque aussi que les durée sont relativement concentrées avec une variance de $38$, elles ne dépassent pas 27.
+Sur cette échantillon on remarque une répartition bimodale de l'effectif. Effectivement, on observe un mode autour de 1 milliard d'années et un autre autour de 10 milliards d'années. On peut supposer en regardant ce tableau que cet échantillon contient des familles d'oiseaux distinctes, ayant suffisamment de différences pour ne pas avoir le même temps d'évolution. C'est pour cela que la moyenne de l'échantillon se trouve au final, là où il y a peu d'individus (moins de $5\%$). On remarque aussi que les durée sont relativement concentrées avec une variance de $38$ milliards d'années, elles ne dépassent pas 27 milliards d'année.
 
 Maintenant, faisons une autre estimation de la densité sur un échantillon d'espèces de tortues (`chelonia`).
 ```{r turtules, echo = T}
@@ -73,19 +74,22 @@ par(cex = op$cex)
 
 #### noyau gaussien
 d<-chelonia$phy$edge.length
-#d1<-chelonia$dat
 vec <- pretty(0:(max(d)+3), ((max(d)+3)*2))
-hist(d, breaks= vec, freq = F, xlab = "Durée")
-lines(density(d), col = "red") # bw = 0.201
+hist(d, breaks= vec, freq = F, xlab = "Année (en milliard)")
+lines(density(d), col = "red") 
 
-plot(density(d, kernel= "gaussian"), col = "red", bty = "n")
-polygon(density(d, kernel= "gaussian"),col=2,border = "blue")
+plot(seq(min(d),max(d), length.out =  length(d)), dens(d),
+     col = "red", bty = "n", xlab = "Année (en milliard)", type = "l", ylim=c(0,0.06))
+lines(density(d), col="blue")
 rug(d, col= "red")
+legend("topright",c("density", "dens"),
+       lty=1, col = c("blue","red"))
 
 cat("La moyenne de cet échantillon est de : ", mean(d), "\n")
-cat("La variance de cet échantillon est de : ", var(d)* (length(d)-1)/length(d)) # estimateur biaisé
-# max(d) = 150
+cat("La variance de cet échantillon est de : ", var(d)* (length(d)-1)/length(d))
 ```
 
-Si on compare cet échantillon avec le précédent, on remarque cette fois la distribution est plus étalée (avec une variance de $258.3$) et unimodale. Cependant la moyenne n'est pas énormément supérieure à celle des familles d'oiseaux. Cela s'explique par le fait que beaucoup d'espèces de tortue sont apparues en moins de 25 et qu'on observe le pic autour de $1$. 
+Si on compare cet échantillon avec le précédent, on remarque cette fois la distribution est plus étalée (avec une variance de $258.3$ milliards d'années) et unimodale. Cependant la moyenne n'est pas énormément supérieure à celle des familles d'oiseaux. Cela s'explique par le fait que beaucoup d'espèces de tortue sont apparues en moins de 25 milliards d'années et qu'on observe le pic autour de $1$ milliard d'années. 
 On en déduit qu'en moyenne on met plus de temps à obtenir une nouvelle espèce de tortue plutôt qu'une nouvelle espèce d'oiseau. 
+
+La fonction codée se rapproche de `density` cependant elle est moins performante est définie seulement sur le plus petit intervalle continu contenant toutes les observations.

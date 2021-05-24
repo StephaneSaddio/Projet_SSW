@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 2 Méthodes non-paramétriques | Rapport du projet de M1</title>
+  <meta name="description" content="Chapitre 2 Méthodes non-paramétriques | Rapport du projet de M1" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 2 Méthodes non-paramétriques | Rapport du projet de M1" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 2 Méthodes non-paramétriques | Rapport du projet de M1" />
+  
+  
+  
+
+<meta name="author" content="Wiam Chaoui" />
+<meta name="author" content="Sophie Manuel" />
+<meta name="author" content="Stéphane Sadio" />
+
+
+<meta name="date" content="2021-01-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="estimateur-de-densité-à-noyau.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#motivation"><i class="fa fa-check"></i><b>1.1</b> Motivation</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#problématique"><i class="fa fa-check"></i><b>1.2</b> Problématique</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html"><i class="fa fa-check"></i><b>2</b> Méthodes non-paramétriques</a><ul>
+<li class="chapter" data-level="2.1" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
+<li class="chapter" data-level="2.2" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#estimateurs-par-projection"><i class="fa fa-check"></i><b>2.2</b> Estimateurs par projection</a></li>
+<li class="chapter" data-level="2.3" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#estimateurs-à-noyau-de-densité"><i class="fa fa-check"></i><b>2.3</b> Estimateurs à noyau de densité</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html"><i class="fa fa-check"></i><b>3</b> Estimateur de densité à noyau</a><ul>
+<li class="chapter" data-level="3.1" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#risque-quadratique-ponctuel-des-estimateurs-à-noyau-sur-les-classe-des-espaces-de-hölder"><i class="fa fa-check"></i><b>3.1</b> Risque quadratique ponctuel des estimateurs à noyau sur les classe des espaces de Hölder</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#majoration-du-biais-et-de-la-variance"><i class="fa fa-check"></i><b>3.1.1</b> Majoration du biais et de la variance</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#méthodes-adaptatives"><i class="fa fa-check"></i><b>3.2</b> Méthodes adaptatives</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#choix-du-noyau"><i class="fa fa-check"></i><b>3.2.1</b> Choix du noyau</a></li>
+<li class="chapter" data-level="3.2.2" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#choix-de-la-fenêtre"><i class="fa fa-check"></i><b>3.2.2</b> Choix de la fenêtre</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
+<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#fonction-dens"><i class="fa fa-check"></i><b>4.1</b> Fonction dens</a></li>
+<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#applications-aux-données-du-vivant"><i class="fa fa-check"></i><b>4.2</b> Applications aux données du vivant</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Rapport du projet de M1</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="méthodes-non-paramétriques" class="section level1">
+<h1><span class="header-section-number">Chapitre 2</span> Méthodes non-paramétriques</h1>
+<p> En statistique, on parle d’estimation quand on cherche à trouver certains paramètres inconnus caractérisant une distribution à partir d’un échantillon de données observées, en se basant sur différentes méthodes.
+Dans notre cas, le paramètre d’intérêt est une fonction de densité appartenant à une classe fonctionnelle non fini-dimensionnelle. On se tourne vers l’estimation non-paramétrique lorsque l’on traite des paramètres non fini-dimensionnels.<br />
+ Nous présenterons dans la suite une courte introduction
+à l’estimation non-paramétrique et nous introduirons les deux classes
+principales de l’estimation fonctionnelle : l’estimation par projection
+et l’estimation à noyau.</p>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">2.1</span> Introduction</h2>
+
+<p>L’estimation non-paramétrique vise à résoudre des problèmes d’estimation dans le cadre statistique où le modèle auquel on s’intéresse n’est pas décrit par un nombre fini de paramètres et dont chacun de ces paramètres ne permet pas de décrire la structure générale de la distribution des variables aléatoires.Cela signifie qu’on utilise des modèles statistiques à dimension infinie.</p>
+
+<p>Dans le cadre de notre problématique on s’intéresse à l’estimation de densité.
+Un des principes de base de l’estimation de la densité selon une méthode d’estimation non-paramétrique est le suivant </p>
+<p>Soit un échantillon <span class="math inline">\(X=\{X_1, \dots,X_n\}\)</span> de variables aléatoires réelles <span class="math inline">\(i.i.d.\)</span> admettant une densité <span class="math inline">\(f = F&#39;\)</span>, où <span class="math inline">\(F\)</span> est une fonction de répartition. Supposons que <span class="math inline">\(f \in \mathcal F\)</span> où <span class="math inline">\(\mathcal{F}\)</span> est l’espace des fonctions positives, intégrables et d’intégrale égale à 1 sur <span class="math inline">\({\mathcal R}\)</span>. On cherche à estimer la fonction de densité inconnue <span class="math inline">\(f\)</span> à partir de ces observations.
+On notera <span class="math inline">\(\hat f_n\)</span> l’estimateur de <span class="math inline">\(f\)</span>.
+On se trouve donc avec le modèle suivant <span class="math inline">\(\{\mathbb P=\mathbb P_f,~f \in \mathcal F\}\)</span>
+où <span class="math inline">\(\mathbb P_f\)</span> est la mesure probabilité de la densité <span class="math inline">\(f\)</span>.</p>
+<p>L’estimation ici concerne donc la fonction elle même plutôt que les paramètres, ce qui explique le nom d’estimation non-paramétrique.</p>
+
+
+<p>Nous traiterons dans la suite deux grandes familles de méthodes linéaires pour estimer une fonction densité : 
+ - l’estimation par projection et 
+ - l’estimation par noyau.</p>
+
+</div>
+<div id="estimateurs-par-projection" class="section level2">
+<h2><span class="header-section-number">2.2</span> Estimateurs par projection</h2>
+<p>La méthode d’estimation par projection se base sur la supposition que la fonction de densité f appartient à l’espace de Hilber <span class="math inline">\(\mathcal F=(L^2,||.||,&lt;.,.&gt;)\)</span>. L’idée est qu’on approxime la fonction de densité f par sa projection orthogonal sur un sous-espace vectoriel de dimension fini.
+On va décrire dans cette partie la méthodologie de l’estimation par projection développer par Birgé et Massart (1993,1998).
+D’abord on définie ce que c’est un estimateur linéaire et la projection orthogonale d’une fonction f sur un sous-espace vectoriel de dimension fini.</p>
+
+
+
+<p>Soit <span class="math inline">\(t \in \mathbb E_N\)</span> on a d’après ce qui précède que
+pour tout <span class="math inline">\(j \in \{1,..,N\}\)</span></p>
+<p><span class="math display">\[
+a_j=\int f ~\Phi_j = \mathbb E_f[t(X_1)]
+\]</span>
+où <span class="math inline">\(X_1\)</span> est une observation.
+On peut estimer l’espérance <span class="math inline">\(\mathbb E_f[t(X_1)]\)</span> par <span class="math inline">\(\frac{1}{n} \sum_{i=1}^n t(X_1)\)</span> et on obtient donc le résultat suivant.</p>
+<p><span class="math display">\[
+||t||^2 -2&lt;t,s&gt; = ||t||^2-\frac{2}{n}\sum_{i=1}^nt(X_1),
+\]</span>
+où <span class="math inline">\(t \in \mathbb E_N\)</span> et f la fonction de densité.
+De plus,</p>
+<p><span class="math display">\[
+\mathbb E_f[||t||^2 -2&lt;t,s&gt;] = ||t-s||^2-||s||^2
+\]</span>
+Ntons par <span class="math inline">\(\phi_n\)</span> la fonction suivante : Pour tout <span class="math inline">\(t\in \mathbb E_N\)</span>, <span class="math inline">\(\Theta_n(t)=||t||^2-\frac{2}{n}\sum_{i=1}^nt(X_1)\)</span>. On peut estimer $_{E_N}fpar la fonction suivante : </p>
+<p><span class="math display">\[
+\hat f = arg~min_{t \in \mathbb E_N} \Theta_n(t)
+\]</span></p>
+<strong>Exemple : l’estimation par histogramme</strong>
+
+<p>Dans la suite on procédera à la méthode la plus fréquemment utilisée pour l’estimation d’une densité : L’estimation à noyau.</p>
+<p>(Argument pour le choix de la méthode à voir)</p>
+
+</div>
+<div id="estimateurs-à-noyau-de-densité" class="section level2">
+<h2><span class="header-section-number">2.3</span> Estimateurs à noyau de densité</h2>
+<p>Notre but est d’estimer la densité <span class="math inline">\(f\)</span>. Pour cela, on s’appuiera sur un échantillon <span class="math inline">\(i.i.d.\)</span> <span class="math inline">\(X= (X_1,...,X_n)\)</span> où chacune des variables <span class="math inline">\(X_i\)</span> admet la densité <span class="math inline">\(f\)</span> (par rapport à la mesure de Lebesgue).</p>
+<p>Pour estimer une densité on peut utiliser une méthode à noyau.
+Les méthodes à noyau sont des méthodes non-paramétriques qui permettent de proposer une estimation de la densité plus lisse que celle obtenue par un histogramme.</p>
+
+<p><strong>Comment construit-on un estimateur à noyau ?</strong></p>
+<p>L’idée pour la construction de cet estimateur est d’utiliser l’approximation suivante , valable lorsque h est petit :<br />
+<span class="math display">\[
+f(x) = F&#39;(x)\approx \frac{F(x+h)-F(x-h)}{2h}
+\]</span>
+Pour estimer la densité <span class="math inline">\(f\)</span> on peut passer par un estimateur <span class="math inline">\(\hat F_n\)</span> de la fonction de répartition <span class="math inline">\(F\)</span>. <span class="math inline">\(\hat F_n\)</span> est la fonction de répartition empirique ( <span class="math inline">\(\hat F_n(x)= \frac1n \sum\limits_{i=1}^n\frac{1}{2h} \mathds1_{X_i \in ]x-h, x+h[}\)</span> ).
+<span class="math display">\[
+\hat f_n(x)= \frac{\hat F_n(x+h)-\hat F_n(x-h)}{2h} = \frac 1n \sum\limits_{i=1}^n \frac1{2h} \mathds1_{X_i \in ]x-h;x+h]}
+\]</span></p>
+<p>Notons <span class="math inline">\(\hat f(x)\)</span> l’estimateur à noyau de la densité <span class="math inline">\(f\)</span>, alors celui-ci s’écrit :
+<span class="math display">\[
+\hat f_n(x) = \frac1{nh} \sum\limits_{i=1}^n K\left(\frac{X_i-x}h\right)
+\]</span>
+où <span class="math inline">\(h\)</span> est la fenêtre (ou paramètre de lissage), <span class="math inline">\(n\)</span> le nombre d’observations, et <span class="math inline">\(K\)</span> le noyau.
+Cette formule n’est valable que si <span class="math inline">\(h\)</span> est petit et strictement positif.</p>
+<p>ici <span class="math inline">\(K(u)= \frac12 \mathds{1}_{u \in ]-1;1]}\)</span>, il s’agit du noyau de Rosenblatt, mais il existe d’autres noyaux.</p>
+<p>Exemples de noyau :</p>
+<ul>
+<li><p>Noyau de Rosenblatt, ou rectangulaire : <span class="math inline">\(K(u)= \frac12 \mathds{1}_{u\in]-1;1]}\)</span></p></li>
+<li><p>Noyau Gaussien : <span class="math inline">\(K(u) =\frac1{\sqrt{2\pi}}exp(-\frac{u^2}2)\)</span></p></li>
+<li><p>Noyau d’Epanechnikov : <span class="math inline">\(K(u) =\frac34(1-u^2)\mathds{1}_{[-1,1]}(u)\)</span></p></li>
+<li><p>Noyau triangulaire : <span class="math inline">\(K(u) = (1-\mid u \mid)\mathds{1}_{[-1,1]}(u)\)</span></p></li>
+<li><p>Noyau Biweight : <span class="math inline">\(K(u) = \frac{15}{16}(1-u^2)^2\mathds{1}_{[-1,1]}(u)\)</span></p></li>
+</ul>
+<p>Les propriétés du noyau (continuité, différentiabilité…) se transmettent à l’estimateur <span class="math inline">\(\hat f_n\)</span>.</p>
+
+
+
+<p>Après cette petite présentation de quelques estimateurs non-paramétriques de la densité, nous avons choisi de développer la partie sur l’estimation par noyau. c’est le type d’estimation que nous choisirons d’utiliser pour la suite de notre étude.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="estimateur-de-densité-à-noyau.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Projet_M1_Chaoui_Manuel_Sadio.pdf", "Projet_M1_Chaoui_Manuel_Sadio.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
