@@ -1,4 +1,9 @@
+
 ## Estimateurs par projection 
+
+La méthode d'estimation par projection se base sur la supposition que la fonction de densité f appartient à l'espace de Hilber $\mathcal F=(L^2,||.||,<.,.>)$. L'idée est qu'on approxime la fonction de densité f par sa projection orthogonal sur un sous-espace vectoriel de dimension fini.\newline
+On va décrire dans cette partie la méthodologie de l'estimation par projection développer par Birgé et Massart (1993,1998).\newline
+D'abord on définie ce que c'est un estimateur linéaire et la projection orthogonale d'une fonction f sur un sous-espace vectoriel de dimension fini.
 
 \begin{dfn}
 Soient $X= (X_1,...,X_n)$ un échantillon de densité $f$ et $T_j : \mathbb{R}^d \times \mathbb{R}^d \rightarrow \mathbb{R}$ des fonctions mesurables.  
@@ -11,21 +16,44 @@ $$
 \end{dfn} 
 
 \begin{dfn}
-(Estimateur par projection) \newline
-Soit $f \in \mathcal F = (L^2 , \parallel\,.\parallel, <\,.,~.>)$ où $\mathcal{F} $ un espace de Hilbert muni d'une base orthonormée $(\Phi_j)_{j \in \mathbb{N^*}}$ de $L^2$.Si $\mathbb E _N$  un sous-espace vectoriel de dimension finie de $\mathcal F$ et $a_j = <f,\Phi_j> = \int_{\mathbb R}f(x)\Phi_j(x) dx$ avec $1 \leq |N| < \infty$.\newline
-On appelle estimateur par projection de la fonction $f$ sur $\mathbb E_N$, la fonction $\Pi_N~f$ définit comme suit 
+(Projection orthogonale de la fonction f) \newline
+Soit $f \in \mathcal F = (L^2 , \parallel\,.\parallel, <\,.,~.>)$ où $\mathcal{F} $ un espace de Hilbert muni d'une base orthonormée $(\Phi_j)_{j \in \mathbb{N^*}}$ de $L^2$.Si $\mathbb E _N$  un sous-espace vectoriel de dimension finie de $\mathcal F$ et $a_j = <f,\Phi_j> = \int_{\mathbb R}f(x)\Phi_j(x) dx$ pour tout $j \in \{1,...N\}$ avec $1 \leq |N| < \infty$.\newline
+On appelle la projection orthogonal de la fonction $f$ sur $\mathbb E_N$, la fonction $\Pi_N~f$ définit comme suit 
 
-à modifier
+
 $$
-\Pi_{vect(1,..N)}~f = \sum_{j=1}^N a_j \Phi_j
+\Pi_{\mathbb E_N}~f = \sum_{j=1}^N a_j \Phi_j \\
+\Pi_{\mathbb E_N}~f = arg~min_{t \in \mathbb E_N}||f-t||^2=arg~min_{t \in \mathbb E_N} ||t||^2 -2<t,f>.
 $$
 \end{dfn}
 
-
-
 \begin{rem}
-Cette méthode nous ramène au cas paramétrique.\newline
+Cette méthode nous ramène au cas paramétrique, puisque ça revient a estimer les coefficients de la famille $(a_j)_{j \in \{1,..,N\}}$.\newline
 \end{rem}
+
+Soit $t \in \mathbb E_N$ on a d'après ce qui précède que\newline
+pour tout $j \in \{1,..,N\}$ 
+
+$$
+a_j=\int f ~\Phi_j = \mathbb E_f[t(X_1)]
+$$
+où $X_1$ est une observation.\newline
+On peut estimer l'espérance $\mathbb E_f[t(X_1)]$ par $\frac{1}{n} \sum_{i=1}^n t(X_1)$ et on obtient donc le résultat suivant.
+
+$$
+||t||^2 -2<t,s> = ||t||^2-\frac{2}{n}\sum_{i=1}^nt(X_1),
+$$
+où $t \in \mathbb E_N$ et f la fonction de densité.
+De plus,
+
+$$
+\mathbb E_f[||t||^2 -2<t,s>] = ||t-s||^2-||s||^2
+$$
+Ntons par $\phi_n$ la fonction suivante : Pour tout $t\in \mathbb E_N$, $\Theta_n(t)=||t||^2-\frac{2}{n}\sum_{i=1}^nt(X_1)$. On peut estimer  $\Pi_{\mathbb E_N}fpar la fonction suivante : \newline
+
+$$
+\hat f = arg~min_{t \in \mathbb E_N} \Theta_n(t)
+$$
 
 **Exemple : l'estimation par histogramme**
 \begin{exem}

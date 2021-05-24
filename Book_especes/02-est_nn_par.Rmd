@@ -14,7 +14,7 @@ et l'estimation à noyau.
 \hspace*{0.5cm}  Dans le cadre de notre problématique on s'intéresse à l'estimation de densité.\newline
   Un des principes de base de l'estimation de la densité selon une méthode d'estimation non-paramétrique est le suivant \newline
   
-Soit un échantillon $X=\{X_1, \dots,X_n\}$ de variables aléatoires réelles $i.i.d.$ admettant une densité $f = F'$, où $F$ est une fonction de répartition. Supposons que $f \in \mathcal F$ où $\mathcal{F}$ est l'espace des fonctions positives, intégrables et d'intégrale égale à 1 sur {\mathcal R}. On cherche à estimer la fonction de densité inconnue $f$ à partir de ces observations.\newline
+Soit un échantillon $X=\{X_1, \dots,X_n\}$ de variables aléatoires réelles $i.i.d.$ admettant une densité $f = F'$, où $F$ est une fonction de répartition. Supposons que $f \in \mathcal F$ où $\mathcal{F}$ est l'espace des fonctions positives, intégrables et d'intégrale égale à 1 sur ${\mathcal R}$. On cherche à estimer la fonction de densité inconnue $f$ à partir de ces observations.\newline
 On notera $\hat f_n$ l'estimateur de $f$.\newline
 On se trouve donc avec le modèle suivant $\{\mathbb P=\mathbb P_f,~f \in \mathcal F\}$
 où $\mathbb P_f$ est la mesure probabilité de la densité $f$.
