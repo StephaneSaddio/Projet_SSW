@@ -7,4 +7,61 @@
 Dans cette partie nous présenterons la fonction `dens` que nous avons créée en voulant reproduire ce que fait la fonction `density` de R.
 Voici son code : 
 
-Insérer le script de fonc_dens.R
+```{r}
+dens <- function(sample, bandwith, kernel){
+
+      X <- sample
+      n <- length(X)
+      x <- seq.int(min(X), max(X), length.out = n)
+      if (missing(kernel)) {kernel = "gaussian"}
+      kern <- switch(kernel,
+                  gaussian = function(u){return(dnorm(u))},
+                  rectangular = function(u){
+                    ifelse(abs(u) < 1, .5, 0) },
+                  triangular = function(u) {
+                    return(ifelse(abs(u) < 1, (1 - abs(u)), 0)) },
+                  epanechnikov = function(u){
+                   return(ifelse(abs(u) < 1, 3/4*(1 - u^2), 0)) },
+                  biweight = function(u){ 
+                    return(ifelse(abs(u) < 1, 15/16*(1 - u^2)^2, 0)) }) 
+      # noyau caractère en fonction
+      
+    if (missing(bandwith)){
+
+      bandwith <- "ucv"
+    }
+      
+      # La boucle ci-dessous provient de la fonction density,
+      # nous l'avons ajouté juste pour avoir une fonction un peu plus complète
+      # avec d'autres méthodes de calcul de la fenêtre que celle de Goldenshluger-Lepski.
+      ######
+      if (is.character(bandwith)) {
+      if(n < 2)
+          stop("need at least 2 points to select a bandwidth automatically")
+      bandwith <- switch(tolower(bandwith),
+                   nrd0 = bw.nrd0(x),
+                   nrd = bw.nrd(x),
+                   ucv = bw.ucv(x),
+                   bcv = bw.bcv(x),
+                   sj = , "sj-ste" = bw.SJ(x, method="ste"),
+                   "sj-dpi" = bw.SJ(x, method="dpi"),
+                    stop("unknown bandwidth rule"))
+      }
+      
+      if (!is.finite(bandwith)) stop("non-finite 'bandwith'")
+      if (bandwith <= 0) stop("'bandwith' is not positive.")
+      ########
+      
+      hatfvect <- NULL
+      for (i in 1:n){
+        som = 0
+        for (j in 1:n){
+          som = som + kern((X[j]-x[i])/bandwith)
+        }
+        hatfvect[i] <- som / (bandwith*n) # formule noyau
+      }
+      return(hatfvect)
+}
+```
+
+Cette fonction prend en argument l'écha,ti

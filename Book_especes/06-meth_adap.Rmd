@@ -127,10 +127,17 @@ eff(K) = \frac{3}{5\times \int_{\mathbb R}K(t)^2 dt\sqrt{5 \times\int_{\mathbb R
 $$
 Voici un tableau récapitulatif de l'efficacité  de plusieurs noyaux continus symétriques.
 
-```{r ker_tab, echo = F}
+```{r ker_tab, echo = F, tidy = F}
 dt <- data.frame(Noyau = c("Epanechnikov", "Bigweight", "Triangular",
-"Gaussien", "Rectangulaire"), Efficacité = c(1.000, 0.994, 0.986, 0.951, 0.930))
-knitr::kable(dt, caption = "Efficacité des noyaux continus symétriques")
+"Gaussien", "Rectangulaire"), Efficacite = c(1.000, 0.994, 0.986, 0.951, 0.930))
+knitr::kable(dt, caption = "Efficacité des noyaux continus symétriques", booktabs = TRUE)
+```
+
+```{r nice-tab, tidy=FALSE}
+knitr::kable(
+  head(iris, 20), caption = 'Here is a nice table!',
+  booktabs = TRUE
+)
 ```
 
 \begin{rem}
@@ -201,20 +208,27 @@ rand <-rweibull(500,1.7,2)
 
 hist(rand, breaks = 12, freq = F, main = "")
 lines(density(rand, bw = 0.1), col ="blue")
-lines(density(rand), col ="blue")
-lines(density(rand, bw = 2), col ="blue")
 lines(seq, yweib, col="red")
 title("Fenêtre trop petite,\n h = 0.1")
 
 hist(rand, breaks = 12, freq = F, main = "")
-lines(density(rand), col ="blue")
+lines(density(rand, bw="ucv"), col ="blue")
 lines(seq, yweib, col="red")
 title("Fenêtre raisonnable,\n h = 0.372")
 
 hist(rand, breaks = 12, freq = F, main = "")
 lines(density(rand, bw = 2), col ="blue")
 lines(seq, yweib, col="red")
-title("Fenêtre trop petite,\n h = 2")
+title("Fenêtre trop grande,\n h = 2")
+
+
+x <- seq(0.03, 1, by = 0.01)
+risvec <- NULL
+j=1
+for (i in x){risvec[j]=Risk(rand,i); j=j+1}
+
+plot(x, risvec, xlab = "Taille de la fenêtre h", ylab = "Risque (MSE)")
+title("Variation du risque en fonction de la taille de la fenêtre")
 ```
 La fenêtre $h$ du second graphique est calculée automatiquement par la fonction `density`de R. 
  

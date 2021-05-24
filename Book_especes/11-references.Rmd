@@ -1,3 +1,23 @@
-`'
+`r if (knitr::is_html_output()) '
 # References {-}
 '`
+\begin{thebibliography}{99}
+  \bibitem{Ref1}
+   Gilles Rebelles. \emph{Sur l'estimation adaptative d'une densité multivariée sous l'hypothèse de la structure d'indépendance}.
+   
+  \bibitem{Ref2}
+    \emph{Cours-Estimation de densité}.
+    <https://cedric.cnam.fr/vertigo/Cours/ml/coursEstimationDensite.html>
+    
+  \bibitem{Ref3}
+    
+    <https://www.ceremade.dauphine.fr/~turinici/images/stories/work/cours/M1_stat_nonparamP20/stat_nonp_P20_annotations.pdf>
+    
+  \bibitem{Ref4}
+    http://cmatias.perso.math.cnrs.fr/
+    
+  \bibitem{Ref5}
+  Larry Wasserman, \emph{ All of Nonparametric Statistics}, Editeur : Springer-Verlag New York,2006.
+
+
+\end{thebibliography}

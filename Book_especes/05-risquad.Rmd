@@ -199,13 +199,12 @@ $$
 
 \end{cmtr}
 
-\begin{exem} (Simulation numérique)
+**Exemple**(Simulation numérique)  
 Nous estimons la fonction densité d'une somme de deux variables gaussiennes ci-contre avec la méthode à noyau avec différentes fenêtres.
 $$
 f(x)=\frac{1}{2}\frac{1}{\sqrt{2\pi}}(exp(-\frac{(x-2)^2}{2})+exp(-\frac{(x-6)^2}{2}))
 $$
 On va en fait utiliser `ggplot` pour représenter l'estimateur à noyau. La fonction qui permet de dessiner l'estimateur à noyau est `geom_density`. Le paramètre représentant le fenêtre h rappelle `bw` (comme bandwidth en Anglais).
-\end{exem} 
 ```{r}
 library(ggplot2)
 library(gridExtra)

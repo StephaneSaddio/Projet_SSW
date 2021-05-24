@@ -10,13 +10,13 @@ date: "2021"
 #date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: book.bib
 biblio-style: apalike
 link-citations: yes
 description: ""
 ---
 
 \newtheorem{dfn}{Définition}
+\newtheorem{exem}{Exemple}
 \newtheorem{exemple}{Exemple}
 \newtheorem{corol}{Corollaire}
 \newtheorem{prop}{Proposition}
@@ -25,10 +25,8 @@ description: ""
 \newtheorem{rem}{Remarque}
 \newtheorem{propri}{Propriété}
 \newtheorem{thm}{Théorème}
-\newtheorem{cmtr}{Commentaire}
+\newtheorem*{cmtr}{Commentaire}
 
-\renewcommand{\contentsname}{Table des matières}
-\tableofcontents
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = F, warning = F, message = F, include = T)
