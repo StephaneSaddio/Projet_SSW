@@ -1,5 +1,12 @@
 
+
 ## Estimateurs par projection 
+Cette partie provient de la lecture des références suivantes :\newline
+Gaëlle Chagny. AN INTRODUCTION TO NONPARAMETRIC ADAPTIVE ESTIMATION. The Graduate Journal of Mathematics, Mediterranean Institute for the Mathematical Sciences (MIMS), 2016\newline
+et  \newline
+
+
+
 
 La méthode d'estimation par projection se base sur la supposition que la fonction de densité f appartient à l'espace de Hilber $\mathcal F=(L^2,||.||,<.,.>)$. L'idée est qu'on approxime la fonction de densité f par sa projection orthogonal sur un sous-espace vectoriel de dimension fini.\newline
 On va décrire dans cette partie la méthodologie de l'estimation par projection développer par Birgé et Massart (1993,1998).\newline
@@ -58,13 +65,12 @@ $$
 **Exemple : l'estimation par histogramme**
 \begin{exem}
   Une des premières approches possibles d'estimations non-paramétriques par projection de la fonction de densité est l'estimation par l'histogramme. C'est une méthode qui consiste à obtenir une segmentation de la répartition des observations par une projection sur une base constante par morceaux. L'histogramme est considéré comme une approximation discontinue de la fonction densité f.
-  (\#eq:cours-est)
-
   
-  (ajout formule graphique)
+
+
 \end{exem}
 
  Dans la suite on procédera à la méthode la plus fréquemment utilisée pour l'estimation d'une densité :     L'estimation à noyau.\newline 
  
- (Argument pour le choix de la méthode à voir)
+
 
