@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  23 MAY 2021 02:08
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.5.17)  23 MAY 2021 21:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -543,40 +543,40 @@ LaTeX Warning: Label `eq:cours-est' multiply defined.
 )
 \openout1 = `Book-especes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 126.
-LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 127.
+LaTeX Font Info:    ... okay on input line 127.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 126.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 127.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 126.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 127.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 126.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 127.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 126.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 127.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 126.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 127.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 126.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 127.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 126.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 127.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -605,7 +605,7 @@ pt=math;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 126.
+(Font)              scaled to size 10.0pt on input line 127.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -644,18 +644,18 @@ pt=math;language=dflt;"
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 126.
+(Font)              scaled to size 10.0pt on input line 127.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 126.
+(Font)              `operators' in the math version `normal' on input line 127.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input
- line 126.
+ line 127.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 126.
+(Font)              `operators' in the math version `bold' on input line 127.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on inpu
-t line 126.
+t line 127.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -742,15 +742,15 @@ t=math;language=dflt;"
 (fontspec)             \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 126.
+(Font)              `symbols' in the math version `normal' on input line 127.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on inpu
-t line 126.
+t line 127.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 126.
+(Font)              `symbols' in the math version `bold' on input line 127.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on inpu
-t line 126.
+t line 127.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -820,17 +820,17 @@ pt=math;language=dflt;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 (Font)              `largesymbols' in the math version `normal' on input line 1
-26.
+27.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on inpu
-t line 126.
+t line 127.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 126
+(Font)              `largesymbols' in the math version `bold' on input line 127
 .
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on inpu
-t line 126.
-LaTeX Info: Redefining \microtypecontext on input line 126.
+t line 127.
+LaTeX Info: Redefining \microtypecontext on input line 127.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -842,7 +842,7 @@ ModernRoman.cfg
 File: mt-LatinModernRoman.cfg 2021/02/21 v1.1 microtype config. file: Latin Mod
 ern Roman (RS)
 )
-Package hyperref Info: Link coloring OFF on input line 126.
+Package hyperref Info: Link coloring OFF on input line 127.
 
 (c:/Users/sophi/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.s
 ty
@@ -858,37 +858,37 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count311
 )
-LaTeX Info: Redefining \ref on input line 126.
-LaTeX Info: Redefining \pageref on input line 126.
-LaTeX Info: Redefining \nameref on input line 126.
+LaTeX Info: Redefining \ref on input line 127.
+LaTeX Info: Redefining \pageref on input line 127.
+LaTeX Info: Redefining \nameref on input line 127.
 (./Book-especes.out) (./Book-especes.out)
 \@outlinefile=\write4
 \openout4 = `Book-especes.out'.
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 128.
+(Font)              scaled to size 12.0pt on input line 129.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 128.
+(Font)              scaled to size 8.0pt on input line 129.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 128.
+(Font)              scaled to size 6.0pt on input line 129.
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-28.
+29.
 (c:/Users/sophi/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 128.
+(Font)              scaled to size 12.0011pt on input line 129.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00073pt on input line 128.
+(Font)              scaled to size 8.00073pt on input line 129.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 128.
+(Font)              scaled to size 6.00055pt on input line 129.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 128.
+(Font)              scaled to size 11.99872pt on input line 129.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 128.
+(Font)              scaled to size 7.99915pt on input line 129.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 128.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 128
+(Font)              scaled to size 5.99936pt on input line 129.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 129
 .
 (c:/Users/sophi/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -897,7 +897,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 fg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 128
+LaTeX Font Info:    Trying to load font information for U+msb on input line 129
 .
 (c:/Users/sophi/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -932,7 +932,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 \openout5 = `Book-especes.toc'.
 
 \c@dfn=\count312
-\c@exem=\count313
+\c@exemple=\count313
 \c@corol=\count314
 \c@prop=\count315
 \c@lem=\count316
@@ -943,194 +943,183 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 \c@cmtr=\count321
 [3] [4
 
+] (./Book-especes.toc)
+\tf@toc=\write6
+\openout6 = `Book-especes.toc'.
+
+[5] [6
+
 ]
 Chapter 1.
 File: Images/arbre_intro.jpg Graphic file (type bmp)
 <Images/arbre_intro.jpg>
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--159
+Underfull \hbox (badness 10000) in paragraph at lines 159--163
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--159
+Underfull \hbox (badness 10000) in paragraph at lines 159--163
 
  []
 
-[5] [6]
+[7] [8]
 Chapter 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--197
+Underfull \hbox (badness 10000) in paragraph at lines 199--201
 
  []
 
-[7
+[9
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 203--204
+Underfull \hbox (badness 10000) in paragraph at lines 207--208
 
  []
 
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 246--247
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 249--250
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 250--251
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 264--265
+Underfull \hbox (badness 10000) in paragraph at lines 253--254
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 268--269
 
  []
 
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 2
-68.
+72.
 
 (c:/Users/sophi/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/doublestroke/Udsro
 m.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
 Package microtype Info: Fixing zero fontdimen6 for font `U/dsrom/m/n/10'
-(microtype)             (new value: 10.0pt) on input line 268.
+(microtype)             (new value: 10.0pt) on input line 272.
 Package microtype Info: Fixing zero fontdimen6 for font `U/dsrom/m/n/7'
-(microtype)             (new value: 7.0pt) on input line 268.
+(microtype)             (new value: 7.0pt) on input line 272.
 Package microtype Info: Fixing zero fontdimen6 for font `U/dsrom/m/n/5'
-(microtype)             (new value: 5.0pt) on input line 268.
-[9] [10]
+(microtype)             (new value: 5.0pt) on input line 272.
+[11] [12]
 Chapter 3.
 
-Underfull \hbox (badness 10000) in paragraph at lines 315--316
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--336
+Underfull \hbox (badness 10000) in paragraph at lines 339--340
 
  []
 
 
-Underfull \hbox (badness 1990) in paragraph at lines 345--347
+Underfull \hbox (badness 1990) in paragraph at lines 349--351
 []\TU/lmr/m/it/10 La fonction de risque associé nous permet de comparer
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 345--347
+Underfull \hbox (badness 10000) in paragraph at lines 349--351
 
  []
 
-[11
+[13
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 366--368
+Underfull \hbox (badness 10000) in paragraph at lines 370--372
 
  []
 
 
-Overfull \hbox (114.51602pt too wide) detected at line 374
+Overfull \hbox (114.51602pt too wide) detected at line 378
 [][][][] [][] [] []
  []
 
-[12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 447--448
-
- []
-
 [14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 533--534
+Underfull \hbox (badness 10000) in paragraph at lines 451--452
+
+ []
+
+[16] [17]
+Underfull \hbox (badness 10000) in paragraph at lines 537--538
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 535--536
+Underfull \hbox (badness 10000) in paragraph at lines 539--540
 
  []
 
 File: Book-especes_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type 
 pdf)
 <use Book-especes_files/figure-latex/unnamed-chunk-2-1.pdf>
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 551--554
-
- []
-
-[17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 641--642
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 555--558
 
  []
 
 [19] [20]
+Underfull \hbox (badness 10000) in paragraph at lines 645--646
+
+ []
+
+[21] [22]
 File: Book-especes_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type 
 pdf)
 <use Book-especes_files/figure-latex/unnamed-chunk-3-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[21] [22]
-Underfull \hbox (badness 3547) in paragraph at lines 757--759
+[23] [24]
+Underfull \hbox (badness 3547) in paragraph at lines 761--763
 \TU/lmr/m/it/10 Cette estimateur $[]$, par construction est l’estimateur sans b
 iais de
  []
 
-[23] [24] [25] [26] [27] [28
+[25] [26] [27] [28] [29] [30
 
 ]
 Chapter 4.
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 929.
-File: Book-especes_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type 
-pdf)
-<use Book-especes_files/figure-latex/unnamed-chunk-4-1.pdf>
-[29]
-File: Book-especes_files/figure-latex/unnamed-chunk-4-2.pdf Graphic file (type 
-pdf)
-<use Book-especes_files/figure-latex/unnamed-chunk-4-2.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[30]
-File: Book-especes_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type 
-pdf)
-<use Book-especes_files/figure-latex/unnamed-chunk-5-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 933.
 [31]
-File: Book-especes_files/figure-latex/unnamed-chunk-5-2.pdf Graphic file (type 
-pdf)
-<use Book-especes_files/figure-latex/unnamed-chunk-5-2.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+File: Book-especes_files/figure-latex/chi2-1.pdf Graphic file (type pdf)
+<use Book-especes_files/figure-latex/chi2-1.pdf>
 [32]
-File: Book-especes_files/figure-latex/unnamed-chunk-5-3.pdf Graphic file (type 
-pdf)
-<use Book-especes_files/figure-latex/unnamed-chunk-5-3.pdf>
-[33]
-File: Book-especes_files/figure-latex/unnamed-chunk-6-1.pdf Graphic file (type 
-pdf)
-<use Book-especes_files/figure-latex/unnamed-chunk-6-1.pdf>
+File: Book-especes_files/figure-latex/birds-1.pdf Graphic file (type pdf)
+<use Book-especes_files/figure-latex/birds-1.pdf>
+File: Book-especes_files/figure-latex/birds-2.pdf Graphic file (type pdf)
+<use Book-especes_files/figure-latex/birds-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+[33]
+File: Book-especes_files/figure-latex/birds-3.pdf Graphic file (type pdf)
+<use Book-especes_files/figure-latex/birds-3.pdf>
 [34]
-File: Book-especes_files/figure-latex/unnamed-chunk-6-2.pdf Graphic file (type 
-pdf)
-<use Book-especes_files/figure-latex/unnamed-chunk-6-2.pdf>
+File: Book-especes_files/figure-latex/turtules-1.pdf Graphic file (type pdf)
+<use Book-especes_files/figure-latex/turtules-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [35]
-File: Book-especes_files/figure-latex/unnamed-chunk-6-3.pdf Graphic file (type 
-pdf)
-<use Book-especes_files/figure-latex/unnamed-chunk-6-3.pdf>
-[36] [37] [38
+File: Book-especes_files/figure-latex/turtules-2.pdf Graphic file (type pdf)
+<use Book-especes_files/figure-latex/turtules-2.pdf>
 
-]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[36]
+File: Book-especes_files/figure-latex/turtules-3.pdf Graphic file (type pdf)
+<use Book-especes_files/figure-latex/turtules-3.pdf>
+[37] [38]
 Chapter 5.
-[39] [40
+[39
+
+] [40
 
 ]
 Chapter 6.
@@ -1143,10 +1132,10 @@ Package rerunfilecheck Info: File `Book-especes.out' has not changed.
 (rerunfilecheck)             Checksum: 257D90D3C7A2E5FDC70A77D1910A5005;2428.
  ) 
 Here is how much of TeX's memory you used:
- 18208 strings out of 478764
- 329709 string characters out of 5862279
- 815599 words of memory out of 5000000
- 37919 multiletter control sequences out of 15000+600000
+ 18202 strings out of 478764
+ 328825 string characters out of 5862279
+ 815603 words of memory out of 5000000
+ 37912 multiletter control sequences out of 15000+600000
  410209 words of font info for 88 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  85i,13n,121p,666b,404s stack positions out of 5000i,500n,10000p,200000b,80000s

@@ -54,3 +54,21 @@ IV- Application/code
 i) création des fonctions théorie (Sophie)
 
 ii) application aux données du vivant (sophie) avec density de R
+
+
+
+- à faire
+les putains de parenthèse de stéphane
+les légendes de stéphane (ENCORE LUI !)
+ajout estimateur auxiliaire dans validation croisée
+références dans le texte
+
+- définitions
+
+classe fonctionnelle
+non fini-dimensionnel
+super noyau
+revoir classe de holder
+
+- explications
+pourquoi la méthode par projection revient au cas paramétrique

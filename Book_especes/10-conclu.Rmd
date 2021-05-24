@@ -7,4 +7,4 @@
 (\#eq:oracle) Lucie Montuelle. Inégalités d’oracle et mélanges. Statistiques [math.ST]. Université Paris-Sud, 2014.
 Français.\newline
 (\#eq:est-ad) Gilles Rebelles. Sur l'estimation adaptative d'une densité multivariée sous l'hypothèse de la structure d'indépendance.\newline
-(\#eq:cours-est) Cours-Estimation de densité.https://cedric.cnam.fr/vertigo/Cours/ml/coursEstimationDensite.html\newline
+(\#eq:cours-est) Cours-Estimation de densité.https://cedric.cnam.fr/vertigo/Cours/ml/coursEstimationDensite.html \newline

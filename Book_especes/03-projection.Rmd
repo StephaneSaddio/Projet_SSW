@@ -1,8 +1,8 @@
-## Estimateurs par projection :
+## Estimateurs par projection 
 
 \begin{dfn}
-Soient $X= (X_1,...,X_n)$ considérer dans le modèle de densité présenté précédemment et $T_j : \mathbb{R}^d$x$\mathbb{R}^d \rightarrow \mathbb{R}$ des fonctions mesurables.  
-Un estimateur $x \rightarrow \hat{f}(x) = \hat{f}(x,X)$ est dit linéaire si il peut s'écrire sous la forme
+Soient $X= (X_1,...,X_n)$ un échantillon de densité $f$ et $T_j : \mathbb{R}^d \times \mathbb{R}^d \rightarrow \mathbb{R}$ des fonctions mesurables.  
+Un estimateur $x \mapsto \hat{f}(x) = \hat{f}(x,X)$ est dit linéaire si il peut s'écrire sous la forme
 
 $$
 \hat{f}(x) = \sum^N_{j=1}T_j(x,X_j), \forall x \in \mathbb{R}^d.
@@ -12,9 +12,10 @@ $$
 
 \begin{dfn}
 (Estimateur par projection) \newline
-Soit $f \in \mathcal F = (L^2 , \parallel\,.\parallel, <\,.,~.>_)$ oû $\mathcal{F} $ un espace de Hilbert muni d'une base orthonormée $(\Phi_j)_{j \in \mathbb{N^*}}$ de $L^2$.Si $\mathbb E _N$  un sous-espace fini de $\mathcal F$ et $a_j = <f,\Phi_j> = \int_{\mathbb R}f(x)\Phi_j(x) dx$ avec $1 \leq |N| < \infty$.\newline
-On appelle un estimateur par projection de la fonction $f$ sur $\mathbb E_N$, la fonction $\Pi_N~f$ définit comme suit 
+Soit $f \in \mathcal F = (L^2 , \parallel\,.\parallel, <\,.,~.>)$ où $\mathcal{F} $ un espace de Hilbert muni d'une base orthonormée $(\Phi_j)_{j \in \mathbb{N^*}}$ de $L^2$.Si $\mathbb E _N$  un sous-espace vectoriel de dimension finie de $\mathcal F$ et $a_j = <f,\Phi_j> = \int_{\mathbb R}f(x)\Phi_j(x) dx$ avec $1 \leq |N| < \infty$.\newline
+On appelle estimateur par projection de la fonction $f$ sur $\mathbb E_N$, la fonction $\Pi_N~f$ définit comme suit 
 
+à modifier
 $$
 \Pi_{vect(1,..N)}~f = \sum_{j=1}^N a_j \Phi_j
 $$
@@ -23,10 +24,17 @@ $$
 
 
 \begin{rem}
--Cette méthode nous ramène au cas paramétrique.\newline
+Cette méthode nous ramène au cas paramétrique.\newline
 \end{rem}
 
+**Exemple : l'estimation par histogramme**
+\begin{exem}
+  Une des premières approches possibles d'estimations non-paramétriques par projection de la fonction de densité est l'estimation par l'histogramme. C'est une méthode qui consiste à obtenir une segmentation de la répartition des observations par une projection sur une base constante par morceaux. L'histogramme est considéré comme une approximation discontinue de la fonction densité f.
+  (\#eq:cours-est)
 
+  
+  (ajout formule graphique)
+\end{exem}
 
  Dans la suite on procédera à la méthode la plus fréquemment utilisée pour l'estimation d'une densité :     L'estimation à noyau.\newline 
  

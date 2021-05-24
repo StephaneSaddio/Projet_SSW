@@ -109,6 +109,7 @@
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
 \usepackage{dsfont}
+\usepackage{hyperref}
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
 
@@ -131,7 +132,7 @@
 \tableofcontents
 }
 \newtheorem{dfn}{Définition}
-\newtheorem{exem}{Exemple}
+\newtheorem{exemple}{Exemple}
 \newtheorem{corol}{Corollaire}
 \newtheorem{prop}{Proposition}
 \newtheorem{lem}{Lemme}
@@ -140,6 +141,9 @@
 \newtheorem{propri}{Propriété}
 \newtheorem{thm}{Théorème}
 \newtheorem{cmtr}{Commentaire}
+
+\renewcommand{\contentsname}{Table des matières}
+\tableofcontents
 
 \hypertarget{intro}{%
 \chapter{Introduction}\label{intro}}
@@ -928,14 +932,8 @@ Pour commencer nous allons tester les fonctions avec un premier exemple fictif.
 
 \NormalTok{seq <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{30}\NormalTok{, }\DataTypeTok{length.out =} \DecValTok{60}\NormalTok{)}
 \NormalTok{ychi2 <-}\StringTok{ }\KeywordTok{dchisq}\NormalTok{(seq,}\DecValTok{6}\NormalTok{)}
-\KeywordTok{plot}\NormalTok{(seq, ychi2, }\DataTypeTok{type =} \StringTok{"l"}\NormalTok{, }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\CommentTok{#plot(seq, ychi2, type = "l", col = "red")}
 
-\includegraphics{Book-especes_files/figure-latex/unnamed-chunk-4-1.pdf}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{rand <-}\KeywordTok{rchisq}\NormalTok{(}\DecValTok{100}\NormalTok{,}\DecValTok{6}\NormalTok{)}
 \KeywordTok{hist}\NormalTok{(rand, }\DataTypeTok{breaks =} \DecValTok{60}\NormalTok{, }\DataTypeTok{freq =}\NormalTok{ F, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\KeywordTok{max}\NormalTok{(rand)}\OperatorTok{+}\DecValTok{3}\NormalTok{))}
 \KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(rand, }\DataTypeTok{kernel =}  \StringTok{"epanechnikov"}\NormalTok{, }\DataTypeTok{bw =} \DecValTok{1}\NormalTok{), }\DataTypeTok{col =}\StringTok{"black"}\NormalTok{)}
@@ -949,7 +947,7 @@ Pour commencer nous allons tester les fonctions avec un premier exemple fictif.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Book-especes_files/figure-latex/unnamed-chunk-4-2.pdf}
+\includegraphics{Book-especes_files/figure-latex/chi2-1.pdf}
 Comme nous l'avons vu théoriquement, on voit relativement bien ici que la différence au niveau du choix du noyau n'est pas très impactante sur la qualité de l'estimation.
 
 Nous allons maintenant tester les fonctions d'estimation de la densité sur deux exemples.
@@ -971,7 +969,7 @@ Commençons par les familles d'oiseaux (\texttt{bird.families}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Book-especes_files/figure-latex/unnamed-chunk-5-1.pdf}
+\includegraphics{Book-especes_files/figure-latex/birds-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -986,7 +984,7 @@ Commençons par les familles d'oiseaux (\texttt{bird.families}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Book-especes_files/figure-latex/unnamed-chunk-5-2.pdf}
+\includegraphics{Book-especes_files/figure-latex/birds-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -997,7 +995,7 @@ Commençons par les familles d'oiseaux (\texttt{bird.families}.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Book-especes_files/figure-latex/unnamed-chunk-5-3.pdf}
+\includegraphics{Book-especes_files/figure-latex/birds-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1042,7 +1040,7 @@ Maintenant, faisons une autre estimation de la densité sur un échantillon d'es
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Book-especes_files/figure-latex/unnamed-chunk-6-1.pdf}
+\includegraphics{Book-especes_files/figure-latex/turtules-1.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1057,7 +1055,7 @@ Maintenant, faisons une autre estimation de la densité sur un échantillon d'es
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Book-especes_files/figure-latex/unnamed-chunk-6-2.pdf}
+\includegraphics{Book-especes_files/figure-latex/turtules-2.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1067,7 +1065,7 @@ Maintenant, faisons une autre estimation de la densité sur un échantillon d'es
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Book-especes_files/figure-latex/unnamed-chunk-6-3.pdf}
+\includegraphics{Book-especes_files/figure-latex/turtules-3.pdf}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1109,6 +1107,6 @@ Français.\newline
 \label{eq:est-ad} Gilles Rebelles. Sur l'estimation adaptative d'une densité multivariée sous l'hypothèse de la structure d'indépendance.\newline
 \label{eq:cours-est} Cours-Estimation de densité.https://cedric.cnam.fr/vertigo/Cours/ml/coursEstimationDensite.html\newline
 
-  \bibliography{book.bib,packages.bib}
+  \bibliography{book.bib}
 
 \end{document}

@@ -87,5 +87,5 @@ cat("La variance de cet échantillon est de : ", var(d)* (length(d)-1)/length(d)
 # max(d) = 150
 ```
 
-Si on compare cet échantillon avec le précédent, on remarque cette fois la distribution est plus étalée (avec une variance de $258.3$) et unimodale. Cependant la moyenne n'est pas énormément supérieure à celle des familles d'oiseaux. Cela s'explique par le fait que beaucoup d'espèces de tortue sont apparues en moins de 25 ans et qu'on observe le pic autour de $1$. 
+Si on compare cet échantillon avec le précédent, on remarque cette fois la distribution est plus étalée (avec une variance de $258.3$) et unimodale. Cependant la moyenne n'est pas énormément supérieure à celle des familles d'oiseaux. Cela s'explique par le fait que beaucoup d'espèces de tortue sont apparues en moins de 25 et qu'on observe le pic autour de $1$. 
 On en déduit qu'en moyenne on met plus de temps à obtenir une nouvelle espèce de tortue plutôt qu'une nouvelle espèce d'oiseau. 

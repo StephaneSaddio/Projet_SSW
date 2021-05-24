@@ -1,0 +1,16 @@
+Avantages de l'estimation à noyau :  
+- applicable à des données issues de n'importe quelle distribution $f(x)$;  
+- convergence asymptotique de $\hat f_n(x)$ vers $f(x)$ pour $N \longrightarrow +\infty$.  
+Inconvénients l'estimation à noyau:  
+- nécessite de disposer d'un grand nombre de données;  
+- choix de la largeur de bande h de la fenêtre non trivial;  
+- nécessite de disposer de moyens de calcul performants.
+
+ref:
+
+(\#eq:oracle) Lucie Montuelle. Inégalités d'oracle et mélanges. Statistiques [math.ST]. Université Paris-Sud, 2014.
+Français.\newline
+(\#eq:est-ad) Gilles Rebelles. Sur l'estimation adaptative d'une densité multivariée sous l'hypothèse de la structure d'indépendance.\newline
+(\#eq:cours-est) Cours-Estimation de densité.https://cedric.cnam.fr/vertigo/Cours/ml/coursEstimationDensite.html\newline
+(\#eq:oracle) https://www.ceremade.dauphine.fr/~turinici/images/stories/work/cours/M1_stat_nonparamP20/stat_nonp_P20_annotations.pdf
+(\#eq:est-ad) http://cmatias.perso.math.cnrs.fr/

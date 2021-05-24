@@ -1,21 +1,21 @@
 # Méthodes non-paramétriques
 
   \hspace*{0.5cm} En statistique, on parle d'estimation quand on cherche à trouver certains paramètres inconnus caractérisant une distribution à partir d'un échantillon de données observées, en se basant sur différentes méthodes.
-On se tourne vers l'estimation non-paramétrique lorsque l'on traite des paramètres à dimension infinie. Dans notre cas, ce paramètre est la fonction densité appartenant à un espace fonctionnel.    
+Dans notre cas, le paramètre d'intérêt est une fonction de densité appartenant à une classe fonctionnelle non fini-dimensionnelle. On se tourne vers l'estimation non-paramétrique lorsque l'on traite des paramètres non fini-dimensionnels.    
  \hspace*{0.5cm} Nous présenterons dans la suite une courte introduction
 à l'estimation non-paramétrique et nous introduirons les deux classes
-principales de l'estimation fonctionnelle (l'estimation par projection
-et l'estimation à noyau).
+principales de l'estimation fonctionnelle : l'estimation par projection
+et l'estimation à noyau.
 
 ## Introduction
 
- L'estimation non-paramétrique vise à résoudre des problèmes d'estimation dans le cadre statistique où le modèle auquel on s'intéresse n'est pas décrit par un nombre fini de paramètres et dont chacun de ces paramètres ne permet pas de décrire la structure générale de la distribution des variables aléatoires.\newline Cela signifie qu'on utilise des modèles statistiques à dimension infinie.  
+\hspace*{0.5cm} L'estimation non-paramétrique vise à résoudre des problèmes d'estimation dans le cadre statistique où le modèle auquel on s'intéresse n'est pas décrit par un nombre fini de paramètres et dont chacun de ces paramètres ne permet pas de décrire la structure générale de la distribution des variables aléatoires.\newline Cela signifie qu'on utilise des modèles statistiques à dimension infinie.  
 
-  Dans le cadre de notre problématique on s'intéresse à l'estimation de densité.\newline
+\hspace*{0.5cm}  Dans le cadre de notre problématique on s'intéresse à l'estimation de densité.\newline
   Un des principes de base de l'estimation de la densité selon une méthode d'estimation non-paramétrique est le suivant \newline
   
-Soit un échantillon d'observations  $X=\{X_1, \dots,X_n\}$ de variables aléatoires i.i.d admettant une densité $f= F'$. Supposons que $f \in \mathcal F$ où $\mathcal{F}$ est un espace fonctionnel. On cherche à estimer la fonction de densité inconnue $f$ à partir de ces observations.\newline
-On notera $\hat f$ l'estimateur de f.\newline
+Soit un échantillon $X=\{X_1, \dots,X_n\}$ de variables aléatoires réelles $i.i.d.$ admettant une densité $f = F'$, où $F$ est une fonction de répartition. Supposons que $f \in \mathcal F$ où $\mathcal{F}$ est l'espace des fonctions positives, intégrables et d'intégrale égale à 1 sur {\mathcal R}. On cherche à estimer la fonction de densité inconnue $f$ à partir de ces observations.\newline
+On notera $\hat f_n$ l'estimateur de $f$.\newline
 On se trouve donc avec le modèle suivant $\{\mathbb P=\mathbb P_f,~f \in \mathcal F\}$
 où $\mathbb P_f$ est la mesure probabilité de la densité $f$.
 
@@ -24,18 +24,10 @@ où $\mathbb P_f$ est la mesure probabilité de la densité $f$.
   
 
 \begin{rem}  
-
-- On considère souvent les distances $L^p$ avec $p = 1,2$ ou $\infty$ .
+ On considère souvent les distances $L^p$ avec $p = 1,2$ ou $\infty$, si $f$ vérifie $\int_{\mathbb R} |f(x)|^p dx<+\infty$.
 \end{rem}
 
-## Estimation par histogramme
-
-  Une des premières approches possibles d'estimations non-paramétriques de la fonction de densité est l'estimation par l'histogramme. C'est une méthode qui consiste à obtenir un graphique de type histogramme pour la répartition des observations et à considèrer cet histogramme comme une approximation de la fonction densité f.(\#eq:cours-est)
-  (ajout formule graphique)
-
-  
-    
     
 \hspace*{0.5cm} Nous traiterons dans la suite deux grandes familles de méthodes linéaires pour estimer une fonction densité : \newline
-   \hspace*{0.5cm}  - L'estimation par projection, \newline
-   \hspace*{0.5cm}  - L'estimation par noyau.
+   \hspace*{0.5cm}  - l'estimation par projection et \newline
+   \hspace*{0.5cm}  - l'estimation par noyau.

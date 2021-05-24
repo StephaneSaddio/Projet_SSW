@@ -1,10 +1,18 @@
-### Risque quadratique des estimateurs à noyau sur les classe des espaces de Hölder
-   
-  Nous nous intéressons au risque quadratique de $\hat{f}_n$, définit par :   
+# Estimateur de densité à noyau 
+
+Dans un premier temps, nous cherchons à évaluer l'estimateur à noyau de densité. Pour cela nous allons utiliser la fonction de risque associée.
+
+## Risque quadratique ponctuel des estimateurs à noyau sur les classe des espaces de Hölder
+  Cette partie a été inspirée par le livre *Introduction à la statistique nonparamétrique* par Gabriel Turinici.
+  Nous nous intéressons au risque quadratique ponctuel de $\hat{f}_n$, définit par :   
 étant donné $x_0 \in \mathbb{R}$ 
 $$
 R(\hat {f}_n, f) = \mathbb{E}[|\hat {f}_n(x_0) - f(x_0)|^2]
 $$
+\begin{rem}
+  La fonction de risque associée nous permet de comparer l'estimateur $\hat f$ et  f.\newline
+On cherche à minimiser ce risque associé (i.e tend vers 0 pour un nombre d'observations assez grand).\newline
+\end{rem}
 
  Rappelons la décomposition "biais-variance" du risque quadratique :
 $$
@@ -12,7 +20,7 @@ $$
 $$
 
   
-#### Majoration du biais et de la variance
+### Majoration du biais et de la variance
 
   Dans cette section, nous allons nous intéresser au compromis biais-variance afin de minimiser le risque quadratique.
 Nous introduirons après quelques définitions deux propositions qui montrent que sous certaines hypothèses, on peut majorer le biais ainsi que la variance.\newline
@@ -20,16 +28,18 @@ Nous introduirons après quelques définitions deux propositions qui montrent qu
 \begin{dfn} Pour tout $\beta > 0$ et $L > 0$, on définit la classe de Hölder de régularité $\beta$ et de rayon $L$ par
 
 $$
-  \Sigma(\beta,L)={\{f:\mathbb{R} \longrightarrow \mathbb{R}\ \text{t.q.}\ f\ \text{est} \left\lfloor{\beta}\right\rfloor\ \text{fois dérivable et}   \\
-  \forall\ (x,y) \in \mathbb{R}_2\ \ \mid f^{\left\lfloor{\beta}\right\rfloor}(y)-f^{\left\lfloor{\beta}\right\rfloor}(x)\mid \leq L{\mid x-y\mid}^{\beta - \left\lfloor{\beta}\right\rfloor}\}}
+\begin{aligned}
+  \Sigma(\beta,L)= ~\{&f:\mathbb{R} \longrightarrow \mathbb{R}\ \text{t.q.}\ f\ \text{est} \left\lfloor{\beta}\right\rfloor\ \text{fois dérivable et} \\
+ & \forall\ (x,y) \in \mathbb{R}_2\ ~ \mid f^{\left\lfloor{\beta}\right\rfloor}(y)-f^{\left\lfloor{\beta}\right\rfloor}(x)\mid \leq L{\mid x-y\mid}^{\beta - \left\lfloor{\beta}\right\rfloor}\}
+ \end{aligned}
 $$
 
 On notera $\Sigma_d(\beta,L)$ l'intersection de $\Sigma(\beta,L)$ et l'ensemble des densités.
 
 \end{dfn}
-\begin{rem} 
-- Si $\beta = 1$ on obtient l'ensemble des fonctions L-lipschitziennes.\newline
-- Si $\beta > 1$ alors $f'\in \Sigma(\beta-1,L)$.
+\begin{rem}   
+ - Si $\beta = 1$ on obtient l'ensemble des fonctions L-lipschitziennes.\newline
+ - Si $\beta > 1$ alors $f'\in \Sigma(\beta-1,L)$.
 \end{rem}
 \begin{prop} (admise) Soit $\beta > 0$ et $L > 0$, il existe une constante $M(\beta, L)$ telle que
 
@@ -52,9 +62,9 @@ $$
 \begin{demo} On a
 $$
 \begin{aligned}
-\mathbb E\lgroup \hat f_n(x_0) \rgroup&=\mathbb E\lgroup\frac{1}{n}\sum_{i=1}^n \frac{1}{h}K(\frac{X_i-x_0}{h})\rgroup \\
-&=\mathbb E\lgroup \frac{1}{h}K(\frac{X_1-x_0}{h})\rgroup \\
-&=\frac{1}{h}\int K(\frac{u-x_0}{h})f(u)du  \\
+\mathbb E\left\lgroup \hat f_n(x_0) \right\rgroup&=\mathbb E\left\lgroup\frac{1}{n}\sum_{i=1}^n \frac{1}{h}K\left(\frac{X_i-x_0}{h}\right)\right\rgroup \\
+&=\mathbb E\left\lgroup \frac{1}{h}K\left(\frac{X_1-x_0}{h}\right)\right\rgroup \\
+&=\frac{1}{h}\int K\left(\frac{u-x_0}{h}\right)f(u)du  \\
 &=\int K(v)f(x_0+hv)dv,\  (en\ posant\ v=\frac{u-x_0}{h}).
 \end{aligned}
 $$
@@ -74,30 +84,30 @@ f(x_0+hv)-f(x_0)=\sum_{i=1}^{\ell-1}\frac{(hv)^k}{k!}f^{(k)}(x_0)+f^{(\ell)}(x_0
 $$  
 pour un certain $\zeta \in ]0,1[$. Donc
 
+
 $$
 \begin{aligned}
-\int K(v)\lgroup f(x_0+hv)-f(x_0)\rgroup dv &= \int K(v)\lgroup\sum_{i=1}^{\ell - 1}f^{(k)}(x_0)+f^{(\ell)}(x_0+hv\zeta)\frac{(hv)^{\ell}}{\ell !}\rgroup dv \\
+\int K(v)\lgroup f(x_0+hv)-f(x_0)\rgroup dv &= \int K(v)\left\lgroup\sum_{i=1}^{\ell - 1}f^{(k)}(x_0)+f^{(\ell)}(x_0+hv\zeta)\frac{(hv)^{\ell}}{\ell !}\right\rgroup dv \\
 &=\frac{h^{\ell}}{\ell !}\int K(v)v^{\ell}f^{(\ell)}(x_0+hv\zeta)dv
 \end{aligned}
 $$
 
-Comme $K$ est d'ordre $\ell$, on a aussi $\int K(v)v^{\ell}f'^(\ell)(x_0)dv=0$. Donc on a
+Comme $K$ est d'ordre $\ell$, on a aussi $\int K(v)v^{\ell}f'^{(\ell)}(x_0)dv=0$. Donc on a
 $$
 \int K(v)\lgroup f(x_0+hv)-f(x_0)\rgroup dv = \frac{h^{\ell}}{\ell !}\int K(v)v^{(\ell)}\lgroup f^{(\ell)}(x_0 + hv\zeta)-f^{(\ell)}(x_0)\rgroup dv
 $$
 Or, $f \in \Sigma(\beta, L)$, on a donc $\mid f^{(\ell)}(x_0+hv\zeta)-f^{(\ell)}(x_0)\mid \leq L|hv|^{\beta-\ell}$. Et finalement
 $$
-\mid \int K(v)\lgroup f(x_0+hv\zeta)-f(x_0)\rgroup dv \mid \leq \frac{\mid h\mid^{\beta}}{\ell !}\int \mid K(v) \mid |v|^{\ell}l|hv|^{\beta-\ell}dv
+\mid \int K(v)\lgroup f(x_0+hv\zeta)-f(x_0)\rgroup dv \mid \leq \frac{h^{\ell}}{\ell !}\int \mid K(v) \mid |v|^{\ell}L|hv|^{\beta-\ell}dv
 $$
 
 ce qui signifie que
 $$
-|\mathbb E \lgroup\hat f_n(x_0)-f(x_0)| \leq \frac{L|h|^{\beta}}{\ell !}\int |K(v)||v|^{\beta}dv
+|\mathbb E \lgroup\hat f_n(x_0)-f(x_0)| \leq \frac{h^{\beta}L}{\ell !}\int |K(v)||v|^{\beta}dv
 $$
 \end{demo}
-\begin{corol}   Le biais au carré tend vers zéro à la vitesse $h^{2\beta}$. En particulier, le biais tend vers zéro quand $h$ tend vers zéro. Plus la fonction $f$ est régulière, plus le biais tend vite vers zéro quand $h$ tend vers zéro (à condition bien sûr que l'ordre du noyau soit suffisamment grand). Nous en déduisons la convergence de l'espérance de l'estimateur à noyau $\hat {f}_n$ vers la fonction $f$. Et donc, l'estimateur à noyau est asymptotiquement sans biais, $\hat {f}_n$ est donc consistant.\newline
- \end{corol}
-\begin{prop}: Si $f$ est bornée et si $K$ est de carré intégrable alors 
+
+\begin{prop} Si $f$ est bornée et si $K$ est de carré intégrable alors 
 
 $$
 \mathbb{V}(\hat {f}_n(x_0)) \leqslant \frac{\begin{Vmatrix}f\end{Vmatrix}_{\infty}\begin{Vmatrix}K\end{Vmatrix}^2_2}{nh}
@@ -110,28 +120,27 @@ $$
 $$
 
 \end{prop}
-\begin{demo}:
+\begin{demo}
 $$
 \begin{aligned}
-\mathbb{V}(\hat {f}_n(x_0)) &= \mathbb{V}(\frac{1}{nh}\sum_{i=1}^nK(\frac{X_i-x_0}{h})) 
-=\sum_{i=1}^n\mathbb{V}(\frac{1}{nh}K(\frac{X_i-x_0}{h})) \\
-&=\sum_{i=1}^n\frac{1}{n^2h^2}\mathbb{V}(K(\frac{X_i-x_0}{h})) 
-=\frac{1}{nh^2}\mathbb{V}(K(\frac{X_1-x_0}{h}) \\
-&\leqslant \frac{1}{nh^2}\mathbb{E}(K^2(\frac{X_1-x_0}{h})) 
-=\frac{1}{nh^2}\int K^2(\frac{u-x_0}{h})f(u)du \\
-&\leqslant\frac{1}{nh}\int K^2(v)f(x_0 +vh)dv
+\mathbb{V}\left(\hat {f}_n(x_0)\right) &= \mathbb{V}\left(\frac{1}{nh}\sum_{i=1}^nK\left(\frac{X_i-x_0}{h}\right)\right) 
+=\sum_{i=1}^n\mathbb{V}\left(\frac{1}{nh}K\left(\frac{X_i-x_0}{h}\right)\right) \\
+&=\sum_{i=1}^n\frac{1}{n^2h^2}\mathbb{V}\left(K\left(\frac{X_i-x_0}{h}\right)\right) 
+=\frac{1}{nh^2}\mathbb{V}\left(K\left(\frac{X_1-x_0}{h}\right)\right) \\
+&\leqslant \frac{1}{nh^2}\mathbb{E}\left(K^2\left(\frac{X_1-x_0}{h}\right)\right) 
+=\frac{1}{nh^2}\int K^2\left(\frac{u-x_0}{h}\right)f(u)du \\
+&\leqslant\frac{1}{nh}\int K^2(v)f(x_0 +vh)dv \leqslant\frac{1}{nh}\int K^2(v)\parallel f \parallel_\infty dv
 \end{aligned}
 $$ 
 
-Et enfin,on utilise la proposition ? : il existe une constante positive $M(\beta,L)$ tel que $\begin{Vmatrix}f\end{Vmatrix}_{\infty} \leqslant M(\beta, L)$. Ceci implique que :
+Et enfin, on utilise la proposition 1 : il existe une constante positive $M(\beta,L)$ tel que $\begin{Vmatrix}f\end{Vmatrix}_{\infty} \leqslant M(\beta, L)$. Ceci implique que :
 $$
  \mathbb{V}(\hat {f}_n(x_0))\leqslant\frac{1}{nh}M(\beta, L)\int K^2(v)dv 
 $$ 
  \end{demo}
  
-\begin{corol} Pour que la variance tende vers zéro, il faut que $nh$ tende vers l'infini. En particulier, à $n$ fixé, la variance est une fonction décroissante de $h$. Il y a donc une valeur optimale de $h$ qui doit réaliser l'équilibre entre le biais au carré et la variance. On peut à présent donner un contrôle du risque quadratique par le théorème suivant.
-\end{corol}
-
+Pour que la variance tende vers zéro, il faut que $nh$ tende vers l'infini. En particulier, à $n$ fixé, la variance est une fonction décroissante de $h$. Il y a donc une valeur optimale de $h$ qui doit réaliser l'équilibre entre le biais au carré et la variance.  
+On peut à présent donner un contrôle du risque quadratique par le théorème suivant.  
 \begin{thm} Soit $\beta>0$ et $L>0$ et $K$ un noyau de carré intégrable et d'ordre $\left\lfloor{\beta}\right\rfloor$ tel que $\int |u^{\beta}|\,.|K(u)|du<\infty$. Alors, en choisissant une fenêtre de la forme $h=cn^{-\frac{1}{2\beta+1}}$ avec une constante $c>0$, on obtient pour tout $x_0 \in \mathbb{R}$,
 
 $$ 
@@ -147,7 +156,7 @@ $$
 
 Si nous nous référons aux deux propositions précédentes, nous pouvons écrire :
 $$
- R(\hat {f}_n(x_0),f(x_0))\leqslant(\frac{h^{\beta}L}{l!}\int |u|^{\beta}|K(u)|du)^2 + \frac{M(\beta,L)\begin{Vmatrix}K\end{Vmatrix}_2^2}{nh}
+ R(\hat {f}_n(x_0),f(x_0))\leqslant \left(\frac{h^{\beta}L}{l!}\int |u|^{\beta}|K(u)|du\right)^2 + \frac{M(\beta,L)\begin{Vmatrix}K\end{Vmatrix}_2^2}{nh}
 $$
 
 On cherche ensuite la fenêtre $h$ qui minimise cette quantité.Comme on cherche la vitesse de convergence en $h$, on utilisera la notation $c_1=(\frac{L}{l!}\int |u|^{\beta}|K(u)|du)^2$ et $c_2=M(\beta,L)\begin{Vmatrix}K\end{Vmatrix}_2^2$ qui ne dépendent pas de $h$. On doit alors minimiser en $h$ la quantité :
@@ -155,7 +164,7 @@ $$
   c_1h^{2\beta}+\frac{c_2}{nh}
 $$
 
-On a une somme d'une quantité croissante et une quantité décroissante en $h$. On cherche la fenêtre $h$ qui nous donne l'ordre minimal du risque. Quand $h$ est trop grand, le biais est trop grand, et quand $h$ est trop petit, c'est la variance qui est trop grande (voir exemple ci-dessous). On cherche donc la fenêtre $h$ qui réalise un équilibre entre le biais au carré et la variance:
+On a une somme d'une quantité croissante et une quantité décroissante en $h$. On cherche la fenêtre $h$ qui nous donne l'ordre minimal du risque. Quand $h$ est trop grand, le biais est trop grand, et quand $h$ est trop petit, c'est la variance qui est trop grande (voir exemple ci-dessous). On cherche donc la fenêtre $h$ qui réalise un équilibre entre le biais au carré et la variance :
 
 $$ 
   h^{2\beta}\approx\frac{1}{nh}
@@ -166,7 +175,7 @@ $$
   h\approx n^{-\frac{1}{2\beta +1}}
 $$
 
-Autrement dit, pour une fenêtre $h$ de l'ordre de $n^{-\frac{1}{2\beta+1}}$, le biais au carré et la variance sont de même ordre.Plus exactement, on choisit la fenêtre $h_*=cn^{-\frac{1}{2\beta+1}}$, avec $c$ une constante strictement positive, on a :
+Autrement dit, pour une fenêtre $h$ de l'ordre de $n^{-\frac{1}{2\beta+1}}$, le biais au carré et la variance sont de même ordre. Plus exactement, on choisit la fenêtre $h_*=cn^{-\frac{1}{2\beta+1}}$, avec $c$ une constante strictement positive, on a :
 $$
   \text{Biais au carré} \approx h_{*}^{2\beta}\approx \text{Variance} \approx \frac{1}{nh_{*}}
 $$
@@ -183,7 +192,11 @@ $$
 
   Cette fenêtre est donc optimale à une constante près (si on change $c$, on change $C$ ça ne change pas le taux qui est $n^{\frac{-2\beta}{2\beta+1}}$).\newline
 \end{demo}
-\begin{cmtr}: L'estimateur dépend de $\beta$ à travers la fenêtre $h$. Or, sans   connaissance a priori sur les propriétés de la fonction $f$, on ne peut donc pas utiliser cet estimateur. On essaie alors de trouver un choix de fenêtre ne dépendant que des données et qui soit aussi performant (ou presque) que l'estimateur utilisant cette fenêtre optimale. A ce sujet, on introduira plus loin un choix de fenêtre ne dépendant que des données et qui est basé sur ce qu'on appelle la validation croisée (ou "cross validation" en Anglais).  \newline
+
+\begin{cmtr} 
+ * L'estimateur dépend de $\beta$ à travers la fenêtre $h$. Or, sans connaissance à priori sur les propriétés de la fonction $f$, on ne peut donc pas utiliser cet estimateur. On essaie alors de trouver un choix de fenêtre ne dépendant que des données et qui soit aussi performant (ou presque) que l'estimateur utilisant cette fenêtre optimale. A ce sujet, on introduira plus loin un choix de fenêtre ne dépendant que des données et qui est basé sur ce qu'on appelle la validation croisée (ou "cross validation" en Anglais).  \newline
+ * Le biais au carré tend vers zéro à la vitesse $h^{2\beta}$. Plus la fonction $f$ est régulière, plus le biais tend vite vers zéro (à condition bien sûr que l'ordre du noyau soit suffisamment grand). Nous en déduisons la convergence de l'espérance de l'estimateur à noyau $\hat {f}_n$ vers la fonction $f$. Et donc, l'estimateur à noyau est asymptotiquement sans biais, $\hat {f}_n$ est donc consistant.
+
 \end{cmtr}
 
 \begin{exem} (Simulation numérique)

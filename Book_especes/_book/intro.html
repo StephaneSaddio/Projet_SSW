@@ -57,6 +57,70 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -81,30 +145,25 @@
 </ul></li>
 <li class="chapter" data-level="2" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html"><i class="fa fa-check"></i><b>2</b> Méthodes non-paramétriques</a><ul>
 <li class="chapter" data-level="2.1" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
-<li class="chapter" data-level="2.2" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#estimation-par-histogramme"><i class="fa fa-check"></i><b>2.2</b> Estimation par histogramme</a></li>
-<li class="chapter" data-level="2.3" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#estimateurs-par-projection"><i class="fa fa-check"></i><b>2.3</b> Estimateurs par projection :</a></li>
-<li class="chapter" data-level="2.4" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#estimateurs-à-noyau-de-densité"><i class="fa fa-check"></i><b>2.4</b> Estimateurs à noyau de densité</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#comment-construit-on-un-estimateur-à-noyau"><i class="fa fa-check"></i><b>2.4.1</b> Comment construit-on un estimateur à noyau ?</a></li>
-<li class="chapter" data-level="2.4.2" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#quest-un-noyau"><i class="fa fa-check"></i><b>2.4.2</b> Qu’est un noyau ?</a></li>
-</ul></li>
+<li class="chapter" data-level="2.2" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#estimateurs-par-projection"><i class="fa fa-check"></i><b>2.2</b> Estimateurs par projection :</a></li>
+<li class="chapter" data-level="2.3" data-path="méthodes-non-paramétriques.html"><a href="méthodes-non-paramétriques.html#estimateurs-à-noyau-de-densité"><i class="fa fa-check"></i><b>2.3</b> Estimateurs à noyau de densité</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html"><i class="fa fa-check"></i><b>3</b> Estimateur de densité à noyau</a><ul>
-<li class="chapter" data-level="3.1" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#evaluer-un-estimateur"><i class="fa fa-check"></i><b>3.1</b> Evaluer un estimateur</a><ul>
-<li class="chapter" data-level="3.1.1" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#risque-quadratique-des-estimateurs-à-noyau-sur-les-classe-des-espaces-de-hölder"><i class="fa fa-check"></i><b>3.1.1</b> Risque quadratique des estimateurs à noyau sur les classe des espaces de Hölder</a></li>
+<li class="chapter" data-level="3.1" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#evaluer-un-estimateur"><i class="fa fa-check"></i><b>3.1</b> Evaluer un estimateur</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#méthodes-adaptatives"><i class="fa fa-check"></i><b>3.2</b> Méthodes adaptatives</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#choix-du-noyau"><i class="fa fa-check"></i><b>3.2.1</b> Choix du noyau</a></li>
-<li class="chapter" data-level="3.2.2" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#comment-choisir-les-paramètres-de-la-méthode"><i class="fa fa-check"></i><b>3.2.2</b> Comment choisir les paramètres de la méthode ?</a></li>
-<li class="chapter" data-level="3.2.3" data-path="estimateur-de-densité-à-noyau.html"><a href="estimateur-de-densité-à-noyau.html#choix-de-la-fenêtre"><i class="fa fa-check"></i><b>3.2.3</b> Choix de la fenêtre</a></li>
+<li class="chapter" data-level="4" data-path="estimateur-de-densité-à-noyau-1.html"><a href="estimateur-de-densité-à-noyau-1.html"><i class="fa fa-check"></i><b>4</b> Estimateur de densité à noyau</a><ul>
+<li class="chapter" data-level="4.0.1" data-path="estimateur-de-densité-à-noyau-1.html"><a href="estimateur-de-densité-à-noyau-1.html#risque-quadratique-des-estimateurs-à-noyau-sur-les-classe-des-espaces-de-hölder"><i class="fa fa-check"></i><b>4.0.1</b> Risque quadratique des estimateurs à noyau sur les classe des espaces de Hölder</a></li>
+<li class="chapter" data-level="4.1" data-path="estimateur-de-densité-à-noyau-1.html"><a href="estimateur-de-densité-à-noyau-1.html#méthodes-adaptatives"><i class="fa fa-check"></i><b>4.1</b> Méthodes adaptatives</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="estimateur-de-densité-à-noyau-1.html"><a href="estimateur-de-densité-à-noyau-1.html#choix-du-noyau"><i class="fa fa-check"></i><b>4.1.1</b> Choix du noyau</a></li>
+<li class="chapter" data-level="4.1.2" data-path="estimateur-de-densité-à-noyau-1.html"><a href="estimateur-de-densité-à-noyau-1.html#choix-de-la-fenêtre"><i class="fa fa-check"></i><b>4.1.2</b> Choix de la fenêtre</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>4</b> Applications</a><ul>
-<li class="chapter" data-level="4.1" data-path="applications.html"><a href="applications.html#fonction-dens"><i class="fa fa-check"></i><b>4.1</b> Fonction dens</a></li>
-<li class="chapter" data-level="4.2" data-path="applications.html"><a href="applications.html#applications-aux-données-du-vivant"><i class="fa fa-check"></i><b>4.2</b> Applications aux données du vivant</a></li>
+<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
+<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#fonction-dens"><i class="fa fa-check"></i><b>5.1</b> Fonction dens</a></li>
+<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#applications-aux-données-du-vivant"><i class="fa fa-check"></i><b>5.2</b> Applications aux données du vivant</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> Conclusion</a></li>
-<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
-<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
+<li class="chapter" data-level="7" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>7</b> References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -134,13 +193,13 @@
 <p class="date" style="margin-top: 1.5em;"><em>2021</em></p>
 </div>
 <div id="intro" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
+<h1><span class="header-section-number">Chapitre 1</span> Introduction</h1>
 <div id="motivation" class="section level2">
 <h2><span class="header-section-number">1.1</span> Motivation</h2>
 <p>
 La classification du vivant est depuis longtemps un vrai casse-tête pour les biologistes, surtout en ce qui concerne la notion d’<em>espèce</em>. De fait, il existe plusieurs définitions du mot espèce, ce qui rend encore plus compliqué un consensus. C’est pour cela que dans la suite nous ne nous étendrons pas sur cette notion et nous ne nous concentrerons que sur des espèces prédéfinies.</p>
 <p>Les <em>arbres phylogénétiques</em> sont des outils permettant de représenter graphiquement certaines données de classification. En effet, ils présentent les relations de parenté entre <em>espèces</em>. On retrouve dessous différentes espèces actuelles, mais aussi leurs ancêtres communs (les <em>branchements évolutifs</em> qui correspondent à l’apparition d’une nouvelle homologie), ou encore la durée avant l’apparition d’une nouvelle espèce qui est donnée par la longueur des branches.</p>
-<p><img src="Images/arbre_intro.jpg" alt="Arbre phylogénétique" />
+<p><img src="Images/arbre_intro.jpg" alt="Arbre phylogénétique" />(<a href="http://zestedesavoir.com/media/galleries/2272/d1a1051e-782b-4b5d-81ac-c5641962b9c8.png.960x960_q85.jpg" class="uri">http://zestedesavoir.com/media/galleries/2272/d1a1051e-782b-4b5d-81ac-c5641962b9c8.png.960x960_q85.jpg</a>)
 Dans la suite, nous nous intéresserons aux <em>branchements évolutifs</em>.
 Supposons qu’un branchement évolutif apparaît après une durée aléatoire d’une loi fixée <span class="math inline">\(\mu\)</span> indépendamment du passé et du futur évolutif des espèces.<br />
 Quelle est cette loi <span class="math inline">\(\mu\)</span>? Sa variance ? Sa moyenne ? </p>
@@ -149,8 +208,7 @@ Quelle est cette loi <span class="math inline">\(\mu\)</span>? Sa variance ? Sa 
 phylogénétique et à partir de ces données quantitatives observées, on
 veut estimer la fonction de densité <span class="math inline">\(f\)</span> qui donne la probabilité
 qu’un nouveau branchement évolutif apparaisse après un certain temps.</p>
-<p>Formellement on a le modèle densité suivant, soient les vecteurs aléatoires <span class="math inline">\(X_1,\dots,X_n\)</span> tel que <span class="math inline">\(n \in \mathbb{N^*}\)</span> à valeur dans <span class="math inline">\(\mathbb{R}\)</span>, indépendants et identiquement distribués de longueurs de branche observées qui ont pour
-une fonction de densité <span class="math inline">\(f\)</span> par rapport à la mesure de Lebesgue sur <span class="math inline">\(\mathbb{R}\)</span> supposée inconnue. Notre objectif est d’estimer cette fonction densité f sur laquelle on fait le moins d’hypothèses possibles. On fera seulement les hypothèses d’existence, de continuité et de positivité de la fonction,en servant une observation <span class="math inline">\((X_1,...X_n)\)</span>, ce qui nous mène en statistique non-paramétrique, où le paramètre cherché est une densité de probabilité qui appartient à un espace fonctionnel infini, d’où la problématique de notre sujet.</p>
+<p>Formellement on a le modèle de densité suivant: soient les variables aléatoires <span class="math inline">\(X_1,\dots,X_n\)</span>, <span class="math inline">\(n \in \mathbb{N^*}\)</span> à valeur dans <span class="math inline">\(\mathbb{R}^d\)</span> (ici <span class="math inline">\(d=1\)</span>), indépendantes et identiquement distribuées de longueurs de branche observées. Elles ont pour fonction de densité <span class="math inline">\(f\)</span> par rapport à la mesure de Lebesgue sur <span class="math inline">\(\mathbb{R}\)</span> supposée inconnue. Notre objectif est d’estimer cette fonction densité <span class="math inline">\(f\)</span> sur laquelle on fait le moins d’hypothèses possibles. On fera seulement les hypothèses d’existence, de continuité et de positivité de la fonction, en servant une observation <span class="math inline">\((X_1,...X_n)\)</span>, ce qui nous mène en statistique non-paramétrique, où le paramètre cherché est une densité de probabilité qui appartient à un espace fonctionnel infini, d’où la problématique de notre sujet.</p>
 </div>
 <div id="problématique" class="section level2">
 <h2><span class="header-section-number">1.2</span> Problématique</h2>
@@ -158,7 +216,7 @@ une fonction de densité <span class="math inline">\(f\)</span> par rapport à l
 avec une méthode d’estimation non-paramétrique ?</p>
 <p>Pour commencer, en se basant sur quelques définitions nous présenterons les méthodes d’estimations non-paramétriques et en introduisant quelques types d’estimateurs.
 Par la suite, nous approfondirons les estimateurs de densité à noyau en menant une discussion sur leurs critères d’évaluation. Ainsi nous consacrerons un chapitre pour présenter des méthodes adaptatives.
-Enfin, pour répondre à la problématique, nous implémenterons un estimateur à noyau adaptatif, de type Goldenshluger-Lepski puis l’utiliser sur des données d’arbres phylogénétiques.</p>
+Enfin, pour répondre à la problématique, nous implémenterons un estimateur à noyau adaptatif, avec la méthode de validation croisée puis l’utiliserons sur des données d’arbres phylogénétiques.</p>
 
 </div>
 </div>
@@ -211,7 +269,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["Book especes.pdf", "Book especes.epub"],
+"download": ["Projet_M1_Chaoui_Manuel_Sadio.pdf", "Projet_M1_Chaoui_Manuel_Sadio.epub"],
 "toc": {
 "collapse": "subsection"
 }

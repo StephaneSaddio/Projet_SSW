@@ -51,7 +51,7 @@ Après avoir transformé l'écriture du biais, nous pouvons donner une approxima
 $$f(x+ht)=f(x)+htf'(x)+\frac{h^2t^2}2 f''(x)+o(h^2t^2).$$
 Ce qui nous donne en remplaçant dans la formule
 $$
-Biais \left[ \hat f_n(x) \right] \approx \frac12h^2f''(x)\int_{\mathbb R} t^2K(t) dt - f(x) + o(h^2t^2).
+Biais \left[ \hat f_n(x) \right] = \frac12h^2f''(x)\int_{\mathbb R} t^2K(t) dt - f(x) + o(h^2t^2).
 $$
 
 et puisque le noyau est centré et son intégrale sur $\mathbb R$ est égale à $1$, on a bien que 
@@ -136,6 +136,10 @@ knitr::kable(dt, caption = "Efficacité des noyaux continus symétriques")
 \begin{rem}
 Les valeurs d'efficacité des noyaux sont très proches les unes des autres dans le cas étudié, surtout pour les trois premiers noyaux du tableau. c'est pour cela que le choix du noyau n'a au final que peu d'importance dans l'estimation de la densité. 
 \end{rem}
+
+
+
+
 
 #### Comment choisir les paramètres de la méthode ?
 

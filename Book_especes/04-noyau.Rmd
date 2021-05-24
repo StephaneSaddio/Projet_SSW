@@ -4,8 +4,15 @@
 
   Pour estimer une densité on peut utiliser une méthode à noyau.
   Les méthodes à noyau sont des méthodes non-paramétriques qui permettent de proposer une estimation de la densité plus lisse que celle obtenue par un histogramme.
-  
-### Comment construit-on un estimateur à noyau ?
+
+\begin{dfn} (Noyau)  
+
+Un noyau (kernel en anglais) est une application $K:\mathbb{R}\rightarrow\mathbb{R}$ intégrable et centrée telle que :
+$$\int_{\mathbb R} K(u) du = 1 ~~~~ \hbox{ et } ~~~~ \int_{\mathbb R} u K(u)=0$$
+si le noyau est en plus positif alors il correspond à une fonction de densité.
+\end{dfn}  
+
+**Comment construit-on un estimateur à noyau ?**
 
 L'idée pour la construction de cet estimateur est d'utiliser l'approximation suivante , valable lorsque h est petit :  
 $$
@@ -25,14 +32,6 @@ $$
  
 ici $K(u)= \frac12 \mathds{1}_{u \in ]-1;1]}$, il s'agit du noyau de Rosenblatt, mais il existe d'autres noyaux.
 
-### Qu'est un noyau ?
-
-\begin{dfn} (Noyau)  
-
-Un noyau (kernel en anglais) est une application $K:\mathbb{R}\rightarrow\mathbb{R}$ intégrable et centrée telle que :
-$$\int_{\mathbb R} K(u) du = 1 ~~~~ \hbox{ et } ~~~~ \int_{\mathbb R} u K(u)=0$$
-si le noyau est en plus positif alors il correspond à une fonction de densité.
-\end{dfn}
 
 Exemples de noyau :
 
@@ -47,3 +46,18 @@ Exemples de noyau :
  - Noyau Biweight : $K(u) = \frac{15}{16}(1-u^2)^2\mathds{1}_{[-1,1]}(u)$
 
 Les propriétés du noyau (continuité, différentiabilité...) se transmettent à l'estimateur $\hat f_n$.
+
+\begin{lem}  
+Soient :\newline 
+$h>0$ le paramètre de lissage et $K_h : u\in \mathbb{R} \rightarrow K(\frac{u}{h})/h$.On peut approximer la famille $(K_h)_{h>0}$ par l'identité du produit de convolution.
+\end{lem}
+
+\begin{demo}
+A Faire
+\end{demo}
+
+\begin{corol}
+$K_h * f : x \rightarrow \int_{\mathbb R} K_h(y-x) f(x) dx$ tend vers la fonction f quand h tend vers 0 pour la distance $L^2$.
+\end{corol}
+
+Après cette petite présentation de quelques estimateurs non-paramétriques de la densité, nous avons choisi de développer la partie sur l'estimation par noyau. c'est le type d'estimation que nous choisirons d'utiliser pour la suite de notre étude.
